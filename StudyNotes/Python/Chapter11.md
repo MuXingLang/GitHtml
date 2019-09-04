@@ -179,7 +179,7 @@ print("完成循环!")
 
 ## 6. range()函数
 
-基本上，可迭代对象是可使用for循环进行遍历的对象。而基于迭代（也就是遍历）特定范围内的数是一种常见任务，python提供有一个创建范围的内置函数range。
+​		基本上，可迭代对象是可使用for循环进行遍历的对象。而基于迭代（也就是遍历）特定范围内的数是一种常见任务，python提供有一个创建范围的内置函数range。
 
 如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列，例如: 
 
@@ -252,7 +252,7 @@ print("完成循环!")
 
 ## 7. 跳出循环 
 
-break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。 实例如下： 
+​		break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。 实例如下： 
 
 ```python
 #!/usr/bin/python3
@@ -326,7 +326,7 @@ print ("Good bye!")
 Good bye!
 ```
 
-循环语句可以有 else 子句，它在穷尽列表(以for循环)或条件变为 false (以while循环)导致循环终止时被执行,但循环被break终止时不执行。 
+​		循环语句可以有 else 子句，它在穷尽列表(以for循环)或条件变为 false (以while循环)导致循环终止时被执行,但循环被break终止时不执行。 
 
 如下实例用于查询质数的循环例子:
 
@@ -373,13 +373,122 @@ y  corresponds to  2
 z  corresponds to  3
 ```
 
-也可以使用keys等字典方法来获取所有的键。如果只对值感兴趣，可使用d.values。你可能还记得，d.items以元组的形式返回键值对。for循环的优点之一，是可在其中使用序列解包。
+​		也可以使用keys等字典方法来获取所有的键。如果只对值感兴趣，可使用d.values。你可能还记得，d.items以元组的形式返回键值对。for循环的优点之一，是可在其中使用序列解包。
 
+### 8.2 迭代工具
 
+Python提供了很多可帮助迭代序列（或其他可迭代对象）的函数，这里仅作简单介绍：
 
-## 9. pass 语句
+#### 8.2.1 并行迭代
 
-Python pass是空语句，是为了保持程序结构的完整性。
+有时候，你可能想同时迭代两个序列。假设有两个列表如下：
+
+```
+name = ['anne','beth','george','damon']
+ages = [12,45,32,102]
+```
+
+如何打印对应的名称和年龄，目前能做到的方法如下所示：
+
+```powershell
+>>> for i in range(len(name)):
+	print(i, name[i], 'is', ages[i], 'years old.')
+
+	
+0 anne is 12 years old.
+1 beth is 45 years old.
+2 george is 32 years old.
+3 damon is 102 years old.
+```
+
+​		其中i是用于循环索引的变量的标准名称。Python里有一个很有意思的并行迭代工具是内置函数zip，可以将两个序列“缝合”起来，并返回一个由元组组成的序列。返回值是一个适合迭代的对象，如果要查看其内容，可使用list将其转换为列表：
+
+```powershell
+>>> list(zip(name,ages))
+[('anne', 12), ('beth', 45), ('george', 32), ('damon', 102)]
+```
+
+而缝合之后，可在循环中将元组解包：
+
+```powershell
+>>> for name,age in zip(name,ages):
+	print(name, 'is', age, 'years old!')
+
+	
+anne is 12 years old!
+beth is 45 years old!
+george is 32 years old!
+damon is 102 years old!
+```
+
+​		函数zip可以用于“缝合”任意数量的序列。需要注意的是，当序列的长度不一致时，函数会将最短的序列用完后停止“缝合”，即木桶效应。
+
+#### 8.2.2 迭代时获取索引
+
+​		有些情况下，你可能需要在迭代对象序列时同时获取当前对象的索引。例如，你可能想替换一个字符串列表里所有包含字串"XXX"的字符串：
+
+```python
+for string in strings:
+	if('XXX' in string):
+		index = strings.index(string)	#在字符串列表中查找字符串
+		strings[index] = '[censored]'
+```
+
+​		这种方法是可行的，但替换前的搜索好像没有必要。而且，如果没有替换，则搜索返回的索引可能不对，即返回的是该字符串首次出现处的索引，以下有更好的解决办法：
+
+```python
+index = 0
+for string in strings:
+	if('xxx' in string):
+		strings[index] = '[censored]'
+	index += 1
+```
+
+这种解决方案虽然可以接受，但看起来也有点笨拙，还有一种解决方案是使用内置函数enumerate：
+
+```python
+for index,string in enumerate(strings):
+	if('xxx' in string):
+		strings[index] = '[censored]'
+```
+
+这个函数让你能够迭代索引-值对，其中索引是自动提供的。
+
+#### 8.2.3 反向迭代和排序后迭代
+
+这里介绍另外两个很有用的函数：reversed和sorted。它们类似于列表方法reverse和sort，但是可用于任何序列和可迭代的对象，且不立刻修改对象，而是返回反转和排序后的版本。
+
+```powershell
+>>> sorted([4,3,6,8,3])
+[3, 3, 4, 6, 8]
+>>> sorted('Hello,World!')
+['!', ',', 'H', 'W', 'd', 'e', 'l', 'l', 'l', 'o', 'o', 'r']
+>>> list(reversed('Hello,World!'))
+['!', 'd', 'l', 'r', 'o', 'W', ',', 'o', 'l', 'l', 'e', 'H']
+>>> '@'.join(reversed('Hello,World!'))
+'!@d@l@r@o@W@,@o@l@l@e@H'
+>>> '_'.join(reversed('Hello,World!'))
+'!_d_l_r_o_W_,_o_l_l_e_H'
+```
+
+​		请注意，sorted返回一个列表，而reversed则像zip那样返回一个更神秘的可迭代对象。你无需关心这意味着什么，只管在for循环或join等方法中使用它。而不会有任何问题。只是你不能对它进行索引或切片操作，也不能对它调用列表的方法。如果想要执行这些方法，则需要先使用list对返回的对象进行转换。
+
+要按照字母排序，可先转换为小写。为此，可将sort或sorted的key参数设置为str.lower。例如：
+
+```powershell
+>>> sorted('aBc',key = str.lower)
+['a', 'B', 'c']
+>>> sorted('aBc')
+['B', 'a', 'c']
+```
+
+## 9. 三人行
+
+这里大致讲一下另外三条语句：pass，del和exec。
+
+### 9.1 什么都不做
+
+Python pass是空语句，是为了保持程序结构的完整性（Python中代码块不能为空）。
 
 pass 不做任何事情，一般用做占位语句，如下实例
 
@@ -421,3 +530,81 @@ print ("Good bye!")
 当前字母 : b
 Good bye!
 ```
+
+### 9.2 使用del删除
+
+对于你不再使用的对象，Python通常会将其删除（因为没有任何变量和1数据结构成员指向它）。
+
+```powershell
+>>> scoundrel = {'age':42,'first name':'Robin','last name':'of Locksley'}
+>>> robin = scoundrel
+>>> scoundrel
+{'age': 42, 'first name': 'Robin', 'last name': 'of Locksley'}
+>>> robin
+{'age': 42, 'first name': 'Robin', 'last name': 'of Locksley'}
+>>> scoundrel = None
+>>> scoundrel
+>>> robin
+{'age': 42, 'first name': 'Robin', 'last name': 'of Locksley'}
+```
+
+​		最初，两个变量指向同一个字典，因此将None赋值给其中一个变量，依然可以通过另一个变量访问这个字典。但是如果将另一个变量也置为None，则该字典就漂浮在计算机内存中，没有任何名称与之相关联，也再也无法获取或使用它。因此，python会直接将其删除，这又被称为**垃圾收集**。
+
+​		另一种办法使用del语句，这样不仅会删除该对象的引用，还会删除名称本身。这样看似简单，但有时还是难以理解，例如当两个名称指向同一个列表时，使用del删除其中一个却并不会影响另一个，你仅仅时删除了一个访问该列表的名称而已。而实际上，在Python中，根本没有办法删除值，而且你也不需要这么做，因为对于你而言，你不再使用的值，Python解释器会自动将其删除（立刻）。
+
+### 9.3 使用exec和eval执行字符串及计算其结果
+
+有时候，你可能想动态的编写Python代码，并将其作为语句进行执行或作为表达式进行计算。
+
+#### 9.3.1 exec
+
+函数exec将字符串作为代码执行
+
+```powershell
+>>> exec('print("Hello,World!")')
+Hello,World!
+```
+
+​		然而，调用函数时只给它提供一个参数绝非好事。在大多数情况下，还应向它传递一个命名空间--用于放置变量的的地方，否则代码将可能污染你的命名空间，即修改你的变量。例如，你在代码中使用了名称sqrt，会出现什么样的结果：
+
+```powershell
+>>> from math import sqrt
+>>> sqrt(4)
+2.0
+>>> exec('sqrt = 1')
+>>> sqrt(4)
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    sqrt(4)
+TypeError: 'int' object is not callable
+```
+
+​		既然如此，为什么还要将字符串作为代码执行呢？函数exec主要用于动态地创建代码字符串。如果这些字符串来自其他地方（比如说用户），就几乎无法确认它将包含什么内容。因此为了安全起见，需要提供一个字典充当命名空间。为此，你添加第二个参数--字典，用作代码字符串的命名空间。
+
+```powershell
+Python 3.6.3 (v3.6.3:2c5fed8, Oct  3 2017, 18:11:49) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> from math import sqrt
+>>> scope = {}
+>>> exec('sqrt = 1', scope)
+>>> sqrt(4)
+2.0
+>>> scope['sqrt']
+1
+```
+
+​		如你所见，可能带来破坏的代码并非覆盖函数sqrt。函数sqrt该怎样还怎样，而通过exec执行赋值语句创建的变量位于scope中。
+
+​		请注意，如果你尝试将scope打印出来，将发现它包含很多内容，这是因为自动在其中添加了包含所有内置函数和值的字典**_ _buildins_ _**
+
+#### 9.3.2 eval
+
+​		eval是一个类似于exec的内置函数。exec执行一系列Python语句。而eval计算用字符串表示的python表达式的值，并返回结果（exec什么都不返回，因为它本身就是条语句）。例如，你可以使用如下代码创建一个Python计算器：
+
+```powershell
+>>> eval(input('Enter an arithmetic expression:'))
+Enter an arithmetic expression:6 + 18 * 2
+42
+```
+
+与exec一样，eval可以提供一个命名空间，虽然表达式通常不会像语句那样给变量重新赋值
