@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Python基础 · 学习笔记1.0</title>
+        <title>第十五章：异常 · 学习笔记1.0</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Chapter1.html" />
     
-    
-    <link rel="prev" href="../DataBase/MYSQL/Chapter1.html" />
+    <link rel="prev" href="Chapter14.html" />
     
 
     </head>
@@ -213,7 +211,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="./">
             
                 <a href="./">
             
@@ -409,7 +407,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.15" data-path="Chapter15.html">
+        <li class="chapter active" data-level="1.4.15" data-path="Chapter15.html">
             
                 <a href="Chapter15.html">
             
@@ -457,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Python基础</a>
+        <a href=".." >第十五章：异常</a>
     </h1>
 </div>
 
@@ -472,25 +470,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#python&#x57FA;&#x7840;">Python&#x57FA;&#x7840;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li><div><a href="#1-&#x6982;&#x8FF0;">1. &#x6982;&#x8FF0;</a><i></i></div></li>
-<li><div><a href="#2-&#x53C2;&#x8003;&#x5185;&#x5BB9;">2. &#x53C2;&#x8003;&#x5185;&#x5BB9;</a><i></i></div></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="python&#x57FA;&#x7840;">Python&#x57FA;&#x7840;</h1>
-<h2 id="1-&#x6982;&#x8FF0;">1. &#x6982;&#x8FF0;</h2>
-<p>&#x200B;        Python&#x662F;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x673A;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x3002;&#x662F;&#x4E00;&#x79CD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#xFF0C;&#x6700;&#x521D;&#x88AB;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x81EA;&#x52A8;&#x5316;&#x811A;&#x672C;(shell)&#xFF0C;&#x968F;&#x7740;&#x7248;&#x672C;&#x7684;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x548C;&#x8BED;&#x8A00;&#x65B0;&#x529F;&#x80FD;&#x7684;&#x6DFB;&#x52A0;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x88AB;&#x7528;&#x4E8E;&#x72EC;&#x7ACB;&#x7684;&#x3001;&#x5927;&#x578B;&#x9879;&#x76EE;&#x7684;&#x5F00;&#x53D1;&#x3002;</p>
-<p>&#x200B;        Python&#x76EE;&#x524D;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5373;2.X&#x548C;3.X&#x4E24;&#x4E2A;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x5E76;&#x4E0D;&#x517C;&#x5BB9;&#xFF0C;&#x4E14;2.X&#x4F1A;&#x5728;2020&#x5E74;&#x540E;&#x505C;&#x6B62;&#x7EF4;&#x62A4;&#xFF0C;&#x56E0;&#x6B64;&#x76EE;&#x524D;&#x5EFA;&#x8BAE;&#x521D;&#x5B66;&#x8005;&#x4ECE;3.X&#x5B66;&#x8D77;&#xFF0C;&#x672C;&#x6559;&#x7A0B;&#x4E5F;&#x662F;3.X&#x7248;&#x672C;&#x3002;</p>
-<p>&#x200B;        Python &#x662F;&#x4E00;&#x95E8;&#x7B80;&#x5355;&#x6613;&#x5B66;&#x4E14;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;&#x5B83;&#x62E5;&#x6709;&#x9AD8;&#x6548;&#x7684;&#x9AD8;&#x7EA7;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x7528;&#x7B80;&#x5355;&#x800C;&#x53C8;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x3002;Python &#x4F18;&#x96C5;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#xFF0C;&#x518D;&#x7ED3;&#x5408;&#x5B83;&#x7684;&#x89E3;&#x91CA;&#x6027;&#xFF0C;&#x4F7F;&#x5176;&#x5728;&#x5927;&#x591A;&#x6570;&#x5E73;&#x53F0;&#x7684;&#x8BB8;&#x591A;&#x9886;&#x57DF;&#x6210;&#x4E3A;&#x7F16;&#x5199;&#x811A;&#x672C;&#x6216;&#x5F00;&#x53D1;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x7406;&#x60F3;&#x8BED;&#x8A00;&#x3002;</p>
-<p>&#x200B;        &#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x5730;&#x4ECE; Python &#x5B98;&#x65B9;&#x70B9;: <a href="http://www.python.org/" target="_blank">http://www.python.org</a>&#xFF0C;&#x4EE5;&#x6E90;&#x4EE3;&#x7801;&#x6216;&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#x83B7;&#x53D6; Python &#x89E3;&#x91CA;&#x5668;&#x53CA;&#x5176;&#x6807;&#x51C6;&#x6269;&#x5C55;&#x5E93;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x7684;&#x5206;&#x53D1;&#x3002;&#x6B64;&#x7AD9;&#x70B9;&#x540C;&#x65F6;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x7B2C;&#x4E09;&#x65B9; Python &#x6A21;&#x5757;&#x3001;&#x7A0B;&#x5E8F;&#x548C;&#x5DE5;&#x5177;&#xFF0C;&#x53CA;&#x5176;&#x9644;&#x52A0;&#x6587;&#x6863;&#x3002;</p>
-<p>&#x200B;        &#x4F60;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x4F7F;&#x7528; C &#x6216; C++&#xFF08;&#x5176;&#x4ED6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; C &#x8C03;&#x7528;&#x7684;&#x8BED;&#x8A00;&#xFF09;&#x4E3A; Python &#x89E3;&#x91CA;&#x5668;&#x6269;&#x5C55;&#x65B0;&#x51FD;&#x6570;&#x548C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;Python &#x8FD8;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x4F5C;&#x5B9A;&#x5236;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4E00;&#x95E8;&#x6269;&#x5C55;&#x8BED;&#x8A00;&#x3002;</p>
-<h2 id="2-&#x53C2;&#x8003;&#x5185;&#x5BB9;">2. &#x53C2;&#x8003;&#x5185;&#x5BB9;</h2>
-<p>&#x300A;&#x83DC;&#x9E1F;&#x6559;&#x7A0B;/Python3&#x6559;&#x7A0B;&#x300B;</p>
-<p>&#x300A;Python&#x57FA;&#x7840;&#x6559;&#x7A0B;&#xFF08;&#x7B2C;&#x4E09;&#x7248;&#xFF09;&#x300B;[&#x632A;] Magnus Lie Hetland &#x8457;    &#x8881;&#x56FD;&#x5FE0; &#x8BD1; </p>
+                                <h1 id="&#x7B2C;&#x5341;&#x4E94;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;">&#x7B2C;&#x5341;&#x4E94;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;</h1>
 <footer class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal" style="color: #000 !important;">MU_zjm<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal" style="color: #000 !important;">Designer, Developer &amp; overall web enthusiast</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MU_zjm all right reserved, powered by MU_zjm!</p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">created by MU_zjm</span>
 2019-08-28 12:00:00
 </p></div></div></div><div class="box__issues">
@@ -522,14 +502,10 @@
 
             
                 
-                <a href="../DataBase/MYSQL/Chapter1.html" class="navigation navigation-prev " aria-label="Previous page: 第一章：基础知识">
+                <a href="Chapter14.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第十四章：抽象和对象">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="Chapter1.html" class="navigation navigation-next " aria-label="Next page: 第一章：基础知识">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -538,7 +514,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python基础","level":"1.4","depth":1,"next":{"title":"第一章：基础知识","level":"1.4.1","depth":2,"path":"Python/Chapter1.md","ref":"Python/Chapter1.md","articles":[]},"previous":{"title":"第一章：基础知识","level":"1.3.1.1","depth":3,"path":"DataBase/MYSQL/Chapter1.md","ref":"DataBase/MYSQL/Chapter1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"livereload":{},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记1.0","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Python/README.md","mtime":"2019-09-03T09:48:29.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T07:03:41.901Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第十五章：异常","level":"1.4.15","depth":2,"previous":{"title":"第十四章：抽象和对象","level":"1.4.14","depth":2,"path":"Python/Chapter14.md","ref":"Python/Chapter14.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"livereload":{},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记1.0","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Python/Chapter15.md","mtime":"2019-09-05T06:46:07.500Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T07:03:41.901Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
