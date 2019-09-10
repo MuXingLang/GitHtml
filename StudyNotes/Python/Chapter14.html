@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>第十四章：抽象和对象 · 学习笔记1.0</title>
+        <title>第十四章：抽象和对象 · 学习笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -422,6 +422,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.16" data-path="Chapter16.html">
+            
+                <a href="Chapter16.html">
+            
+                    
+                    第十六章：开箱即用
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -488,7 +501,7 @@
 <li><div><a href="#91-&#x7C7B;&#x7684;&#x79C1;&#x6709;&#x5C5E;&#x6027;">9.1 &#x7C7B;&#x7684;&#x79C1;&#x6709;&#x5C5E;&#x6027;</a><i></i></div></li>
 <li><div><a href="#92-&#x7C7B;&#x7684;&#x65B9;&#x6CD5;">9.2 &#x7C7B;&#x7684;&#x65B9;&#x6CD5;</a><i></i></div></li>
 <li><div><a href="#93-&#x7C7B;&#x7684;&#x79C1;&#x6709;&#x65B9;&#x6CD5;">9.3 &#x7C7B;&#x7684;&#x79C1;&#x6709;&#x65B9;&#x6CD5;</a><i></i></div></li>
-<li><div><a href="#94-&#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;&#xFF1A;">9.4 &#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;&#xFF1A;</a><i></i></div></li>
+<li><div><a href="#94-&#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;">9.4 &#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;</a><i></i></div></li>
 </ul></li>
 <li><div><a href="#10-&#x8FD0;&#x7B97;&#x7B26;&#x91CD;&#x8F7D;">10. &#x8FD0;&#x7B97;&#x7B26;&#x91CD;&#x8F7D;</a><i></i></div></li>
 </ul></li>
@@ -564,10 +577,47 @@ The length of [<span class="hljs-number">1</span>, <span class="hljs-number">2</
 <pre><code class="lang-powershell">&gt;&gt;&gt;o = OpenObject()    <span class="hljs-comment">#&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x8FD9;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;</span>
 &gt;&gt;&gt;o.set_name(<span class="hljs-string">&quot;Sir Lacelot&quot;</span>)
 &gt;&gt;&gt;o.get_name()
-Sir Lacelot
+<span class="hljs-string">&apos;Sir Lacelot&apos;</span>
 </code></pre>
+<p>&#x200B;        &#x4F60;&#xFF08;&#x901A;&#x8FC7;&#x50CF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x8C03;&#x7528;&#x7C7B;&#xFF09;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5173;&#x8054;&#x5230;&#x53D8;&#x91CF;o,&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;set_name&#x548C;get_name&#x4E86;&#xFF08;&#x5047;&#x8BBE;OpenObject&#x4E2D;&#x652F;&#x6301;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#xFF09;&#x3002;&#x4E00;&#x5207;&#x90FD;&#x770B;&#x8D77;&#x6765;&#x5B8C;&#x7F8E;&#x65E0;&#x7F3A;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5982;&#x679C;&#x5C06;&#x5176;&#x540D;&#x79F0;&#x5B58;&#x50A8;&#x5728;&#x5168;&#x5C40;&#x53D8;&#x91CF;global_name&#x4E2D;&#x5462;&#xFF1F;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt; global_name
+<span class="hljs-string">&quot;Sir Lacelot&quot;</span>
+</code></pre>
+<p>&#x200B;        &#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F7F;&#x7528;OpenObject&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF08;&#x5BF9;&#x8C61;&#xFF09;&#x65F6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8003;&#x8651;global_name&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x5FC5;&#x987B;&#x786E;&#x4FDD;&#x65E0;&#x4EBA;&#x80FD;&#x4FEE;&#x6539;&#x5B83;&#x3002;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt;global_name = <span class="hljs-string">&apos;Sir Gumby&apos;</span>
+&gt;&gt;&gt;o.get_name()
+<span class="hljs-string">&apos;Sir Gumby&apos;</span>
+</code></pre>
+<p>&#x200B;        &#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x521B;&#x5EFA;&#x591A;&#x4E2A;OpenObject&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4F1A;&#x516C;&#x7528;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt;o1 = OpenObject()
+&gt;&gt;&gt;o2 = OpenObjcet()
+&gt;&gt;&gt;o1.set_name(<span class="hljs-string">&apos;Robin Hood&apos;</span>)
+&gt;&gt;&gt;o2.get_name()
+<span class="hljs-string">&apos;Robin Hood&apos;</span>
+</code></pre>
+<p>&#x200B;        &#x5982;&#x4F60;&#x6240;&#x89C1;&#xFF0C;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x65F6;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x8BBE;&#x7F6E;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x662F;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x4F60;&#x5E0C;&#x671B;&#x5BF9;&#x8C61;&#x662F;&#x62BD;&#x8C61;&#x7684;&#xFF1A;&#x5F53;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x65E0;&#x9700;&#x64CD;&#x5FC3;&#x5176;&#x4ED6;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5982;&#x907F;&#x514D;&#x5E72;&#x6270;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;&#x5982;&#x4F55;&#x5C06;&#x540D;&#x79F0;&#x201C;&#x5C01;&#x88C5;&#x201D;&#x5728;&#x5BF9;&#x8C61;&#x4E2D;&#xFF1F;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;<strong>&#x5C5E;&#x6027;</strong>&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x200B;        &#x5C5E;&#x6027;&#x662F;&#x5F52;&#x5C5E;&#x4E8E;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5C31;&#x50CF;&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x65B9;&#x6CD5;&#x5DEE;&#x4E0D;&#x591A;&#x5C31;&#x662F;&#x4E0E;&#x51FD;&#x6570;&#x76F8;&#x5173;&#x8054;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x5C5E;&#x6027;&#x800C;&#x975E;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x91CD;&#x65B0;&#x7F16;&#x5199;&#x524D;&#x9762;&#x7684;&#x7C7B;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x547D;&#x540D;&#x4E3A;CloseObject&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt; c = CloseObject()
+&gt;&gt;&gt; c.set_name(<span class="hljs-string">&apos;Sir Lancelot&apos;</span>)
+&gt;&gt;&gt; c.get_name()
+<span class="hljs-string">&apos;Sir Lancelot&apos;</span>
+</code></pre>
+<p>&#x200B;        &#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x4E00;&#x5207;&#x987A;&#x5229;&#xFF0C;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x80FD;&#x8BC1;&#x660E;&#x540D;&#x79F0;&#x4E0D;&#x662F;&#x5B58;&#x50A8;&#x5728;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x518D;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt; r = CloseObject()
+&gt;&gt;&gt; r.set_name(<span class="hljs-string">&apos;Sir Robin&apos;</span>)
+&gt;&gt;&gt; r.get_name()
+<span class="hljs-string">&apos;Sir Robin&apos;</span>
+</code></pre>
+<p>&#x200B;        &#x4ECE;&#x4E2D;&#x53EF;&#x77E5;&#x6B63;&#x786E;&#x7684;&#x8BBE;&#x7F6E;&#x4E86;&#x65B0;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x4F60;&#x610F;&#x6599;&#x4E4B;&#x4E2D;&#xFF09;&#xFF0C;&#x4F46;&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x73B0;&#x5728;&#x4F1A;&#x600E;&#x4E48;&#x5462;&#xFF1F;</p>
+<pre><code class="lang-powershell">&gt;&gt;&gt;c.get_name()
+<span class="hljs-string">&apos;Sir Lancelot&apos;</span>
+</code></pre>
+<p>&#x200B;        &#x5176;&#x540D;&#x79F0;&#x8FD8;&#x5728;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x7531;&#x5C5E;&#x6027;&#xFF08;&#x5982;&#x540D;&#x79F0;&#xFF09;&#x63CF;&#x8FF0;&#x3002;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x4FEE;&#x6539;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;&#x4E00;&#x7CFB;&#x5217;&#x51FD;&#x6570;&#xFF08;&#x65B9;&#x6CD5;&#xFF09;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x8D4B;&#x4E88;&#x4ED6;&#x4EEC;&#x8BBF;&#x95EE;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#xFF08;&#x5C5E;&#x6027;&#xFF09;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x800C;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x4E8E;&#x4E24;&#x6B21;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E4B;&#x95F4;&#x5B58;&#x50A8;&#x503C;&#x3002;</p>
 <h2 id="4&#x7EE7;&#x627F;">4.&#x7EE7;&#x627F;</h2>
-<p>Python &#x540C;&#x6837;&#x652F;&#x6301;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#x4E0D;&#x652F;&#x6301;&#x7EE7;&#x627F;&#xFF0C;&#x7C7B;&#x5C31;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x610F;&#x4E49;&#x3002;&#x6D3E;&#x751F;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<p>&#x200B;        Python &#x540C;&#x6837;&#x652F;&#x6301;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#x4E0D;&#x652F;&#x6301;&#x7EE7;&#x627F;&#xFF0C;&#x7C7B;&#x5C31;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x610F;&#x4E49;&#x3002;</p>
+<p>&#x200B;        &#x7EE7;&#x627F;&#x53E6;&#x4E00;&#x79CD;&#x5077;&#x61D2;&#x7684;&#x65B9;&#x5F0F;&#xFF08;&#x8912;&#x4E49;&#xFF09;&#x3002;&#x7A0B;&#x5E8F;&#x5458;&#x603B;&#x662F;&#x60F3;&#x907F;&#x514D;&#x591A;&#x6B21;&#x8F93;&#x5165;&#x540C;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x672C;&#x4E66;&#x524D;&#x9762;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x51FD;&#x6570;&#x6765;&#x8FBE;&#x6210;&#x8FD9;&#x4E2A;&#x76EE;&#x6807;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x8981;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x66F4;&#x5FAE;&#x5999;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;&#x4E4B;&#x5F88;&#x50CF;&#x7684;&#x7C7B;&#xFF08;&#x4F8B;&#x5982;&#x53EA;&#x662F;&#x65B0;&#x589E;&#x4E86;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x8BE5;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x65B0;&#x7C7B;&#x65F6;&#xFF0C;&#x4F60;&#x4E0D;&#x60F3;&#x590D;&#x5236;&#x65E7;&#x7C7B;&#x7684;&#x4EE3;&#x7801;&#x518D;&#x7C98;&#x8D34;&#x5230;&#x65B0;&#x7C7B;&#x4E2D;&#x3002;</p>
+<p>&#x200B;        &#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;Shape&#x7684;&#x7C7B;&#xFF0C;&#x5B83;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5C06;&#x81EA;&#x5DF1;&#x7ED8;&#x5236;&#x5230;&#x5C4F;&#x5E55;&#x3002;&#x73B0;&#x5728;&#x4F60;&#x60F3;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;Rectangle&#x7684;&#x7C7B;&#xFF0C;&#x4F46;&#x4ED6;&#x4E0D;&#x4EC5;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5C06;&#x81EA;&#x5DF1;&#x7ED8;&#x5236;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x5176;&#x9762;&#x79EF;&#x3002;&#x4F60;&#x4E0D;&#x60F3;&#x91CD;&#x65B0;&#x7F16;&#x8F91;&#x7ED8;&#x5236;&#x65B9;&#x6CD5;draw&#xFF0C;&#x56E0;&#x4E3A;Shape&#x4E2D;&#x5DF2;&#x7ECF;&#x6709;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x6548;&#x679C;&#x5F88;&#x597D;&#x3002;&#x90A3;&#x4E48;&#x80FD;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x8BA9;Rectangle&#x7EE7;&#x627F;Shape&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x5F97;&#x5BF9;Rectangle&#x8C03;&#x7528;&#x65B9;&#x6CD5;draw&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;Shape&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x200B;        &#x6D3E;&#x751F;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code>class DerivedClassName(BaseClassName1):
     &lt;statement-1&gt;
     .
@@ -612,8 +662,12 @@ s.speak()
 </code></pre>
 <p>&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
 <pre><code>ken &#x8BF4;: &#x6211; 10 &#x5C81;&#x4E86;&#xFF0C;&#x6211;&#x5728;&#x8BFB; 3 &#x5E74;&#x7EA7;
-</code></pre><h2 id="5-&#x591A;&#x7EE7;&#x627F;">5. &#x591A;&#x7EE7;&#x627F;</h2>
-<p>Python&#x540C;&#x6837;&#x6709;&#x9650;&#x7684;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;&#x5F62;&#x5F0F;&#x3002;&#x591A;&#x7EE7;&#x627F;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;&#x5F62;&#x5982;&#x4E0B;&#x4F8B;:</p>
+</code></pre><p>&#x8981;&#x786E;&#x8BA4;&#x4E00;&#x4E2A;&#x7C7B;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x65B9;&#x6CD5;issubcclass&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5E76;&#x60F3;&#x77E5;&#x9053;&#x5B83;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x53EF;&#x8BBF;&#x95EE;&#x5176;&#x7279;&#x6B8A;&#x5C5E;&#x6027;<em> </em> bases <em> </em>&#x3002;</p>
+<p>&#x540C;&#x6837;&#xFF0C;&#x8981;&#x786E;&#x8BA4;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x662F;&#x67D0;&#x7279;&#x5B9A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;insinstance&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x8981;&#x83B7;&#x6089;&#x5BF9;&#x8C61;&#x5C5E;&#x4E8E;&#x54EA;&#x4E2A;&#x7C7B;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x5C5E;&#x6027;<em> </em> class <em> </em>&#x3002;</p>
+<h2 id="5-&#x591A;&#x7EE7;&#x627F;">5. &#x591A;&#x7EE7;&#x627F;</h2>
+<p>&#x200B;        Python&#x540C;&#x6837;&#x6709;&#x9650;&#x7684;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;&#x5F62;&#x5F0F;&#x3002;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#x662F;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x4E0D;&#x5230;&#x4E07;&#x4E0D;&#x5F97;&#x5DF2;&#xFF0C;&#x90FD;&#x5E94;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x591A;&#x7EE7;&#x627F;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x6709;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4ED6;&#x53EF;&#x80FD;&#x4F1A;&#x5E26;&#x6765;&#x610F;&#x5916;&#x7684;&#x201C;&#x5E76;&#x53D1;&#x75C7;&#x201D;&#x3002;&#x4F7F;&#x7528;&#x591A;&#x7EE7;&#x627F;&#x65F6;&#xFF0C;&#x6709;&#x4E00;&#x70B9;&#x52A1;&#x5FC5;&#x8981;&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x591A;&#x4E2A;&#x8D85;&#x7C7B;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x4E86;&#x540C;&#x4E00;&#x65B9;&#x6CD5;&#xFF08;&#x5373;&#x6709;&#x591A;&#x4E2A;&#x540C;&#x540D;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x5FC5;&#x987B;&#x5728;class&#x8BED;&#x53E5;&#x4E2D;&#x5C0F;&#x5FC3;&#x6392;&#x5217;&#x8FD9;&#x4E9B;&#x8D85;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x4F4D;&#x4E8E;&#x524D;&#x9762;&#x7684;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x5C06;&#x8986;&#x76D6;&#x4F4D;&#x4E8E;&#x540E;&#x9762;&#x7684;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x591A;&#x7EE7;&#x627F;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;&#x5F62;&#x5982;&#x4E0B;&#x4F8B;:</p>
 <pre><code>class DerivedClassName(Base1, Base2, Base3):
     &lt;statement-1&gt;
     .
@@ -672,6 +726,12 @@ test.speak()   <span class="hljs-comment">#&#x65B9;&#x6CD5;&#x540D;&#x540C;&#xFF
 <p>&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
 <pre><code>&#x6211;&#x53EB; Tim&#xFF0C;&#x6211;&#x662F;&#x4E00;&#x4E2A;&#x6F14;&#x8BF4;&#x5BB6;&#xFF0C;&#x6211;&#x6F14;&#x8BB2;&#x7684;&#x4E3B;&#x9898;&#x662F; Python
 </code></pre><h2 id="6-&#x7C7B;">6. &#x7C7B;</h2>
+<p>&#x200B;        &#x81F3;&#x6B64;&#xFF0C;&#x4F60;&#x5BF9;&#x7C7B;&#x662F;&#x4EC0;&#x4E48;&#x5E94;&#x8BE5;&#x6709;&#x4E86;&#x5927;&#x4F53;&#x7684;&#x611F;&#x89C9;&#xFF0C;&#x8FD8;&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x6025;&#x4E0D;&#x53EF;&#x8010;&#xFF0C;&#x5E0C;&#x671B;&#x6211;&#x9A6C;&#x4E0A;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x7C7B;&#x3002;&#x81F3;&#x6B64;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4E86;&#x89E3;&#x4EE5;&#x4E0B;&#x4EC0;&#x4E48;&#x662F;&#x7C7B;&#xFF1F;</p>
+<p>&#x200B;        &#x672C;&#x4E66;&#x524D;&#x9762;&#x53CD;&#x590D;&#x63D0;&#x5230;&#x4E86;&#x7C7B;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x505A;&#x7C7B;&#x578B;&#x7684;&#x540C;&#x4E49;&#x8BCD;&#x3002;&#x4ECE;&#x5F88;&#x591A;&#x65B9;&#x9762;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;--&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x5C5E;&#x4E8E;&#x7279;&#x5B9A;&#x7684;&#x7C7B;&#xFF0C;&#x5E76;&#x88AB;&#x79F0;&#x4E3A;&#x8BE5;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x200B;        &#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x5728;&#x7A97;&#x5916;&#x770B;&#x5230;&#x4E00;&#x53EA;&#x9E1F;&#xFF0C;&#x8FD9;&#x53EA;&#x9E1F;&#x5C31;&#x662F;&#x201C;&#x9E1F;&#x7C7B;&#x201D;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x9E1F;&#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x901A;&#x7528;&#xFF08;&#x62BD;&#x8C61;&#xFF09;&#x7684;&#x7C7B;&#xFF0C;&#x4ED6;&#x6709;&#x5F88;&#x591A;&#x5B50;&#x7C7B;&#xFF1A;&#x4F60;&#x770B;&#x5230;&#x7684;&#x90A3;&#x53EA;&#x9E1F;&#x53EF;&#x80FD;&#x5C5E;&#x4E8E;&#x5B50;&#x7C7B;&#x201C;&#x4E91;&#x96C0;&#x201D;&#x3002;&#x4F60;&#x53EF;&#x5C06;&#x201C;&#x9E1F;&#x7C7B;&#x201D;&#x89C6;&#x4E3A;&#x7531;&#x6240;&#x6709;&#x9E1F;&#x7EC4;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x201C;&#x4E91;&#x96C0;&#x201D;&#x662F;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#x3002;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5B50;&#x96C6;&#x65F6;&#xFF0C;&#x524D;&#x8005;&#x5C31;&#x662F;&#x540E;&#x8005;&#x7684;&#x5B50;&#x7C7B;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x201C;&#x4E91;&#x96C0;&#x201D;&#x662F;&#x201C;&#x9E1F;&#x7C7B;&#x201D;&#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x800C;&#x201C;&#x9E1F;&#x7C7B;&#x201D;&#x662F;&#x201C;&#x4E91;&#x96C0;&#x201D;&#x7684;&#x8D85;&#x7C7B;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5728;&#x82F1;&#x8BED;&#x65E5;&#x5E38;&#x4EA4;&#x8C08;&#x4E2D;&#xFF0C;&#x662F;&#x7528;&#x590D;&#x6570;&#x6765;&#x8868;&#x793A;&#x7C7B;&#xFF0C;&#x5982;birds(&#x9E1F;&#x7C7B;)&#x548C;larks(&#x4E91;&#x96C0;)&#x3002;&#x5728;Python&#x4E2D;&#xFF0C;&#x7EA6;&#x5B9A;&#x4F7F;&#x7528;&#x5355;&#x6570;&#x5F62;&#x5F0F;&#x4E14;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF0C;&#x5982;Bird&#x548C;Lark&#x3002;</p>
+<p>&#x200B;        &#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x5B50;&#x7C7B;&#x548C;&#x8D85;&#x7C7B;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x3002;&#x4F46;&#x5728;&#x6240;&#x6709;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x5B50;&#x7C7B;&#x5173;&#x7CFB;&#x610F;&#x5473;&#x6DF1;&#x957F;&#xFF0C;&#x56E0;&#x4E3A;&#x7C7B;&#x662F;&#x7531;&#x5176;&#x652F;&#x6301;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x62E5;&#x6709;&#x8BE5;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7C7B;&#x5B9E;&#x4F8B;&#x90FD;&#x62E5;&#x6709;&#x8D85;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x3002;&#x6709;&#x9274;&#x4E8E;&#x6B64;&#xFF0C;&#x8981;&#x5B9A;&#x4E49;&#x5B50;&#x7C7B;&#xFF0C;&#x53EA;&#x9700;&#x5B9A;&#x4E49;&#x591A;&#x51FA;&#x6765;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x91CD;&#x5199;&#x4E00;&#x4E9B;&#x65E2;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x200B;        &#x4F8B;&#x5982;&#xFF0C;Bird&#x7C7B;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x65B9;&#x6CD5;fly&#xFF0C;&#x800C;Penguin&#xFF08;Bird&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF09;&#x53EF;&#x80FD;&#x4F1A;&#x65B0;&#x589E;&#x65B9;&#x6CD5;eat_fish&#x3002;&#x521B;&#x5EFA;Penguin&#x7C7B;&#x65F6;&#xFF0C;&#x4F60;&#x8FD8;&#x53EF;&#x80FD;&#x60F3;&#x60F3;&#x91CD;&#x5199;&#x8D85;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5373;&#x65B9;&#x6CD5;fly&#x3002;&#x9274;&#x4E8E;&#x4F01;&#x9E45;&#x4E0D;&#x80FD;&#x98DE;&#xFF0C;&#x56E0;&#x6B64;&#x5728;Penguin&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x65B9;&#x6CD5;fly&#x5E94;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x505A;&#x6216;&#x5F15;&#x53D1;&#x5F02;&#x5E38;&#x3002;</p>
 <p>&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code>class ClassName:
     &lt;statement-1&gt;
@@ -698,12 +758,14 @@ x = MyClass()
 print(<span class="hljs-string">&quot;MyClass &#x7C7B;&#x7684;&#x5C5E;&#x6027; i &#x4E3A;&#xFF1A;&quot;</span>, x.i)
 print(<span class="hljs-string">&quot;MyClass &#x7C7B;&#x7684;&#x65B9;&#x6CD5; f &#x8F93;&#x51FA;&#x4E3A;&#xFF1A;&quot;</span>, x.f())
 </code></pre>
-<p>&#x4EE5;&#x4E0A;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7C7B;&#x5B9E;&#x4F8B;&#x5E76;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x8D4B;&#x7ED9;&#x5C40;&#x90E8;&#x53D8;&#x91CF; x&#xFF0C;x &#x4E3A;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x200B;        &#x4EE5;&#x4E0A;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7C7B;&#x5B9E;&#x4F8B;&#x5E76;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x8D4B;&#x7ED9;&#x5C40;&#x90E8;&#x53D8;&#x91CF; x&#xFF0C;x &#x4E3A;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5176;&#x4E2D;MyClass&#x662F;&#x7C7B;&#x7684;&#x540D;&#x79F0;&#x3002;class&#x521B;&#x5EFA;&#x72EC;&#x7ACB;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x5176;&#x4E2D;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x3002;&#x4E00;&#x5207;&#x770B;&#x8D77;&#x6765;&#x90FD;&#x633A;&#x597D;&#xFF0C;&#x4F46;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x7591;&#x8651;&#xFF0C;&#x53C2;&#x6570;self&#x662F;&#x4EC0;&#x4E48;&#x3002;&#x5B83;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;self&#xFF0C;&#x5219;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;--&#x8981;&#x64CD;&#x4F5C;&#x5C5E;&#x6027;&#x6240;&#x5C5E;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
 <p>&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
 <pre><code>MyClass &#x7C7B;&#x7684;&#x5C5E;&#x6027; i &#x4E3A;&#xFF1A; 12345
 MyClass &#x7C7B;&#x7684;&#x65B9;&#x6CD5; f &#x8F93;&#x51FA;&#x4E3A;&#xFF1A; hello world
 </code></pre><p>&#x7C7B;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <strong>init</strong>() &#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF08;<strong>&#x6784;&#x9020;&#x65B9;&#x6CD5;</strong>&#xFF09;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#xFF0C;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A; </p>
-<p>def <strong>init</strong>(self):     self.data = []</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>     
+    self.data = []
+</code></pre>
 <p>&#x7C7B;&#x5B9A;&#x4E49;&#x4E86; <strong>init</strong>() &#x65B9;&#x6CD5;&#xFF0C;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x64CD;&#x4F5C;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528; <strong>init</strong>() &#x65B9;&#x6CD5;&#x3002;&#x5982;&#x4E0B;&#x5B9E;&#x4F8B;&#x5316;&#x7C7B; MyClass&#xFF0C;&#x5BF9;&#x5E94;&#x7684; <strong>init</strong>() &#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;:</p>
 <pre><code>x = MyClass()
 </code></pre><p>&#x5F53;&#x7136;&#xFF0C; <strong>init</strong>() &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x901A;&#x8FC7; <strong>init</strong>() &#x4F20;&#x9012;&#x5230;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x64CD;&#x4F5C;&#x4E0A;&#x3002;&#x4F8B;&#x5982;: </p>
@@ -743,7 +805,7 @@ t.prt()
 <pre><code>&lt;__main__.Test instance at 0x100771878&gt;
 __main__.Test
 </code></pre><h2 id="7-&#x7C7B;&#x7684;&#x65B9;&#x6CD5;">7. &#x7C7B;&#x7684;&#x65B9;&#x6CD5;</h2>
-<p>&#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x4F7F;&#x7528; def &#x5173;&#x952E;&#x5B57;&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0E;&#x4E00;&#x822C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#xFF0C;&#x7C7B;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x53C2;&#x6570; self, &#x4E14;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;self &#x4EE3;&#x8868;&#x7684;&#x662F;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002; </p>
+<p>&#x200B;        &#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x4F7F;&#x7528; def &#x5173;&#x952E;&#x5B57;&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0E;&#x4E00;&#x822C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#xFF0C;&#x7C7B;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x53C2;&#x6570; self, &#x4E14;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;self &#x4EE3;&#x8868;&#x7684;&#x662F;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002; </p>
 <pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/python3</span>
 
 <span class="hljs-comment">#&#x7C7B;&#x5B9A;&#x4E49;</span>
@@ -767,6 +829,30 @@ p.speak()
 </code></pre>
 <p>&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
 <pre><code>runoob &#x8BF4;: &#x6211; 10 &#x5C81;&#x3002;
+</code></pre><p>&#x200B;        &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4ECE;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x6709;&#x4E9B;&#x7A0B;&#x5E8F;&#x5458;&#x8BA4;&#x4E3A;&#x8FD9;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6709;&#x4E9B;&#x7A0B;&#x5E8F;&#x5458;&#x5219;&#x8BA4;&#x4E3A;&#x8FD9;&#x8FDD;&#x53CD;&#x4E86;&#x5C01;&#x88C5;&#x539F;&#x5219;&#x3002;&#x5B83;&#x4EEC;&#x8BA4;&#x4E3A;&#x5E94;&#x8BE5;&#x5BF9;&#x5916;&#x90E8;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#xFF08;&#x5373;&#x4E0D;&#x80FD;&#x4ECE;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x5B83;&#x4EEC;&#xFF09;&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x95EE;&#xFF0C;&#x4E3A;&#x4F55;&#x5B83;&#x4EEC;&#x7684;&#x7ACB;&#x573A;&#x5982;&#x6B64;&#x6781;&#x7AEF;&#x5462;&#xFF1F;&#x7531;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x7BA1;&#x7406;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#x8FD8;&#x4E0D;&#x591F;&#x5417;&#xFF1F;&#x4E3A;&#x4F55;&#x8FD8;&#x8981;&#x5411;&#x5916;&#x90E8;&#x9690;&#x85CF;&#x5C5E;&#x6027;&#xFF1F;&#x6BD5;&#x7ADF;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;CloseObject&#xFF08;&#x5BF9;&#x8C61;c&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#xFF09;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;name&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;setName&#x548C;getName&#x4E86;&#x3002;</p>
+<p>&#x200B;        &#x5173;&#x952E;&#x5728;&#x4E8E;&#x5176;&#x4ED6;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x53EF;&#x80FD;&#xFF08;&#x4E5F;&#x4E0D;&#x8BE5;&#x77E5;&#x9053;&#xFF09;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x53D1;&#x751F;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x51B5;&#x4E14;&#xFF0C;CloseObject&#x53EF;&#x80FD;&#x5728;&#x5BF9;&#x8C61;&#x4FEE;&#x6539;&#x5176;&#x540D;&#x79F0;&#x65F6;&#x5411;&#x7BA1;&#x7406;&#x5458;&#x53D1;&#x9001;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x3002;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x5728;&#x65B9;&#x6CD5;set_name&#x4E2D;&#x3002;&#x4F46;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;c.name&#xFF0C;&#x90A3;&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x3002;&#x4E3A;&#x907F;&#x514D;&#x8FD9;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x5C06;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x79C1;&#x6709;&#x3002;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x4E0D;&#x80FD;&#x4ECE;&#x5BF9;&#x8C61;&#x5916;&#x90E8;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF0C;&#x800C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x5B58;&#x50A8;&#x5668;&#xFF08;set&#xFF0C;get&#xFF09;&#x65B9;&#x6CD5;&#x6765;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x200B;        Python&#x6CA1;&#x6709;&#x4E3A;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x76F4;&#x63A5;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x6C42;&#x7A0B;&#x5E8F;&#x5458;&#x77E5;&#x9053;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4ECE;&#x5916;&#x90E8;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x662F;&#x5B89;&#x5168;&#x7684;&#x3002;&#x6BD5;&#x7ADF;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x901A;&#x8FC7;&#x67D0;&#x4E9B;&#x5C0F;&#x82B1;&#x62DB;&#xFF0C;&#x53EF;&#x83B7;&#x5F97;&#x7C7B;&#x4F3C;&#x4E8E;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x200B;        &#x8981;&#x8BA9;&#x65B9;&#x6216;&#x5C5E;&#x6027;&#x6210;&#x4E3A;&#x79C1;&#x6709;&#x7684;&#xFF08;&#x5373;&#x4E0D;&#x80FD;&#x4ECE;&#x5916;&#x90E8;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF09;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8BA9;&#x5176;&#x540D;&#x79F0;&#x4EE5;&#x4E24;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x6253;&#x5934;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Secretive</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__inaccessible</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;Bet you can&apos;t see me...&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">accessible</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;The secret message is : &quot;</span>)
+        self.__inaccessible()
+
+s = Secretive()
+s.accessible()    <span class="hljs-comment">#&#x53EF;&#x6267;&#x884C;</span>
+s.inaccessible()    <span class="hljs-comment">#&#x62A5;&#x9519;</span>
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>The secret message is : 
+Bet you can&apos;t see me...
+Traceback (most recent call last):
+  File &quot;D:/System Lib/Documents/2019-09-06/Secretive.py&quot;, line 12, in &lt;module&gt;
+    s.inaccessible()
+AttributeError: &apos;Secretive&apos; object has no attribute &apos;inaccessible&apos;
 </code></pre><h2 id="8-&#x65B9;&#x6CD5;&#x91CD;&#x5199;">8. &#x65B9;&#x6CD5;&#x91CD;&#x5199;</h2>
 <p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x529F;&#x80FD;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x4F60;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x4F60;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/python3</span>
@@ -847,7 +933,7 @@ x.__foo()      <span class="hljs-comment"># &#x62A5;&#x9519;</span>
 </code></pre>
 <p>&#x4EE5;&#x4E0A;&#x5B9E;&#x4F8B;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
 <p><img src="../images/Python/F5C2A308-3A88-42B4-B575-C719EB8F1CC4.jpg" alt="img"></p>
-<h3 id="94-&#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;&#xFF1A;">9.4 &#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;&#xFF1A;</h3>
+<h3 id="94-&#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;">9.4 &#x7C7B;&#x7684;&#x4E13;&#x6709;&#x65B9;&#x6CD5;</h3>
 <ul>
 <li><strong><strong>init</strong> :</strong> &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x65F6;&#x8C03;&#x7528;</li>
 <li><strong><strong>del</strong> :</strong> &#x6790;&#x6784;&#x51FD;&#x6570;&#xFF0C;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x65F6;&#x4F7F;&#x7528;</li>
@@ -932,7 +1018,7 @@ v2 = Vector(<span class="hljs-number">5</span>,<span class="hljs-number">-2</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第十四章：抽象和对象","level":"1.4.14","depth":2,"next":{"title":"第十五章：异常","level":"1.4.15","depth":2,"path":"Python/Chapter15.md","ref":"Python/Chapter15.md","articles":[]},"previous":{"title":"第十三章：抽象和函数","level":"1.4.13","depth":2,"path":"Python/Chapter13.md","ref":"Python/Chapter13.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记1.0","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Python/Chapter14.md","mtime":"2019-09-06T07:12:03.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-06T14:22:03.992Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第十四章：抽象和对象","level":"1.4.14","depth":2,"next":{"title":"第十五章：异常","level":"1.4.15","depth":2,"path":"Python/Chapter15.md","ref":"Python/Chapter15.md","articles":[]},"previous":{"title":"第十三章：抽象和函数","level":"1.4.13","depth":2,"path":"Python/Chapter13.md","ref":"Python/Chapter13.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Python/Chapter14.md","mtime":"2019-09-10T03:00:48.302Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T10:06:48.433Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
