@@ -608,3 +608,72 @@ Enter an arithmetic expression:6 + 18 * 2
 ```
 
 与exec一样，eval可以提供一个命名空间，虽然表达式通常不会像语句那样给变量重新赋值
+
+## 10. 简单推导
+
+​		列表推导是一种从其他列表创建列表的方式，类似于数学中的集合推导。列表推导的工作原理非常简单，优点类似于for循环。
+
+```powershell
+Python 3.6.3 (v3.6.3:2c5fed8, Oct  3 2017, 18:11:49) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> [x * x for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
+​		这个列表由range(10)内每个值的平方组成，这看起来很直观易懂。如果想打印哪些能被三整除的平方值，又该怎么办？这里可使用求模运算符：如果y能够被三整除，y%3将返回0（请注意，仅当x能被3整除的时候，x*x才能被三整除）。为实现这种功能，可在列表推导中添加一条if语句。
+
+```powershell
+>>> [x * x for x in range(10) if x%3 == 0]
+[0, 9, 36, 81]
+```
+
+​		还可以添加更多的for部分。
+
+```
+>>> [(x,y) for x in range(3) for y in range(3)]
+[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+```
+
+​		作为对比，下面的两个for循环创建同样的列表：
+
+```powershell
+>>> result = []
+>>> for x in range(3):
+		for y in range(3):
+			result.append((x,y))
+```
+
+​		与以前一样，使用多个for部分时，也可以添加if语句。
+
+```powershell
+>>> girls = ['alice','bernice','clarice']
+>>> boys = ['chris','arnold','bob']
+>>> [b + ' + ' + g for b in boys for g in girls if b[0] == g[0]]
+['chris + clarice', 'arnold + alice', 'bob + bernice']
+```
+
+​		这些代码将名称的首字母相同的男孩和女孩配对，但是实际上效率并不高，因为它要检查每种可能的配对。使用Python解决这类的问题还有很多，下面是Alex Martelli推荐的解决方案：
+
+```powershell
+>>> girls = ['alice','bernice','clarice']
+>>> boys = ['chris','arnold','bob']
+>>> letterGirls = {}
+>>> for girl in girls:
+	letterGirls.setdefault(girl[0], []).append(girl)
+
+	
+>>> print([b + ' + ' + g for b in boys for g in letterGirls[b[0]]])
+['chris + clarice', 'arnold + alice', 'bob + bernice']
+```
+
+​		以上代码创建一个名为letterGirls的字典，其中每项的键都是一个字母，而值为以这个字母打头的女孩名称组成的列表。创建这个字典后，列表推导遍历所有的男孩，并查找名称首字母与当前男孩相同的所有女孩。这样，这个列表就无需尝试所有男孩和女孩的组合并检查它们名称的首字母是否相同了。
+
+​		使用圆括号代替方括号并不能实现元组推导，而是创建**生成器**。另外，可使用花括号来执行**字典推导**。
+
+```powershell
+>>> squares = {i:"{} squared is {}".format(i,i**3) for i in range(10)}
+>>> squares[8]
+'8 squared is 512'
+```
+
+​		在列表推导中，for前面只有一个表达式，而在字典推导中，for前面有两个用冒号分割的表达式。这两个表达式分别为键和对应的值。
