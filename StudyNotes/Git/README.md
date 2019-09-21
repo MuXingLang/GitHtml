@@ -157,3 +157,215 @@ Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值�
 ## 7.在线文档地址
 
 https://git-scm.com/book/zh/v2/
+
+## 8. GitHub GIT CHEAT SHEET
+
+Git is the open source distributed version control system that facilitates GitHub activities on your laptop or
+desktop. This cheat sheet summarizes commonly used Git command line instructions for quick reference.
+
+### 8.1 INSTALL GIT
+
+GitHub provides desktop clients that include a graphical user
+interface for the most common repository actions and an automatically updating command line edition of Git for advanced scenarios.
+[GitHub for Windows]
+
+https://windows.github.com
+[GitHub for Mac]
+https://mac.github.com
+Git distributions for Linux and POSIX systems are available on the
+official Git SCM web site.
+[Git for All Platforms]
+http://git-scm.com
+
+### 8.2 CONFIGURE TOOLING
+
+Configure user information for all local repositories
+```bash
+$ git config --global user.name "[name]"
+```
+Sets the name you want atached to your commit transactions
+```bash
+$ git config --global user.email "[email address]"
+```
+Sets the email you want atached to your commit transactions
+```bash
+$ git config --global color.ui auto
+```
+Enables helpful colorization of command line output
+Review edits and craf a commit transaction
+
+### 8.3 CREATE REPOSITORIES
+
+Start a new repository or obtain one from an existing URL
+```bash
+$ git init [project-name]
+```
+Creates a new local repository with the specified name
+```bash
+$ git clone [url]
+```
+Downloads a project and its entire version history
+
+### 8.4 MAKE CHANGES
+
+Review edits and craf a commit transaction
+```bash
+$ git status
+```
+Lists all new or modified files to be commited
+```bash
+$ git add [file]
+```
+Snapshots the file in preparation for versioning
+```bash
+$ git reset [file]
+```
+Unstages the file, but preserve its contents
+```bash
+$ git diff
+```
+Shows file differences not yet staged
+```bash
+$ git diff --staged
+```
+Shows file differences between staging and the last file version
+```bash
+$ git commit -m "[descriptive message]"
+```
+Records file snapshots permanently in version history
+
+### 8.5 GROUP CHANGES
+
+Name a series of commits and combine completed efforts
+```bash
+$ git branch
+```
+Lists all local branches in the current repository
+```bash
+$ git branch [branch-name]
+```
+Creates a new branch
+```bash
+$ git checkout [branch-name]
+```
+Switches to the specified branch and updates the working directory
+```bash
+$ git merge [branch]
+```
+Combines the specified branch’s history into the current branch
+```bash
+$ git branch -d [branch-name]
+```
+Deletes the specified branch
+
+### 8.6 REFACTOR FILENAMES
+
+Relocate and remove versioned files
+```bash
+$ git rm [file]
+```
+Deletes the file from the working directory and stages the deletion
+```bash
+$ git rm --cached [file]
+```
+Removes the file from version control but preserves the file locally
+```bash
+$ git mv [file-original] [file-renamed]
+```
+Changes the file name and prepares it for commit
+
+### 8.7 SUPPRESS TRACKING
+
+Exclude temporary files and paths
+
+```
+*.log
+build/
+temp-*
+```
+
+
+A text file named .gitignore suppresses accidental versioning of
+files and paths matching the specified paterns
+
+```bash
+$ git ls-files --other --ignored --exclude-standard
+```
+
+Lists all ignored files in this project
+
+### 8.8 SAVE FRAGMENTS
+
+Shelve and restore incomplete changes
+```bash
+$ git stash
+```
+Temporarily stores all modified tracked files
+```bash
+$ git stash list
+```
+Lists all stashed changesets
+```bash
+$ git stash pop
+```
+Restores the most recently stashed files
+```bash
+$ git stash drop
+```
+Discards the most recently stashed changeset
+
+### 8.9 REVIEW HISTORY
+
+Browse and inspect the evolution of project files
+```bash
+$ git log
+```
+Lists version history for the current branch
+```bash
+$ git log --follow [file]
+```
+Lists version history for a file, including renames
+```bash
+$ git diff [first-branch]...[second-branch]
+```
+Shows content differences between two branches
+```bash
+$ git show [commit]
+```
+Outputs metadata and content changes of the specified commit
+
+### 8.10 REDO COMMITS
+
+Erase mistakes and craf replacement history
+```bash
+$ git reset [commit]
+```
+Undoes all commits afer [commit], preserving changes locally
+```bash
+$ git reset --hard [commit]
+```
+Discards all history and changes back to the specified commit
+
+### 8.11 SYNCHRONIZE CHANGES
+
+Register a repository bookmark and exchange version history
+```bash
+$ git fetch [bookmark]
+```
+Downloads all history from the repository bookmark
+```bash
+$ git merge [bookmark]/[branch]
+```
+Combines bookmark’s branch into current local branch
+```bash
+$ git push [alias] [branch]
+```
+Uploads all local branch commits to GitHub
+```bash
+$ git pull
+```
+Downloads bookmark history and incorporates changes
+
+
+
+
