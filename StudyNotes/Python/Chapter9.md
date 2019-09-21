@@ -2,11 +2,11 @@
 
 ## 1. 概述
 
-集合（set）是一个无序的不重复元素序列。
+​		集合（set）是一个无序的不重复元素序列。
 
-可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。 
+​		可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。 
 
-创建格式：
+​		创建格式：
 
 ```
 parame = {value01,value02,...}
@@ -14,7 +14,7 @@ parame = {value01,value02,...}
 set(value)
 ```
 
-例子：
+​		例子：
 
 ```
 >>>basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
@@ -26,7 +26,7 @@ True
 False
 ```
 
-下面展示两个集合间的运算.
+​		下面展示两个集合间的运算.
 
 ```
 # 
@@ -45,7 +45,7 @@ a ^ b                              # 不同时包含于a和b的元素
 {'r', 'd', 'b', 'm', 'z', 'l'}
 ```
 
-类似列表推导式，同样集合支持集合推导式(Set comprehension):
+​		类似列表推导式，同样集合支持集合推导式(Set comprehension):
 
 ```
 >>>a = {x for x in 'abracadabra' if x not in 'abc'} 
@@ -62,7 +62,7 @@ a ^ b                              # 不同时包含于a和b的元素
 s.add( x )
 ```
 
-将元素 x 添加到集合 s 中，如果元素已存在，则不进行任何操作。
+​		将元素 x 添加到集合 s 中，如果元素已存在，则不进行任何操作。
 
 ```
 >>>thisset = set(("Google", "Runoob", "Taobao")) 
@@ -71,13 +71,13 @@ s.add( x )
 {'Taobao', 'Facebook', 'Google', 'Runoob'}
 ```
 
-还有一个方法，也可以添加元素，且参数可以是列表，元组，字典等，语法格式如下：
+​		还有一个方法，也可以添加元素，且参数可以是列表，元组，字典等，语法格式如下：
 
 ```
 s.update( x )
 ```
 
-x 可以有多个，用逗号分开。
+​		x 可以有多个，用逗号分开。
 
 ```
 >>>thisset = set(("Google", "Runoob", "Taobao"))
@@ -97,7 +97,7 @@ x 可以有多个，用逗号分开。
 s.remove( x )
 ```
 
-将元素 x 从集合 s 中移除，如果元素不存在，则会发生错误。
+​		将元素 x 从集合 s 中移除，如果元素不存在，则会发生错误。
 
 ```powershell
 >>>thisset = set(("Google", "Runoob", "Taobao"))
@@ -110,7 +110,7 @@ Traceback (most recent call last):
 KeyError: 'Facebook'
 ```
 
-此外还有一个方法也是移除集合中的元素，且如果元素不存在，不会发生错误。格式如下所示：
+​		此外还有一个方法也是移除集合中的元素，且如果元素不存在，不会发生错误。格式如下所示：
 
 ```
 s.discard( x )
@@ -123,7 +123,7 @@ s.discard( x )
 {'Taobao', 'Google', 'Runoob'}
 ```
 
-我们也可以设置随机删除集合中的一个元素，语法格式如下：
+​		我们也可以设置随机删除集合中的一个元素，语法格式如下：
 
 ```
 s.pop() 
@@ -137,16 +137,16 @@ x = thisset.pop()
 print(x)
 ```
 
-输出结果：
+​		输出结果：
 
 ```
 $ python3 test.py 
 Runoob
 ```
 
-多次执行测试结果都不一样。
+​		多次执行测试结果都不一样。
 
-然而在交互模式，pop 是删除集合的第一个元素（排序后的集合的第一个元素）。 
+​		然而在交互模式，pop 是删除集合的第一个元素（排序后的集合的第一个元素）。 
 
 ```powershell
 >>>thisset = set(("Google", "Runoob", "Taobao", "Facebook")) 
@@ -165,7 +165,7 @@ Runoob
 len(s)
 ```
 
-计算集合 s 元素个数。
+​		计算集合 s 元素个数。
 
 ```powershell
 >>>thisset = set(("Google", "Runoob", "Taobao")) 
@@ -181,7 +181,7 @@ len(s)
 s.clear()
 ```
 
-清空集合 s。
+​		清空集合 s。
 
 ```powershell
 >>>thisset = set(("Google", "Runoob", "Taobao")) 
@@ -198,7 +198,7 @@ set()
 x in s
 ```
 
-判断元素 x 是否在集合 s 中，存在返回 True，不存在返回 False。
+​		判断元素 x 是否在集合 s 中，存在返回 True，不存在返回 False。
 
 ```powershell
 >>>thisset = set(("Google", "Runoob", "Taobao")) 

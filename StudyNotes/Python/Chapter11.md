@@ -1,13 +1,13 @@
 # 第十一章：循环语句
 
 
-本章节将为大家介绍Python循环语句的使用。
+​		本章节将为大家介绍Python循环语句的使用。
 
-Python中的循环语句有 for 和 while。
+​		Python中的循环语句有 for 和 while。
 
 ## 1. while 循环 
 
-Python中while语句的一般形式：
+​		Python中while语句的一般形式：
 
 ```
 while 判断条件：
@@ -18,9 +18,9 @@ while 判断条件：
 
 ![img](../images/Python/006faQNTgw1f5wnm06h3ug30ci08cake.gif)
 
-同样需要注意冒号和缩进。另外，在 Python 中没有 do..while 循环。 
+​		同样需要注意冒号和缩进。另外，在 Python 中没有 do..while 循环。 
 
-以下实例使用了 while 来计算 1 到 100 的总和：
+​		以下实例使用了 while 来计算 1 到 100 的总和：
 
 ```python
 #!/usr/bin/env python3
@@ -36,7 +36,7 @@ while counter <= n:
 print("1 到 %d 之和为: %d" % (n,sum))
 ```
 
-执行结果如下：
+​		执行结果如下：
 
 ```
 1 到 100 之和为: 5050
@@ -44,7 +44,7 @@ print("1 到 %d 之和为: %d" % (n,sum))
 
 ## 2. 无限循环
 
-我们可以通过设置条件表达式永远不为 false 来实现无限循环，实例如下：
+​		我们可以通过设置条件表达式永远不为 false 来实现无限循环，实例如下：	
 
 ```python
 #!/usr/bin/python3
@@ -57,7 +57,7 @@ while var == 1 :  # 表达式永远为 true
 print ("Good bye!")
 ```
 
-执行以上脚本，输出结果如下：
+​		执行以上脚本，输出结果如下：
 
 ```
 输入一个数字  :5
@@ -65,13 +65,13 @@ print ("Good bye!")
 输入一个数字  :
 ```
 
-你可以使用  **CTRL+C** 来退出当前的无限循环。
+​		你可以使用  **CTRL+C** 来退出当前的无限循环。
 
-无限循环在服务器上客户端的实时请求非常有用。
+​		无限循环在服务器上客户端的实时请求非常有用。
 
 ## 3. while 中使用 else 语句
 
-在 while … else 在条件语句为 false 时执行 else 的语句块：
+​		在 while … else 在条件语句为 false 时执行 else 的语句块：
 
 ```python
 #!/usr/bin/python3
@@ -84,7 +84,7 @@ else:
    print (count, " 大于或等于 5")
 ```
 
-执行以上脚本，输出结果如下：
+​		执行以上脚本，输出结果如下：
 
 ```
 0  小于 5
@@ -97,7 +97,7 @@ else:
 
 ## 4. 简单语句组
 
-类似if语句的语法，如果你的while循环体中只有一条语句，你可以将该语句与while写在同一行中， 如下所示：
+​		类似if语句的语法，如果你的while循环体中只有一条语句，你可以将该语句与while写在同一行中， 如下所示：
 
 ```python
 #!/usr/bin/python   
@@ -109,9 +109,9 @@ while (flag):
 print ("Good bye!")
 ```
 
-**注意：**以上的无限循环你可以使用 CTRL+C 来中断循环。
+> **注意：**以上的无限循环你可以使用 CTRL+C 来中断循环。
 
-执行以上脚本，输出结果如下(注意可能造成计算机卡死)：
+​		执行以上脚本，输出结果如下(注意可能造成计算机卡死)：
 
 ```
 欢迎访问菜鸟教程!
@@ -126,9 +126,9 @@ print ("Good bye!")
 
 ## 5. for 语句
 
-Python for循环可以遍历任何序列的项目，如一个列表或者一个字符串。
+​		Python for循环可以遍历任何序列的项目，如一个列表或者一个字符串。
 
-for循环的一般格式如下：
+​		for循环的一般格式如下：
 
 ```
 for <variable> in <sequence>:     
@@ -137,7 +137,7 @@ else:
 	<statements>
 ```
 
-Python loop循环实例：
+​		Python loop循环实例：
 
 ```powershell
 >>>languages = ["C", "C++", "Perl", "Python"]  
@@ -150,7 +150,7 @@ Python
 >>>
 ```
 
-以下 for 实例中使用了 break 语句，break 语句用于跳出当前循环体：
+​		以下 for 实例中使用了 break 语句，break 语句用于跳出当前循环体：
 
 ```python
 #!/usr/bin/python3   
@@ -166,7 +166,7 @@ else:
 print("完成循环!")
 ```
 
-执行脚本后，在循环到 "Runoob"时会跳出循环体：
+​		执行脚本后，在循环到 "Runoob"时会跳出循环体：
 
 ```
 循环数据 Baidu
@@ -181,7 +181,7 @@ print("完成循环!")
 
 ​		基本上，可迭代对象是可使用for循环进行遍历的对象。而基于迭代（也就是遍历）特定范围内的数是一种常见任务，python提供有一个创建范围的内置函数range。
 
-如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列，例如: 
+​		如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列，例如: 
 
 ```powershell
 >>>for i in range(5): 
@@ -193,7 +193,7 @@ print("完成循环!")
 4
 ```
 
-你也可以使用range指定区间的值：
+​		你也可以使用range指定区间的值：
 
 ```powershell
 >>>for i in range(5,9) :     
@@ -205,7 +205,7 @@ print("完成循环!")
 >>>
 ```
 
-也可以使range以指定数字开始并指定不同的增量(甚至可以是负数，有时这也叫做'步长'):  
+​		也可以使range以指定数字开始并指定不同的增量(甚至可以是负数，有时这也叫做'步长'):  
 
 ```powershell
 >>>for i in range(0, 10, 3) :     
@@ -217,7 +217,7 @@ print("完成循环!")
 >>>
 ```
 
-负数：
+​		负数：
 
 ```powershell
 >>>for i in range(-10, -100, -30) :     
@@ -228,7 +228,7 @@ print("完成循环!")
 >>>
 ```
 
-您可以结合range()和len()函数以遍历一个序列的索引,如下所示:
+​		您可以结合range()和len()函数以遍历一个序列的索引,如下所示:
 
 ```powershell
 >>>a = ['Google', 'Baidu', 'Runoob', 'Taobao', 'QQ'] 
@@ -242,7 +242,7 @@ print("完成循环!")
 >>>
 ```
 
-还可以使用range()函数来创建一个列表：
+​		还可以使用range()函数来创建一个列表：
 
 ```powershell
 >>>list(range(5)) 
@@ -272,7 +272,7 @@ while var > 0:
 print ("Good bye!")
 ```
 
-执行以上脚本输出结果为：
+​		执行以上脚本输出结果为：
 
 ```
 当前字母为 : R
@@ -288,7 +288,7 @@ print ("Good bye!")
 Good bye!
 ```
 
-continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。 
+​		`continue`语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。 
 
 ```python
 #!/usr/bin/python3
@@ -307,7 +307,7 @@ while var > 0:
 print ("Good bye!")
 ```
 
-执行以上脚本输出结果为：
+​		执行以上脚本输出结果为：
 
 ```
 当前字母 : R
@@ -328,7 +328,7 @@ Good bye!
 
 ​		循环语句可以有 else 子句，它在穷尽列表(以for循环)或条件变为 false (以while循环)导致循环终止时被执行,但循环被break终止时不执行。 
 
-如下实例用于查询质数的循环例子:
+​		如下实例用于查询质数的循环例子:
 
 ```python
 #!/usr/bin/python3
@@ -343,7 +343,7 @@ for n in range(2, 10):
         print(n, ' 是质数')
 ```
 
-执行以上脚本输出结果为：
+​		执行以上脚本输出结果为：
 
 ```
 2  是质数
@@ -360,7 +360,7 @@ for n in range(2, 10):
 
 ### 8.1 迭代字典
 
-要遍历字典的所有关键字，可像遍历序列那样使用普通的for语句。
+​		要遍历字典的所有关键字，可像遍历序列那样使用普通的for语句。
 
 ```
 >>> d = {'x':1,'y':2,'z':3}
@@ -373,22 +373,22 @@ y  corresponds to  2
 z  corresponds to  3
 ```
 
-​		也可以使用keys等字典方法来获取所有的键。如果只对值感兴趣，可使用d.values。你可能还记得，d.items以元组的形式返回键值对。for循环的优点之一，是可在其中使用序列解包。
+​		也可以使用keys等字典方法来获取所有的键。如果只对值感兴趣，可使用d.values。你可能还记得，`d.items`以元组的形式返回键值对。for循环的优点之一，是可在其中使用序列解包。
 
 ### 8.2 迭代工具
 
-Python提供了很多可帮助迭代序列（或其他可迭代对象）的函数，这里仅作简单介绍：
+​		Python提供了很多可帮助迭代序列（或其他可迭代对象）的函数，这里仅作简单介绍：
 
 #### 8.2.1 并行迭代
 
-有时候，你可能想同时迭代两个序列。假设有两个列表如下：
+​		有时候，你可能想同时迭代两个序列。假设有两个列表如下：
 
 ```
 name = ['anne','beth','george','damon']
 ages = [12,45,32,102]
 ```
 
-如何打印对应的名称和年龄，目前能做到的方法如下所示：
+​		如何打印对应的名称和年龄，目前能做到的方法如下所示：
 
 ```powershell
 >>> for i in range(len(name)):
@@ -408,7 +408,7 @@ ages = [12,45,32,102]
 [('anne', 12), ('beth', 45), ('george', 32), ('damon', 102)]
 ```
 
-而缝合之后，可在循环中将元组解包：
+​		而缝合之后，可在循环中将元组解包：
 
 ```powershell
 >>> for name,age in zip(name,ages):
@@ -444,7 +444,7 @@ for string in strings:
 	index += 1
 ```
 
-这种解决方案虽然可以接受，但看起来也有点笨拙，还有一种解决方案是使用内置函数enumerate：
+​		这种解决方案虽然可以接受，但看起来也有点笨拙，还有一种解决方案是使用内置函数enumerate：
 
 ```python
 for index,string in enumerate(strings):
@@ -456,7 +456,7 @@ for index,string in enumerate(strings):
 
 #### 8.2.3 反向迭代和排序后迭代
 
-这里介绍另外两个很有用的函数：reversed和sorted。它们类似于列表方法reverse和sort，但是可用于任何序列和可迭代的对象，且不立刻修改对象，而是返回反转和排序后的版本。
+​		这里介绍另外两个很有用的函数：reversed和sorted。它们类似于列表方法reverse和sort，但是可用于任何序列和可迭代的对象，且不立刻修改对象，而是返回反转和排序后的版本。
 
 ```powershell
 >>> sorted([4,3,6,8,3])
@@ -473,7 +473,7 @@ for index,string in enumerate(strings):
 
 ​		请注意，sorted返回一个列表，而reversed则像zip那样返回一个更神秘的可迭代对象。你无需关心这意味着什么，只管在for循环或join等方法中使用它。而不会有任何问题。只是你不能对它进行索引或切片操作，也不能对它调用列表的方法。如果想要执行这些方法，则需要先使用list对返回的对象进行转换。
 
-要按照字母排序，可先转换为小写。为此，可将sort或sorted的key参数设置为str.lower。例如：
+​		要按照字母排序，可先转换为小写。为此，可将sort或sorted的key参数设置为str.lower。例如：
 
 ```powershell
 >>> sorted('aBc',key = str.lower)
@@ -484,27 +484,27 @@ for index,string in enumerate(strings):
 
 ## 9. 三人行
 
-这里大致讲一下另外三条语句：pass，del和exec。
+​		这里大致讲一下另外三条语句：pass，del和exec。
 
 ### 9.1 什么都不做
 
-Python pass是空语句，是为了保持程序结构的完整性（Python中代码块不能为空）。
+​		Python pass是空语句，是为了保持程序结构的完整性（Python中代码块不能为空）。
 
-pass 不做任何事情，一般用做占位语句，如下实例
+​		pass 不做任何事情，一般用做占位语句，如下实例
 
 ```powershell
 >>>while True:      
 	pass  # 等待键盘中断 (Ctrl+C)
 ```
 
-最小的类:
+​		最小的类:
 
 ```
 >>>class MyEmptyClass:      
 	pass
 ```
 
-以下实例在字母为 o 时 执行 pass 语句块:
+​		以下实例在字母为 o 时 执行 pass 语句块:
 
 ```python
 #!/usr/bin/python3   
@@ -517,7 +517,7 @@ for letter in 'Runoob':
 print ("Good bye!")
 ```
 
-执行以上脚本输出结果为：
+​		执行以上脚本输出结果为：
 
 ```
 当前字母 : R
@@ -533,7 +533,7 @@ Good bye!
 
 ### 9.2 使用del删除
 
-对于你不再使用的对象，Python通常会将其删除（因为没有任何变量和1数据结构成员指向它）。
+​		对于你不再使用的对象，Python通常会将其删除（因为没有任何变量和1数据结构成员指向它）。
 
 ```powershell
 >>> scoundrel = {'age':42,'first name':'Robin','last name':'of Locksley'}
@@ -554,7 +554,7 @@ Good bye!
 
 ### 9.3 使用exec和eval执行字符串及计算其结果
 
-有时候，你可能想动态的编写Python代码，并将其作为语句进行执行或作为表达式进行计算。
+​		有时候，你可能想动态的编写Python代码，并将其作为语句进行执行或作为表达式进行计算。
 
 #### 9.3.1 exec
 
@@ -607,7 +607,7 @@ Enter an arithmetic expression:6 + 18 * 2
 42
 ```
 
-与exec一样，eval可以提供一个命名空间，虽然表达式通常不会像语句那样给变量重新赋值
+​		与exec一样，eval可以提供一个命名空间，虽然表达式通常不会像语句那样给变量重新赋值
 
 ## 10. 简单推导
 
