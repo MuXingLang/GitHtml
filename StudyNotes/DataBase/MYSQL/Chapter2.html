@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MySQL · 学习笔记</title>
+        <title>第二章：数据类型 · 学习笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -85,10 +85,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Chapter1.html" />
+    <link rel="next" href="Chapter3.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="Chapter1.html" />
     
 
     </head>
@@ -598,7 +598,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="./">
+        <li class="chapter " data-level="1.4.1" data-path="./">
             
                 <a href="./">
             
@@ -625,7 +625,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="Chapter2.html">
+        <li class="chapter active" data-level="1.4.1.2" data-path="Chapter2.html">
             
                 <a href="Chapter2.html">
             
@@ -931,7 +931,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >MySQL</a>
+        <a href="../.." >第二章：数据类型</a>
     </h1>
 </div>
 
@@ -946,19 +946,215 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mysql">MYSQL</h1>
-<p>&#x200B;        MySQL&#x662F;&#x4E00;&#x4E2A;<strong>&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;</strong>&#xFF0C;&#x7531;&#x745E;&#x5178;MySQL AB &#x516C;&#x53F8;&#x5F00;&#x53D1;&#xFF0C;&#x76EE;&#x524D;&#x5C5E;&#x4E8E; Oracle &#x65D7;&#x4E0B;&#x4EA7;&#x54C1;&#x3002;MySQL &#x662F;&#x6700;&#x6D41;&#x884C;&#x7684;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x4E4B;&#x4E00;&#xFF0C;&#x5728; WEB &#x5E94;&#x7528;&#x65B9;&#x9762;&#xFF0C;MySQL&#x662F;&#x6700;&#x597D;&#x7684; <strong>RDBMS</strong> (Relational Database Management System&#xFF0C;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;) &#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#x4E4B;&#x4E00;&#x3002;
-&#x200B;        MySQL&#x662F;&#x4E00;&#x79CD;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#xFF0C;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8868;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5C06;&#x6240;&#x6709;&#x6570;&#x636E;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x5927;&#x4ED3;&#x5E93;&#x5185;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x589E;&#x52A0;&#x4E86;&#x901F;&#x5EA6;&#x5E76;&#x63D0;&#x9AD8;&#x4E86;&#x7075;&#x6D3B;&#x6027;&#x3002;
-&#x200B;        MySQL&#x6240;&#x4F7F;&#x7528;&#x7684; SQL &#x8BED;&#x8A00;&#x662F;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6700;&#x5E38;&#x7528;&#x6807;&#x51C6;&#x5316;&#x8BED;&#x8A00;&#x3002;MySQL &#x8F6F;&#x4EF6;&#x91C7;&#x7528;&#x4E86;&#x53CC;&#x6388;&#x6743;&#x653F;&#x7B56;&#xFF0C;&#x5206;&#x4E3A;<strong>&#x793E;&#x533A;&#x7248;</strong>&#x548C;<strong>&#x5546;&#x4E1A;&#x7248;</strong>&#xFF0C;&#x7531;&#x4E8E;&#x5176;&#x4F53;&#x79EF;&#x5C0F;&#x3001;&#x901F;&#x5EA6;&#x5FEB;&#x3001;&#x603B;&#x4F53;&#x62E5;&#x6709;&#x6210;&#x672C;&#x4F4E;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5F00;&#x653E;&#x6E90;&#x7801;&#x8FD9;&#x4E00;&#x7279;&#x70B9;&#xFF0C;&#x4E00;&#x822C;&#x4E2D;&#x5C0F;&#x578B;&#x7F51;&#x7AD9;&#x7684;&#x5F00;&#x53D1;&#x90FD;&#x9009;&#x62E9; MySQL &#x4F5C;&#x4E3A;&#x7F51;&#x7AD9;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x6570;&#x636E;&#x7C7B;&#x578B;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
 <ul>
-<li>MySQL &#x662F;&#x5F00;&#x6E90;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x652F;&#x4ED8;&#x989D;&#x5916;&#x7684;&#x8D39;&#x7528;&#x3002;</li>
-<li>MySQL &#x652F;&#x6301;&#x5927;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x62E5;&#x6709;&#x4E0A;&#x5343;&#x4E07;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x5927;&#x578B;&#x6570;&#x636E;&#x5E93;&#x3002;</li>
-<li>MySQL &#x4F7F;&#x7528;&#x6807;&#x51C6;&#x7684; SQL &#x6570;&#x636E;&#x8BED;&#x8A00;&#x5F62;&#x5F0F;&#x3002;</li>
-<li>MySQL &#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x4E8E;&#x591A;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301;&#x591A;&#x79CD;&#x8BED;&#x8A00;&#x3002;&#x8FD9;&#x4E9B;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x5305;&#x62EC; C&#x3001;C++&#x3001;<a href="../../GLOSSARY.html#python" class="glossary-term" title="&#x200B;        Python&#x662F;&#x4E00;&#x79CD;&#x8DE8;&#x5E73;&#x53F0;&#x3001;&#x89E3;&#x91CA;&#x578B;&#x3001;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x3001;&#x52A8;&#x6001;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x3002;&#x662F;&#x4E00;&#x79CD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#xFF0C;&#x6700;&#x521D;&#x88AB;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x81EA;&#x52A8;&#x5316;&#x811A;&#x672C;(shell)&#xFF0C;&#x968F;&#x7740;&#x7248;&#x672C;&#x7684;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x548C;&#x8BED;&#x8A00;&#x65B0;&#x529F;&#x80FD;&#x7684;&#x6DFB;&#x52A0;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x88AB;&#x7528;&#x4E8E;&#x72EC;&#x7ACB;&#x7684;&#x3001;&#x5927;&#x578B;&#x9879;&#x76EE;&#x7684;&#x5F00;&#x53D1;&#x3002;&#x7531; Guido van Rossum &#x4E8E; 1989 &#x5E74;&#x5E95;&#x53D1;&#x660E;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x516C;&#x5F00;&#x53D1;&#x884C;&#x7248;&#x53D1;&#x884C;&#x4E8E; 1991 &#x5E74;&#x3002;">Python</a>&#x3001;<a href="../../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a>&#x3001;Perl&#x3001;PHP&#x3001;Eiffel&#x3001;Ruby &#x548C; Tcl &#x7B49;&#x3002;</li>
-<li>MySQL &#x5BF9;PHP&#x6709;&#x5F88;&#x597D;&#x7684;&#x652F;&#x6301;&#xFF0C;PHP &#x662F;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x7684; Web &#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x3002;</li>
-<li>MySQL &#x652F;&#x6301;&#x5927;&#x578B;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x652F;&#x6301; 5000 &#x4E07;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#x4ED3;&#x5E93;&#xFF0C;32 &#x4F4D;&#x7CFB;&#x7EDF;&#x8868;&#x6587;&#x4EF6;&#x6700;&#x5927;&#x53EF;&#x652F;&#x6301; 4GB&#xFF0C;64 &#x4F4D;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x6700;&#x5927;&#x7684;&#x8868;&#x6587;&#x4EF6;&#x4E3A;8TB&#x3002;</li>
-<li>MySQL &#x662F;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x7684;&#xFF0C;&#x91C7;&#x7528;&#x4E86; GPL &#x534F;&#x8BAE;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x6E90;&#x7801;&#x6765;&#x5F00;&#x53D1;&#x81EA;&#x5DF1;&#x7684; MySQL &#x7CFB;&#x7EDF;&#x3002; </li>
+<li><div><a href="#1-&#x6570;&#x503C;&#x7C7B;&#x578B;">1. &#x6570;&#x503C;&#x7C7B;&#x578B;</a><i></i></div></li>
+<li><div><a href="#2-&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;">2. &#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;</a><i></i></div></li>
+<li><div><a href="#3-&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;">3. &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</a><i></i></div></li>
+</ul></li>
 </ul>
+</div>
+
+<h1 id="&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x6570;&#x636E;&#x7C7B;&#x578B;</h1>
+<p>&#x200B;        MySQL&#x4E2D;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x7684;&#x7C7B;&#x578B;&#x5BF9;&#x4F60;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4F18;&#x5316;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002; </p>
+<pre><code>     MySQL&#x652F;&#x6301;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x5927;&#x81F4;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E09;&#x7C7B;&#xFF1A;&#x6570;&#x503C;&#x3001;&#x65E5;&#x671F;/&#x65F6;&#x95F4;&#x548C;&#x5B57;&#x7B26;&#x4E32;(&#x5B57;&#x7B26;)&#x7C7B;&#x578B;&#x3002; 
+</code></pre><h2 id="1-&#x6570;&#x503C;&#x7C7B;&#x578B;">1. &#x6570;&#x503C;&#x7C7B;&#x578B;</h2>
+<p>&#x200B;        MySQL&#x652F;&#x6301;&#x6240;&#x6709;&#x6807;&#x51C6;SQL&#x6570;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x200B;        &#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x5305;&#x62EC;&#x4E25;&#x683C;&#x6570;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;(<strong>INTEGER</strong>&#x3001;<strong>SMALLINT</strong>&#x3001;<strong>DECIMAL</strong>&#x548C;<strong>NUMERIC</strong>)&#xFF0C;&#x4EE5;&#x53CA;&#x8FD1;&#x4F3C;&#x6570;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;(<strong>FLOAT</strong>&#x3001;<strong>REAL</strong>&#x548C;<strong>DOUBLE PRECISION</strong>)&#x3002;</p>
+<p>&#x200B;        &#x5173;&#x952E;&#x5B57;<strong>INT</strong>&#x662F;<strong>INTEGER</strong>&#x7684;&#x540C;&#x4E49;&#x8BCD;&#xFF0C;&#x5173;&#x952E;&#x5B57;<strong>DEC</strong>&#x662F;<strong>DECIMAL</strong>&#x7684;&#x540C;&#x4E49;&#x8BCD;&#x3002;</p>
+<p>&#x200B;         <strong>BIT</strong>&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4FDD;&#x5B58;&#x4F4D;&#x5B57;&#x6BB5;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301;<strong>MyISAM</strong>&#x3001;<strong>MEMORY</strong>&#x3001;<strong>InnoDB</strong>&#x548C;<strong>BDB</strong>&#x8868;&#x3002; </p>
+<pre><code>     &#x4F5C;&#x4E3A;SQL&#x6807;&#x51C6;&#x7684;&#x6269;&#x5C55;&#xFF0C;MySQL&#x4E5F;&#x652F;&#x6301;&#x6574;&#x6570;&#x7C7B;&#x578B;**TINYINT**&#x3001;**MEDIUMINT**&#x548C;**BIGINT**&#x3002;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x663E;&#x793A;&#x4E86;&#x9700;&#x8981;&#x7684;&#x6BCF;&#x4E2A;&#x6574;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x5B58;&#x50A8;&#x548C;&#x8303;&#x56F4;&#x3002; 
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x5927;&#x5C0F;</th>
+<th style="text-align:left">&#x8303;&#x56F4;&#xFF08;&#x6709;&#x7B26;&#x53F7;&#xFF09;</th>
+<th style="text-align:left">&#x8303;&#x56F4;&#xFF08;&#x65E0;&#x7B26;&#x53F7;&#xFF09;</th>
+<th style="text-align:left">&#x7528;&#x9014;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TINYINT</td>
+<td style="text-align:left">1 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-128&#xFF0C;127)</td>
+<td style="text-align:left">(0&#xFF0C;255)</td>
+<td style="text-align:left">&#x5C0F;&#x6574;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">SMALLINT</td>
+<td style="text-align:left">2 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-32 768&#xFF0C;32 767)</td>
+<td style="text-align:left">(0&#xFF0C;65 535)</td>
+<td style="text-align:left">&#x5927;&#x6574;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMINT</td>
+<td style="text-align:left">3 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-8 388 608&#xFF0C;8 388 607)</td>
+<td style="text-align:left">(0&#xFF0C;16 777 215)</td>
+<td style="text-align:left">&#x5927;&#x6574;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">INT&#x6216;INTEGER</td>
+<td style="text-align:left">4 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-2 147 483 648&#xFF0C;2 147 483 647)</td>
+<td style="text-align:left">(0&#xFF0C;4 294 967 295)</td>
+<td style="text-align:left">&#x5927;&#x6574;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">BIGINT</td>
+<td style="text-align:left">8 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-9,223,372,036,854,775,808&#xFF0C;9 223 372 036 854 775 807)</td>
+<td style="text-align:left">(0&#xFF0C;18 446 744 073 709 551 615)</td>
+<td style="text-align:left">&#x6781;&#x5927;&#x6574;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">FLOAT</td>
+<td style="text-align:left">4 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-3.402 823 466 E+38&#xFF0C;-1.175 494 351 E-38)&#xFF0C;0&#xFF0C;(1.175 494 351 E-38&#xFF0C;3.402 823 466 351 E+38)</td>
+<td style="text-align:left">0&#xFF0C;(1.175 494 351 E-38&#xFF0C;3.402 823 466 E+38)</td>
+<td style="text-align:left">&#x5355;&#x7CBE;&#x5EA6; &#x6D6E;&#x70B9;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLE</td>
+<td style="text-align:left">8 &#x5B57;&#x8282;</td>
+<td style="text-align:left">(-1.797 693 134 862 315 7 E+308&#xFF0C;-2.225 073 858 507 201 4 E-308)&#xFF0C;0&#xFF0C;(2.225 073 858 507 201 4 E-308&#xFF0C;1.797 693 134 862 315 7 E+308)</td>
+<td style="text-align:left">0&#xFF0C;(2.225 073 858 507 201 4 E-308&#xFF0C;1.797 693 134 862 315 7 E+308)</td>
+<td style="text-align:left">&#x53CC;&#x7CBE;&#x5EA6; &#x6D6E;&#x70B9;&#x6570;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">DECIMAL</td>
+<td style="text-align:left">&#x5BF9;DECIMAL(M,D) &#xFF0C;&#x5982;&#x679C;M&gt;D&#xFF0C;&#x4E3A;M+2&#x5426;&#x5219;&#x4E3A;D+2</td>
+<td style="text-align:left">&#x4F9D;&#x8D56;&#x4E8E;M&#x548C;D&#x7684;&#x503C;</td>
+<td style="text-align:left">&#x4F9D;&#x8D56;&#x4E8E;M&#x548C;D&#x7684;&#x503C;</td>
+<td style="text-align:left">&#x5C0F;&#x6570;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;">2. &#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;</h2>
+<p>&#x200B;        &#x8868;&#x793A;&#x65F6;&#x95F4;&#x503C;&#x7684;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E3A;<strong>DATETIME</strong>&#x3001;<strong>DATE</strong>&#x3001;<strong>TIMESTAMP</strong>&#x3001;<strong>TIME</strong>&#x548C;<strong>YEAR</strong>&#x3002;</p>
+<pre><code>     &#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x6709;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x503C;&#x8303;&#x56F4;&#x548C;&#x4E00;&#x4E2A;&quot;&#x96F6;&quot;&#x503C;&#xFF0C;&#x5F53;&#x6307;&#x5B9A;&#x4E0D;&#x5408;&#x6CD5;&#x7684;MySql&#x4E0D;&#x80FD;&#x8868;&#x793A;&#x7684;&#x503C;&#x65F6;&#x4F7F;&#x7528;&quot;&#x96F6;&quot;&#x503C;&#x3002;
+
+     **TIMESTAMP**&#x7C7B;&#x578B;&#x6709;&#x4E13;&#x6709;&#x7684;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x7279;&#x6027;&#xFF0C;&#x5C06;&#x5728;&#x540E;&#x9762;&#x63CF;&#x8FF0;&#x3002;
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x5927;&#x5C0F; (&#x5B57;&#x8282;)</th>
+<th style="text-align:left">&#x8303;&#x56F4;</th>
+<th style="text-align:left">&#x683C;&#x5F0F;</th>
+<th style="text-align:left">&#x7528;&#x9014;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1000-01-01/9999-12-31</td>
+<td style="text-align:left">YYYY-MM-DD</td>
+<td style="text-align:left">&#x65E5;&#x671F;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">&apos;-838:59:59&apos;/&apos;838:59:59&apos;</td>
+<td style="text-align:left">HH:MM:SS</td>
+<td style="text-align:left">&#x65F6;&#x95F4;&#x503C;&#x6216;&#x6301;&#x7EED;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1901/2155</td>
+<td style="text-align:left">YYYY</td>
+<td style="text-align:left">&#x5E74;&#x4EFD;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">DATETIME</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td style="text-align:left">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:left">&#x6DF7;&#x5408;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">1970-01-01 00:00:00/2038   &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x662F;&#x7B2C; <strong>2147483647</strong> &#x79D2;&#xFF0C;&#x5317;&#x4EAC;&#x65F6;&#x95F4; <strong>2038-1-19 11:14:07</strong>&#xFF0C;&#x683C;&#x6797;&#x5C3C;&#x6CBB;&#x65F6;&#x95F4; 2038&#x5E74;1&#x6708;19&#x65E5; &#x51CC;&#x6668; 03:14:07</td>
+<td style="text-align:left">YYYYMMDD HHMMSS</td>
+<td style="text-align:left">&#x6DF7;&#x5408;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x503C;&#xFF0C;&#x65F6;&#x95F4;&#x6233;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;">3. &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</h2>
+<pre><code>     &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x6307;**CHAR**&#x3001;**VARCHAR**&#x3001;**BINARY**&#x3001;**VARBINARY**&#x3001;**BLOB**&#x3001;**TEXT**&#x3001;**ENUM**&#x548C;**SET**&#x3002;&#x8BE5;&#x8282;&#x63CF;&#x8FF0;&#x4E86;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5728;&#x67E5;&#x8BE2;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x3002; 
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x5927;&#x5C0F;</th>
+<th style="text-align:left">&#x7528;&#x9014;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR</td>
+<td style="text-align:left">0-255&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x5B9A;&#x957F;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR</td>
+<td style="text-align:left">0-65535 &#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x53D8;&#x957F;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYBLOB</td>
+<td style="text-align:left">0-255&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x4E0D;&#x8D85;&#x8FC7; 255 &#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYTEXT</td>
+<td style="text-align:left">0-255&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x77ED;&#x6587;&#x672C;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">BLOB</td>
+<td style="text-align:left">0-65 535&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#x7684;&#x957F;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">0-65 535&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x957F;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMBLOB</td>
+<td style="text-align:left">0-16 777 215&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#x7684;&#x4E2D;&#x7B49;&#x957F;&#x5EA6;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMTEXT</td>
+<td style="text-align:left">0-16 777 215&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x4E2D;&#x7B49;&#x957F;&#x5EA6;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGBLOB</td>
+<td style="text-align:left">0-4 294 967 295&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#x7684;&#x6781;&#x5927;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGTEXT</td>
+<td style="text-align:left">0-4 294 967 295&#x5B57;&#x8282;</td>
+<td style="text-align:left">&#x6781;&#x5927;&#x6587;&#x672C;&#x6570;&#x636E;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x200B;        <strong>CHAR</strong> &#x548C; <strong>VARCHAR</strong> &#x7C7B;&#x578B;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x5B83;&#x4EEC;&#x4FDD;&#x5B58;&#x548C;&#x68C0;&#x7D22;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x548C;&#x662F;&#x5426;&#x5C3E;&#x90E8;&#x7A7A;&#x683C;&#x88AB;&#x4FDD;&#x7559;&#x7B49;&#x65B9;&#x9762;&#x4E5F;&#x4E0D;&#x540C;&#x3002;&#x5728;&#x5B58;&#x50A8;&#x6216;&#x68C0;&#x7D22;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x8FDB;&#x884C;&#x5927;&#x5C0F;&#x5199;&#x8F6C;&#x6362;&#x3002;</p>
+<pre><code>     **BINARY** &#x548C; **VARBINARY** &#x7C7B;&#x4F3C;&#x4E8E; **CHAR** &#x548C; **VARCHAR**&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x5B83;&#x4EEC;&#x5305;&#x542B;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x8981;&#x975E;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5B83;&#x4EEC;&#x5305;&#x542B;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x8FD9;&#x8BF4;&#x660E;&#x5B83;&#x4EEC;&#x6CA1;&#x6709;&#x5B57;&#x7B26;&#x96C6;&#xFF0C;&#x5E76;&#x4E14;&#x6392;&#x5E8F;&#x548C;&#x6BD4;&#x8F83;&#x57FA;&#x4E8E;&#x5217;&#x503C;&#x5B57;&#x8282;&#x7684;&#x6570;&#x503C;&#x503C;&#x3002;
+
+     **BLOB** &#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x5927;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;&#x53EF;&#x53D8;&#x6570;&#x91CF;&#x7684;&#x6570;&#x636E;&#x3002;&#x6709; 4 &#x79CD; **BLOB** &#x7C7B;&#x578B;&#xFF1A;**TINYBLOB**&#x3001;**BLOB**&#x3001;**MEDIUMBLOB** &#x548C; **LONGBLOB**&#x3002;&#x5B83;&#x4EEC;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x53EF;&#x5BB9;&#x7EB3;&#x5B58;&#x50A8;&#x8303;&#x56F4;&#x4E0D;&#x540C;&#x3002; 
+</code></pre><p>&#x200B;        &#x6709; 4 &#x79CD; TEXT &#x7C7B;&#x578B;&#xFF1A;<strong>TINYTEXT</strong>&#x3001;<strong>TEXT</strong>&#x3001;<strong>MEDIUMTEXT</strong> &#x548C; <strong>LONGTEXT</strong>&#x3002;&#x5BF9;&#x5E94;&#x7684;&#x8FD9; 4 &#x79CD; <strong>BLOB</strong> &#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x5B58;&#x50A8;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E0D;&#x540C;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x9009;&#x62E9;&#x3002;  </p>
 <footer class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal" style="color: #000 !important;">MU_zjm<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal" style="color: #000 !important;">Designer, Developer &amp; overall web enthusiast</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MU_zjm all right reserved, powered by MU_zjm!</p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">created by MU_zjm</span>
 2019-08-28 12:00:00
 </p></div></div></div><div class="box__issues">
@@ -990,12 +1186,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 数据库基础">
+                <a href="Chapter1.html" class="navigation navigation-prev " aria-label="Previous page: 第一章：基础知识">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Chapter1.html" class="navigation navigation-next " aria-label="Next page: 第一章：基础知识">
+                <a href="Chapter3.html" class="navigation navigation-next " aria-label="Next page: 第三章：数据库操作">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1006,7 +1202,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.4.1","depth":2,"next":{"title":"第一章：基础知识","level":"1.4.1.1","depth":3,"path":"DataBase/MySQL/Chapter1.md","ref":"DataBase/MySQL/Chapter1.md","articles":[]},"previous":{"title":"数据库基础","level":"1.4","depth":1,"path":"DataBase/README.md","ref":"DataBase/README.md","articles":[{"title":"MySQL","level":"1.4.1","depth":2,"path":"DataBase/MySQL/README.md","ref":"DataBase/MySQL/README.md","articles":[{"title":"第一章：基础知识","level":"1.4.1.1","depth":3,"path":"DataBase/MySQL/Chapter1.md","ref":"DataBase/MySQL/Chapter1.md","articles":[]},{"title":"第二章：数据类型","level":"1.4.1.2","depth":3,"path":"DataBase/MySQL/Chapter2.md","ref":"DataBase/MySQL/Chapter2.md","articles":[]},{"title":"第三章：数据库操作","level":"1.4.1.3","depth":3,"path":"DataBase/MySQL/Chapter3.md","ref":"DataBase/MySQL/Chapter3.md","articles":[]},{"title":"第四章：数据表操作","level":"1.4.1.4","depth":3,"path":"DataBase/MySQL/Chapter4.md","ref":"DataBase/MySQL/Chapter4.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"DataBase/MySQL/README.md","mtime":"2019-09-21T04:12:21.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T06:54:31.419Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第二章：数据类型","level":"1.4.1.2","depth":3,"next":{"title":"第三章：数据库操作","level":"1.4.1.3","depth":3,"path":"DataBase/MySQL/Chapter3.md","ref":"DataBase/MySQL/Chapter3.md","articles":[]},"previous":{"title":"第一章：基础知识","level":"1.4.1.1","depth":3,"path":"DataBase/MySQL/Chapter1.md","ref":"DataBase/MySQL/Chapter1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"DataBase/MySQL/Chapter2.md","mtime":"2019-09-21T06:28:18.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T06:54:31.419Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -598,12 +598,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../DataBase/MYSQL/">
+        <li class="chapter " data-level="1.4.1" data-path="../DataBase/MySQL/">
             
-                <a href="../DataBase/MYSQL/">
+                <a href="../DataBase/MySQL/">
             
                     
-                    MYSQL
+                    MySQL
             
                 </a>
             
@@ -612,12 +612,51 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="../DataBase/MYSQL/Chapter1.html">
+        <li class="chapter " data-level="1.4.1.1" data-path="../DataBase/MySQL/Chapter1.html">
             
-                <a href="../DataBase/MYSQL/Chapter1.html">
+                <a href="../DataBase/MySQL/Chapter1.html">
             
                     
                     第一章：基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../DataBase/MySQL/Chapter2.html">
+            
+                <a href="../DataBase/MySQL/Chapter2.html">
+            
+                    
+                    第二章：数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../DataBase/MySQL/Chapter3.html">
+            
+                <a href="../DataBase/MySQL/Chapter3.html">
+            
+                    
+                    第三章：数据库操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../DataBase/MySQL/Chapter4.html">
+            
+                <a href="../DataBase/MySQL/Chapter4.html">
+            
+                    
+                    第四章：数据表操作
             
                 </a>
             
@@ -907,15 +946,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;stringbuffer--stringbuilder">&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;StringBuffer &amp; StringBuilder</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li><div><a href="#1-stringbuffer-&#x65B9;&#x6CD5;">1. StringBuffer &#x65B9;&#x6CD5;</a><i></i></div></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;stringbuffer--stringbuilder">&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;StringBuffer &amp; StringBuilder</h1>
+                                <h1 id="&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;stringbuffer--stringbuilder">&#x7B2C;&#x5341;&#x4E09;&#x7AE0;&#xFF1A;StringBuffer &amp; StringBuilder</h1>
 <p>&#x200B;        &#x5F53;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528; StringBuffer &#x548C; StringBuilder &#x7C7B;&#x3002; </p>
 <p>&#x200B;        &#x548C; String &#x7C7B;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;StringBuffer &#x548C; StringBuilder &#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x80FD;&#x591F;&#x88AB;&#x591A;&#x6B21;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4EA7;&#x751F;&#x65B0;&#x7684;&#x672A;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x3002; </p>
 <p>&#x200B;        StringBuilder &#x7C7B;&#x5728; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> 5 &#x4E2D;&#x88AB;&#x63D0;&#x51FA;&#xFF0C;&#x5B83;&#x548C; StringBuffer &#x4E4B;&#x95F4;&#x7684;&#x6700;&#x5927;&#x4E0D;&#x540C;&#x5728;&#x4E8E; StringBuilder &#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF08;&#x4E0D;&#x80FD;&#x540C;&#x6B65;&#x8BBF;&#x95EE;&#xFF09;&#x3002; </p>
@@ -1104,7 +1135,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第十三章：StringBuffer & StringBuilder","level":"1.2.13","depth":2,"next":{"title":"第十四章：数组","level":"1.2.14","depth":2,"path":"Java/Chapter14.md","ref":"Java/Chapter14.md","articles":[]},"previous":{"title":"第十二章：String 类","level":"1.2.12","depth":2,"path":"Java/Chapter12.md","ref":"Java/Chapter12.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Java/Chapter13.md","mtime":"2019-09-20T08:48:31.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-20T10:58:44.498Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第十三章：StringBuffer & StringBuilder","level":"1.2.13","depth":2,"next":{"title":"第十四章：数组","level":"1.2.14","depth":2,"path":"Java/Chapter14.md","ref":"Java/Chapter14.md","articles":[]},"previous":{"title":"第十二章：String 类","level":"1.2.12","depth":2,"path":"Java/Chapter12.md","ref":"Java/Chapter12.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Java/Chapter13.md","mtime":"2019-09-21T03:48:03.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T06:54:31.419Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
