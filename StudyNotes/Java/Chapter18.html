@@ -1,0 +1,1466 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第十八章：异常处理 · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="MU_zjm">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-copyright/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Git/" />
+    
+    
+    <link rel="prev" href="Chapter17.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Chapter1.html">
+            
+                <a href="Chapter1.html">
+            
+                    
+                    第一章：基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Chapter2.html">
+            
+                <a href="Chapter2.html">
+            
+                    
+                    第二章：基础语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Chapter3.html">
+            
+                <a href="Chapter3.html">
+            
+                    
+                    第三章：对象和类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="Chapter4.html">
+            
+                <a href="Chapter4.html">
+            
+                    
+                    第四章：基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Chapter5.html">
+            
+                <a href="Chapter5.html">
+            
+                    
+                    第五章：变量类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="Chapter6.html">
+            
+                <a href="Chapter6.html">
+            
+                    
+                    第六章：修饰符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Chapter7.html">
+            
+                <a href="Chapter7.html">
+            
+                    
+                    第七章：运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Chapter8.html">
+            
+                <a href="Chapter8.html">
+            
+                    
+                    第八章：循环结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="Chapter9.html">
+            
+                <a href="Chapter9.html">
+            
+                    
+                    第九章：条件语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="Chapter10.html">
+            
+                <a href="Chapter10.html">
+            
+                    
+                    第十章：Number & Math 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Chapter11.html">
+            
+                <a href="Chapter11.html">
+            
+                    
+                    第十一章：Character 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="Chapter12.html">
+            
+                <a href="Chapter12.html">
+            
+                    
+                    第十二章：String 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="Chapter13.html">
+            
+                <a href="Chapter13.html">
+            
+                    
+                    第十三章：StringBuffer & StringBuilder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="Chapter14.html">
+            
+                <a href="Chapter14.html">
+            
+                    
+                    第十四章：数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="Chapter15.html">
+            
+                <a href="Chapter15.html">
+            
+                    
+                    第十五章：日期时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="Chapter16.html">
+            
+                <a href="Chapter16.html">
+            
+                    
+                    第十六章：正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="Chapter17.html">
+            
+                <a href="Chapter17.html">
+            
+                    
+                    第十七章：文件和流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.18" data-path="Chapter18.html">
+            
+                <a href="Chapter18.html">
+            
+                    
+                    第十八章：异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Git/">
+            
+                <a href="../Git/">
+            
+                    
+                    Git基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Git/Chapter1.html">
+            
+                <a href="../Git/Chapter1.html">
+            
+                    
+                    第一章：安装Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Git/Chapter2.html">
+            
+                <a href="../Git/Chapter2.html">
+            
+                    
+                    第二章：配置Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Git/Chapter3.html">
+            
+                <a href="../Git/Chapter3.html">
+            
+                    
+                    第三章：Git使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Git/Chapter4.html">
+            
+                <a href="../Git/Chapter4.html">
+            
+                    
+                    第四章：Git分支
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Git/Chapter5.html">
+            
+                <a href="../Git/Chapter5.html">
+            
+                    
+                    第五章：服务器上的Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Git/Chapter6.html">
+            
+                <a href="../Git/Chapter6.html">
+            
+                    
+                    第六章：分布式Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Git/Chapter7.html">
+            
+                <a href="../Git/Chapter7.html">
+            
+                    
+                    第七章：GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Git/Chapter8.html">
+            
+                <a href="../Git/Chapter8.html">
+            
+                    
+                    第八章：Git工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Git/Chapter9.html">
+            
+                <a href="../Git/Chapter9.html">
+            
+                    
+                    第九章：自定义Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Git/Chapter10.html">
+            
+                <a href="../Git/Chapter10.html">
+            
+                    
+                    第十章：Git与其他系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Git/Chapter11.html">
+            
+                <a href="../Git/Chapter11.html">
+            
+                    
+                    第十一章：Git内部原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Git/AppendixA.html">
+            
+                <a href="../Git/AppendixA.html">
+            
+                    
+                    附录A：其他环境中的Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Git/AppendixB.html">
+            
+                <a href="../Git/AppendixB.html">
+            
+                    
+                    附录B：将Git嵌入你的系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../Git/AppendixC.html">
+            
+                <a href="../Git/AppendixC.html">
+            
+                    
+                    附录C：Git命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../DataBase/">
+            
+                <a href="../DataBase/">
+            
+                    
+                    数据库基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../DataBase/MYSQL/">
+            
+                <a href="../DataBase/MYSQL/">
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../DataBase/MYSQL/Chapter1.html">
+            
+                <a href="../DataBase/MYSQL/Chapter1.html">
+            
+                    
+                    第一章：基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Python/">
+            
+                <a href="../Python/">
+            
+                    
+                    Python基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Python/Chapter1.html">
+            
+                <a href="../Python/Chapter1.html">
+            
+                    
+                    第一章：基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Python/Chapter2.html">
+            
+                <a href="../Python/Chapter2.html">
+            
+                    
+                    第二章：数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Python/Chapter3.html">
+            
+                <a href="../Python/Chapter3.html">
+            
+                    
+                    第三章：运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Python/Chapter4.html">
+            
+                <a href="../Python/Chapter4.html">
+            
+                    
+                    第四章：数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Python/Chapter5.html">
+            
+                <a href="../Python/Chapter5.html">
+            
+                    
+                    第五章：字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../Python/Chapter6.html">
+            
+                <a href="../Python/Chapter6.html">
+            
+                    
+                    第六章：列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../Python/Chapter7.html">
+            
+                <a href="../Python/Chapter7.html">
+            
+                    
+                    第七章：元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../Python/Chapter8.html">
+            
+                <a href="../Python/Chapter8.html">
+            
+                    
+                    第八章：字典
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../Python/Chapter9.html">
+            
+                <a href="../Python/Chapter9.html">
+            
+                    
+                    第九章：集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../Python/Chapter10.html">
+            
+                <a href="../Python/Chapter10.html">
+            
+                    
+                    第十章：条件控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../Python/Chapter11.html">
+            
+                <a href="../Python/Chapter11.html">
+            
+                    
+                    第十一章：循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../Python/Chapter12.html">
+            
+                <a href="../Python/Chapter12.html">
+            
+                    
+                    第十二章：迭代器和生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../Python/Chapter13.html">
+            
+                <a href="../Python/Chapter13.html">
+            
+                    
+                    第十三章：抽象和函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../Python/Chapter14.html">
+            
+                <a href="../Python/Chapter14.html">
+            
+                    
+                    第十四章：抽象和对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../Python/Chapter15.html">
+            
+                <a href="../Python/Chapter15.html">
+            
+                    
+                    第十五章：异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../Python/Chapter16.html">
+            
+                <a href="../Python/Chapter16.html">
+            
+                    
+                    第十六章：开箱即用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第十八章：异常处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#&#x7B2C;&#x5341;&#x516B;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;&#x5904;&#x7406;">&#x7B2C;&#x5341;&#x516B;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;&#x5904;&#x7406;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#1-exception-&#x7C7B;&#x7684;&#x5C42;&#x6B21;">1. Exception &#x7C7B;&#x7684;&#x5C42;&#x6B21;</a><i></i></div></li>
+<li><div><a href="#2-java-&#x5185;&#x7F6E;&#x5F02;&#x5E38;&#x7C7B;">2. Java &#x5185;&#x7F6E;&#x5F02;&#x5E38;&#x7C7B;</a><i></i></div></li>
+<li><div><a href="#3-&#x5F02;&#x5E38;&#x65B9;&#x6CD5;">3. &#x5F02;&#x5E38;&#x65B9;&#x6CD5; </a><i></i></div></li>
+<li><div><a href="#4-&#x6355;&#x83B7;&#x5F02;&#x5E38;">4. &#x6355;&#x83B7;&#x5F02;&#x5E38;</a><i></i></div></li>
+<li><div><a href="#5-&#x591A;&#x91CD;&#x6355;&#x83B7;&#x5757;">5. &#x591A;&#x91CD;&#x6355;&#x83B7;&#x5757;</a><i></i></div></li>
+<li><div><a href="#6-throwsthrow-&#x5173;&#x952E;&#x5B57;">6. throws/throw &#x5173;&#x952E;&#x5B57;</a><i></i></div></li>
+<li><div><a href="#7-finally&#x5173;&#x952E;&#x5B57;">7. finally&#x5173;&#x952E;&#x5B57; </a><i></i></div></li>
+<li><div><a href="#8-&#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;">8. &#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;</a><i></i></div></li>
+<li><div><a href="#9-&#x901A;&#x7528;&#x5F02;&#x5E38;">9. &#x901A;&#x7528;&#x5F02;&#x5E38;</a><i></i></div></li>
+</ul></li>
+</ul>
+</div>
+
+<h1 id="&#x7B2C;&#x5341;&#x516B;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;&#x5904;&#x7406;">&#x7B2C;&#x5341;&#x516B;&#x7AE0;&#xFF1A;&#x5F02;&#x5E38;&#x5904;&#x7406;</h1>
+<p>&#x200B;        &#x5F02;&#x5E38;&#x662F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x9519;&#x8BEF;&#x90FD;&#x662F;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x4E14;&#x9519;&#x8BEF;&#x6709;&#x65F6;&#x5019;&#x662F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x7684;&#x3002;  </p>
+<p>&#x200B;        &#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x5C11;&#x4E86;&#x4E00;&#x4E2A;&#x5206;&#x53F7;&#xFF0C;&#x90A3;&#x4E48;&#x8FD0;&#x884C;&#x51FA;&#x6765;&#x7ED3;&#x679C;&#x662F;&#x63D0;&#x793A;&#x662F;&#x9519;&#x8BEF; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang.Error&#xFF1B;&#x5982;&#x679C;&#x4F60;&#x7528;System.out.println(11/0)&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x662F;&#x56E0;&#x4E3A;&#x4F60;&#x7528;0&#x505A;&#x4E86;&#x9664;&#x6570;&#xFF0C;&#x4F1A;&#x629B;&#x51FA; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang.ArithmeticException &#x7684;&#x5F02;&#x5E38;&#x3002;  </p>
+<p>&#x200B;        &#x5F02;&#x5E38;&#x53D1;&#x751F;&#x7684;&#x539F;&#x56E0;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x901A;&#x5E38;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x5927;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li><p>&#x7528;&#x6237;&#x8F93;&#x5165;&#x4E86;&#x975E;&#x6CD5;&#x6570;&#x636E;&#x3002;</p>
+</li>
+<li><p>&#x8981;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x3002;</p>
+</li>
+<li><p>&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x65F6;&#x8FDE;&#x63A5;&#x4E2D;&#x65AD;&#xFF0C;&#x6216;&#x8005;JVM&#x5185;&#x5B58;&#x6EA2;&#x51FA;&#x3002;</p>
+<p>&#x200B;    &#x8FD9;&#x4E9B;&#x5F02;&#x5E38;&#x6709;&#x7684;&#x662F;&#x56E0;&#x4E3A;&#x7528;&#x6237;&#x9519;&#x8BEF;&#x5F15;&#x8D77;&#xFF0C;&#x6709;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x9519;&#x8BEF;&#x5F15;&#x8D77;&#x7684;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x5B83;&#x4E00;&#x4E9B;&#x662F;&#x56E0;&#x4E3A;&#x7269;&#x7406;&#x9519;&#x8BEF;&#x5F15;&#x8D77;&#x7684;&#x3002;-</p>
+<p>&#x200B;    &#x8981;&#x7406;&#x89E3;<a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a>&#x5F02;&#x5E38;&#x5904;&#x7406;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x638C;&#x63E1;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x5F02;&#x5E38;&#xFF1A; </p>
+</li>
+<li><p><strong>&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#xFF1A;</strong>&#x6700;&#x5177;&#x4EE3;&#x8868;&#x7684;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x662F;&#x7528;&#x6237;&#x9519;&#x8BEF;&#x6216;&#x95EE;&#x9898;&#x5F15;&#x8D77;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x8FD9;&#x662F;&#x7A0B;&#x5E8F;&#x5458;&#x65E0;&#x6CD5;&#x9884;&#x89C1;&#x7684;&#x3002;&#x4F8B;&#x5982;&#x8981;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x5C31;&#x53D1;&#x751F;&#x4E86;&#xFF0C;&#x8FD9;&#x4E9B;&#x5F02;&#x5E38;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x4E0D;&#x80FD;&#x88AB;&#x7B80;&#x5355;&#x5730;&#x5FFD;&#x7565;&#x3002;</p>
+</li>
+<li><p><strong>&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#xFF1A;</strong> &#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x662F;&#x53EF;&#x80FD;&#x88AB;&#x7A0B;&#x5E8F;&#x5458;&#x907F;&#x514D;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x4E0E;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x76F8;&#x53CD;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+</li>
+<li><p><strong>&#x9519;&#x8BEF;&#xFF1A;</strong> &#x9519;&#x8BEF;&#x4E0D;&#x662F;&#x5F02;&#x5E38;&#xFF0C;&#x800C;&#x662F;&#x8131;&#x79BB;&#x7A0B;&#x5E8F;&#x5458;&#x63A7;&#x5236;&#x7684;&#x95EE;&#x9898;&#x3002;&#x9519;&#x8BEF;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x901A;&#x5E38;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x6808;&#x6EA2;&#x51FA;&#x65F6;&#xFF0C;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x5C31;&#x53D1;&#x751F;&#x4E86;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x7F16;&#x8BD1;&#x4E5F;&#x68C0;&#x67E5;&#x4E0D;&#x5230;&#x7684;&#x3002;</p>
+</li>
+</ul>
+<h2 id="1-exception-&#x7C7B;&#x7684;&#x5C42;&#x6B21;">1. Exception &#x7C7B;&#x7684;&#x5C42;&#x6B21;</h2>
+<p>&#x200B;        &#x6240;&#x6709;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x662F;&#x4ECE; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang.Exception &#x7C7B;&#x7EE7;&#x627F;&#x7684;&#x5B50;&#x7C7B;&#x3002; </p>
+<p>&#x200B;        Exception &#x7C7B;&#x662F; Throwable &#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#x3002;&#x9664;&#x4E86;Exception&#x7C7B;&#x5916;&#xFF0C;Throwable&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;Error &#x3002; </p>
+<p>&#x200B;        <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x7A0B;&#x5E8F;&#x901A;&#x5E38;&#x4E0D;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x3002;&#x9519;&#x8BEF;&#x4E00;&#x822C;&#x53D1;&#x751F;&#x5728;&#x4E25;&#x91CD;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;<a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a>&#x7A0B;&#x5E8F;&#x5904;&#x7406;&#x7684;&#x8303;&#x7574;&#x4E4B;&#x5916;&#x3002; </p>
+<p>&#x200B;        Error &#x7528;&#x6765;&#x6307;&#x793A;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;&#x3002; </p>
+<p>&#x200B;        &#x4F8B;&#x5982;&#xFF0C;JVM &#x5185;&#x5B58;&#x6EA2;&#x51FA;&#x3002;&#x4E00;&#x822C;&#x5730;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E0D;&#x4F1A;&#x4ECE;&#x9519;&#x8BEF;&#x4E2D;&#x6062;&#x590D;&#x3002; </p>
+<p>&#x200B;        &#x5F02;&#x5E38;&#x7C7B;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x5B50;&#x7C7B;&#xFF1A;IOException &#x7C7B;&#x548C; RuntimeException &#x7C7B;&#x3002;</p>
+<p><img src="../images/Java/12-130Q1234I6223.jpg" alt="img"> </p>
+<p>&#x200B;        &#x5728; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x5185;&#x7F6E;&#x7C7B;&#x4E2D;(&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x8BF4;&#x660E;)&#xFF0C;&#x6709;&#x5927;&#x90E8;&#x5206;&#x5E38;&#x7528;&#x68C0;&#x67E5;&#x6027;&#x548C;&#x975E;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x3002; </p>
+<h2 id="2-java-&#x5185;&#x7F6E;&#x5F02;&#x5E38;&#x7C7B;">2. Java &#x5185;&#x7F6E;&#x5F02;&#x5E38;&#x7C7B;</h2>
+<p>&#x200B;        <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x8BED;&#x8A00;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x5F02;&#x5E38;&#x7C7B;&#x5728; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang &#x6807;&#x51C6;&#x5305;&#x4E2D;&#x3002; </p>
+<p>&#x200B;        &#x6807;&#x51C6;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x3002;&#x7531;&#x4E8E; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang &#x5305;&#x662F;&#x9ED8;&#x8BA4;&#x52A0;&#x8F7D;&#x5230;&#x6240;&#x6709;&#x7684; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x7A0B;&#x5E8F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x90E8;&#x5206;&#x4ECE;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x7C7B;&#x7EE7;&#x627F;&#x800C;&#x6765;&#x7684;&#x5F02;&#x5E38;&#x90FD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002; </p>
+<p>&#x200B;        <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x6839;&#x636E;&#x5404;&#x4E2A;&#x7C7B;&#x5E93;&#x4E5F;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x4E2D;&#x5217;&#x51FA;&#x4E86; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x7684;&#x975E;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x3002;  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5F02;&#x5E38;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ArithmeticException</td>
+<td>&#x5F53;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x7684;&#x8FD0;&#x7B97;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x6B64;&#x5F02;&#x5E38;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E00;&#x4E2A;&#x6574;&#x6570;&quot;&#x9664;&#x4EE5;&#x96F6;&quot;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x6B64;&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">ArrayIndexOutOfBoundsException</td>
+<td>&#x7528;&#x975E;&#x6CD5;&#x7D22;&#x5F15;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x5982;&#x679C;&#x7D22;&#x5F15;&#x4E3A;&#x8D1F;&#x6216;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x6570;&#x7EC4;&#x5927;&#x5C0F;&#xFF0C;&#x5219;&#x8BE5;&#x7D22;&#x5F15;&#x4E3A;&#x975E;&#x6CD5;&#x7D22;&#x5F15;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">ArrayStoreException</td>
+<td>&#x8BD5;&#x56FE;&#x5C06;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x5230;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">ClassCastException</td>
+<td>&#x5F53;&#x8BD5;&#x56FE;&#x5C06;&#x5BF9;&#x8C61;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;&#x7684;&#x5B50;&#x7C7B;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">IllegalArgumentException</td>
+<td>&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x8868;&#x660E;&#x5411;&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x5408;&#x6CD5;&#x6216;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x53C2;&#x6570;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">IllegalMonitorStateException</td>
+<td>&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x8868;&#x660E;&#x67D0;&#x4E00;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x8BD5;&#x56FE;&#x7B49;&#x5F85;&#x5BF9;&#x8C61;&#x7684;&#x76D1;&#x89C6;&#x5668;&#xFF0C;&#x6216;&#x8005;&#x8BD5;&#x56FE;&#x901A;&#x77E5;&#x5176;&#x4ED6;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x5BF9;&#x8C61;&#x7684;&#x76D1;&#x89C6;&#x5668;&#x800C;&#x672C;&#x8EAB;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x76D1;&#x89C6;&#x5668;&#x7684;&#x7EBF;&#x7A0B;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">IllegalStateException</td>
+<td>&#x5728;&#x975E;&#x6CD5;&#x6216;&#x4E0D;&#x9002;&#x5F53;&#x7684;&#x65F6;&#x95F4;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x65F6;&#x4EA7;&#x751F;&#x7684;&#x4FE1;&#x53F7;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5373; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x73AF;&#x5883;&#x6216; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x5904;&#x4E8E;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;&#x6240;&#x8981;&#x6C42;&#x7684;&#x9002;&#x5F53;&#x72B6;&#x6001;&#x4E0B;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">IllegalThreadStateException</td>
+<td>&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x5904;&#x4E8E;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;&#x6240;&#x8981;&#x6C42;&#x7684;&#x9002;&#x5F53;&#x72B6;&#x6001;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">IndexOutOfBoundsException</td>
+<td>&#x6307;&#x793A;&#x67D0;&#x6392;&#x5E8F;&#x7D22;&#x5F15;&#xFF08;&#x4F8B;&#x5982;&#x5BF9;&#x6570;&#x7EC4;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x5411;&#x91CF;&#x7684;&#x6392;&#x5E8F;&#xFF09;&#x8D85;&#x51FA;&#x8303;&#x56F4;&#x65F6;&#x629B;&#x51FA;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">NegativeArraySizeException</td>
+<td>&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BD5;&#x56FE;&#x521B;&#x5EFA;&#x5927;&#x5C0F;&#x4E3A;&#x8D1F;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">NullPointerException</td>
+<td>&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BD5;&#x56FE;&#x5728;&#x9700;&#x8981;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x65B9;&#x4F7F;&#x7528; <code>null</code> &#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;</td>
+</tr>
+<tr>
+<td style="text-align:left">NumberFormatException</td>
+<td>&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BD5;&#x56FE;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x79CD;&#x6570;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x80FD;&#x8F6C;&#x6362;&#x4E3A;&#x9002;&#x5F53;&#x683C;&#x5F0F;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">SecurityException</td>
+<td>&#x7531;&#x5B89;&#x5168;&#x7BA1;&#x7406;&#x5668;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x6307;&#x793A;&#x5B58;&#x5728;&#x5B89;&#x5168;&#x4FB5;&#x72AF;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">StringIndexOutOfBoundsException</td>
+<td>&#x6B64;&#x5F02;&#x5E38;&#x7531; <code>String</code> &#x65B9;&#x6CD5;&#x629B;&#x51FA;&#xFF0C;&#x6307;&#x793A;&#x7D22;&#x5F15;&#x6216;&#x8005;&#x4E3A;&#x8D1F;&#xFF0C;&#x6216;&#x8005;&#x8D85;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5927;&#x5C0F;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UnsupportedOperationException</td>
+<td>&#x5F53;&#x4E0D;&#x652F;&#x6301;&#x8BF7;&#x6C42;&#x7684;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x7684;&#x8868;&#x4E2D;&#x5217;&#x51FA;&#x4E86; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x5B9A;&#x4E49;&#x5728; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">java</a>.lang &#x5305;&#x4E2D;&#x7684;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x7C7B;&#x3002; </p>
+<table>
+<thead>
+<tr>
+<th><strong>&#x5F02;&#x5E38;</strong></th>
+<th><strong>&#x63CF;&#x8FF0;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ClassNotFoundException</td>
+<td>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D;&#x7C7B;&#x65F6;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>CloneNotSupportedException</td>
+<td>&#x5F53;&#x8C03;&#x7528; <code>Object</code> &#x7C7B;&#x4E2D;&#x7684; <code>clone</code> &#x65B9;&#x6CD5;&#x514B;&#x9686;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0; <code>Cloneable</code> &#x63A5;&#x53E3;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>IllegalAccessException</td>
+<td>&#x62D2;&#x7EDD;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>InstantiationException</td>
+<td>&#x5F53;&#x8BD5;&#x56FE;&#x4F7F;&#x7528; <code>Class</code> &#x7C7B;&#x4E2D;&#x7684; <code>newInstance</code> &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x5BF9;&#x8C61;&#x56E0;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x6216;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x800C;&#x65E0;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>InterruptedException</td>
+<td>&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#xFF0C;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#x3002;</td>
+</tr>
+<tr>
+<td>NoSuchFieldException</td>
+<td>&#x8BF7;&#x6C42;&#x7684;&#x53D8;&#x91CF;&#x4E0D;&#x5B58;&#x5728;</td>
+</tr>
+<tr>
+<td>NoSuchMethodException</td>
+<td>&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x5B58;&#x5728;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-&#x5F02;&#x5E38;&#x65B9;&#x6CD5;">3. &#x5F02;&#x5E38;&#x65B9;&#x6CD5;</h2>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x7684;&#x5217;&#x8868;&#x662F; Throwable &#x7C7B;&#x7684;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x5E8F;&#x53F7;</th>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>public String getMessage()</strong></td>
+<td>&#x8FD4;&#x56DE;&#x5173;&#x4E8E;&#x53D1;&#x751F;&#x7684;&#x5F02;&#x5E38;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;&#x5728;Throwable &#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x3002;</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public Throwable getCause()</strong></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Throwable &#x5BF9;&#x8C61;&#x4EE3;&#x8868;&#x5F02;&#x5E38;&#x539F;&#x56E0;&#x3002;</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public String toString()</strong></td>
+<td>&#x4F7F;&#x7528;getMessage()&#x7684;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7C7B;&#x7684;&#x4E32;&#x7EA7;&#x540D;&#x5B57;&#x3002;</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public void printStackTrace()</strong></td>
+<td>&#x6253;&#x5370;toString()&#x7ED3;&#x679C;&#x548C;&#x6808;&#x5C42;&#x6B21;&#x5230;System.err&#xFF0C;&#x5373;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x6D41;&#x3002;</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public StackTraceElement [] getStackTrace()</strong></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5806;&#x6808;&#x5C42;&#x6B21;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x4E0B;&#x6807;&#x4E3A;0&#x7684;&#x5143;&#x7D20;&#x4EE3;&#x8868;&#x6808;&#x9876;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4EE3;&#x8868;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x5806;&#x6808;&#x7684;&#x6808;&#x5E95;&#x3002;</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public Throwable fillInStackTrace()</strong></td>
+<td>&#x7528;&#x5F53;&#x524D;&#x7684;&#x8C03;&#x7528;&#x6808;&#x5C42;&#x6B21;&#x586B;&#x5145;Throwable &#x5BF9;&#x8C61;&#x6808;&#x5C42;&#x6B21;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x6808;&#x5C42;&#x6B21;&#x4EFB;&#x4F55;&#x5148;&#x524D;&#x4FE1;&#x606F;&#x4E2D;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-&#x6355;&#x83B7;&#x5F02;&#x5E38;">4. &#x6355;&#x83B7;&#x5F02;&#x5E38;</h2>
+<p>&#x200B;        &#x4F7F;&#x7528; try &#x548C; catch &#x5173;&#x952E;&#x5B57;&#x53EF;&#x4EE5;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x3002;try/catch &#x4EE3;&#x7801;&#x5757;&#x653E;&#x5728;&#x5F02;&#x5E38;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x7684;&#x5730;&#x65B9;&#x3002; </p>
+<p>&#x200B;        try/catch&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x79F0;&#x4E3A;&#x4FDD;&#x62A4;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x7528; try/catch &#x7684;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A; </p>
+<pre><code>try
+{
+   // &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;
+}catch(ExceptionName e1)
+{
+   //Catch &#x5757;
+}
+</code></pre><p>&#x200B;        Catch &#x8BED;&#x53E5;&#x5305;&#x542B;&#x8981;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x7684;&#x58F0;&#x660E;&#x3002;&#x5F53;&#x4FDD;&#x62A4;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x53D1;&#x751F;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;try &#x540E;&#x9762;&#x7684; catch &#x5757;&#x5C31;&#x4F1A;&#x88AB;&#x68C0;&#x67E5;&#x3002; </p>
+<p>&#x200B;        &#x5982;&#x679C;&#x53D1;&#x751F;&#x7684;&#x5F02;&#x5E38;&#x5305;&#x542B;&#x5728; catch &#x5757;&#x4E2D;&#xFF0C;&#x5F02;&#x5E38;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x5230;&#x8BE5; catch &#x5757;&#xFF0C;&#x8FD9;&#x548C;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5230;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x6837;&#x3002; </p>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x58F0;&#x660E;&#x6709;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5F53;&#x4EE3;&#x7801;&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">// &#x6587;&#x4EF6;&#x540D; : ExcepTest.java</span>
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExcepTest</span></span>{
+
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span></span>{
+      <span class="hljs-keyword">try</span>{
+         <span class="hljs-keyword">int</span> a[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
+         System.out.println(<span class="hljs-string">&quot;Access element three :&quot;</span> + a[<span class="hljs-number">3</span>]);
+      }<span class="hljs-keyword">catch</span>(ArrayIndexOutOfBoundsException e){
+         System.out.println(<span class="hljs-string">&quot;Exception thrown  :&quot;</span> + e);
+      }
+      System.out.println(<span class="hljs-string">&quot;Out of the block&quot;</span>);
+   }
+}
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+Out of the block
+</code></pre><h2 id="5-&#x591A;&#x91CD;&#x6355;&#x83B7;&#x5757;">5. &#x591A;&#x91CD;&#x6355;&#x83B7;&#x5757;</h2>
+<p>&#x200B;        &#x4E00;&#x4E2A; try &#x4EE3;&#x7801;&#x5757;&#x540E;&#x9762;&#x8DDF;&#x968F;&#x591A;&#x4E2A; catch &#x4EE3;&#x7801;&#x5757;&#x7684;&#x60C5;&#x51B5;&#x5C31;&#x53EB;&#x591A;&#x91CD;&#x6355;&#x83B7;&#x3002; </p>
+<p>&#x200B;        &#x591A;&#x91CD;&#x6355;&#x83B7;&#x5757;&#x7684;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>try{    
+    // &#x7A0B;&#x5E8F;&#x4EE3;&#x7801; 
+}catch(&#x5F02;&#x5E38;&#x7C7B;&#x578B;1 &#x5F02;&#x5E38;&#x7684;&#x53D8;&#x91CF;&#x540D;1){   
+    // &#x7A0B;&#x5E8F;&#x4EE3;&#x7801; 
+}catch(&#x5F02;&#x5E38;&#x7C7B;&#x578B;2 &#x5F02;&#x5E38;&#x7684;&#x53D8;&#x91CF;&#x540D;2){   
+    // &#x7A0B;&#x5E8F;&#x4EE3;&#x7801; 
+}catch(&#x5F02;&#x5E38;&#x7C7B;&#x578B;3 &#x5F02;&#x5E38;&#x7684;&#x53D8;&#x91CF;&#x540D;3){   
+// &#x7A0B;&#x5E8F;&#x4EE3;&#x7801; 
+}
+</code></pre><p>&#x200B;        &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6BB5;&#x5305;&#x542B;&#x4E86; 3 &#x4E2A; catch&#x5757;&#x3002; </p>
+<p>&#x200B;        &#x53EF;&#x4EE5;&#x5728; try &#x8BED;&#x53E5;&#x540E;&#x9762;&#x6DFB;&#x52A0;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684; catch &#x5757;&#x3002; </p>
+<p>&#x200B;        &#x5982;&#x679C;&#x4FDD;&#x62A4;&#x4EE3;&#x7801;&#x4E2D;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x5F02;&#x5E38;&#x88AB;&#x629B;&#x7ED9;&#x7B2C;&#x4E00;&#x4E2A; catch &#x5757;&#x3002; </p>
+<p>&#x200B;        &#x5982;&#x679C;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E0E; ExceptionType1 &#x5339;&#x914D;&#xFF0C;&#x5B83;&#x5728;&#x8FD9;&#x91CC;&#x5C31;&#x4F1A;&#x88AB;&#x6355;&#x83B7;&#x3002; </p>
+<p>&#x200B;        &#x5982;&#x679C;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x7ED9;&#x7B2C;&#x4E8C;&#x4E2A; catch &#x5757;&#x3002; </p>
+<p>&#x200B;        &#x5982;&#x6B64;&#xFF0C;&#x76F4;&#x5230;&#x5F02;&#x5E38;&#x88AB;&#x6355;&#x83B7;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x6240;&#x6709;&#x7684; catch &#x5757;&#x3002;</p>
+<p>&#x200B;        &#x8BE5;&#x5B9E;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x591A;&#x91CD; try/catch&#x3002; </p>
+<pre><code class="lang-java"><span class="hljs-keyword">try</span> {
+    file = <span class="hljs-keyword">new</span> FileInputStream(fileName);
+    x = (<span class="hljs-keyword">byte</span>) file.read();
+} <span class="hljs-keyword">catch</span>(FileNotFoundException f) { <span class="hljs-comment">// Not valid!</span>
+    f.printStackTrace();
+    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+} <span class="hljs-keyword">catch</span>(IOException i) {
+    i.printStackTrace();
+    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+}
+</code></pre>
+<h2 id="6-throwsthrow-&#x5173;&#x952E;&#x5B57;">6. throws/throw &#x5173;&#x952E;&#x5B57;</h2>
+<p>&#x200B;        &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x5230;&#x4E00;&#x4E2A;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x4F7F;&#x7528; throws &#x5173;&#x952E;&#x5B57;&#x6765;&#x58F0;&#x660E;&#x3002;throws &#x5173;&#x952E;&#x5B57;&#x653E;&#x5728;&#x65B9;&#x6CD5;&#x7B7E;&#x540D;&#x7684;&#x5C3E;&#x90E8;&#x3002; </p>
+<p>&#x200B;        &#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; throw &#x5173;&#x952E;&#x5B57;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x65E0;&#x8BBA;&#x5B83;&#x662F;&#x65B0;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x8FD8;&#x662F;&#x521A;&#x6355;&#x83B7;&#x5230;&#x7684;&#x3002; </p>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x629B;&#x51FA;&#x4E00;&#x4E2A; RemoteException &#x5F02;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">className</span>
+</span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">double</span> amount)</span> <span class="hljs-keyword">throws</span> RemoteException
+  </span>{
+    <span class="hljs-comment">// Method implementation</span>
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RemoteException();
+  }
+  <span class="hljs-comment">//Remainder of class definition</span>
+}
+</code></pre>
+<p>&#x200B;        &#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x629B;&#x51FA;&#x591A;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x591A;&#x4E2A;&#x5F02;&#x5E38;&#x4E4B;&#x95F4;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x3002; </p>
+<p>&#x200B;        &#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x629B;&#x51FA; RemoteException &#x548C; InsufficientFundsException&#xFF1A; </p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">className</span>
+</span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">double</span> amount)</span> <span class="hljs-keyword">throws</span> RemoteException,
+                              InsufficientFundsException
+   </span>{
+       <span class="hljs-comment">// Method implementation</span>
+   }
+   <span class="hljs-comment">//Remainder of class definition</span>
+}
+</code></pre>
+<h2 id="7-finally&#x5173;&#x952E;&#x5B57;">7. finally&#x5173;&#x952E;&#x5B57;</h2>
+<p>&#x200B;        finally &#x5173;&#x952E;&#x5B57;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5728; try &#x4EE3;&#x7801;&#x5757;&#x540E;&#x9762;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x3002; </p>
+<p>&#x200B;        &#x65E0;&#x8BBA;&#x662F;&#x5426;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;finally &#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x603B;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x3002; </p>
+<p>&#x200B;        &#x5728; finally &#x4EE3;&#x7801;&#x5757;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x6E05;&#x7406;&#x7C7B;&#x578B;&#x7B49;&#x6536;&#x5C3E;&#x5584;&#x540E;&#x6027;&#x8D28;&#x7684;&#x8BED;&#x53E5;&#x3002; </p>
+<p>&#x200B;        finally &#x4EE3;&#x7801;&#x5757;&#x51FA;&#x73B0;&#x5728; catch &#x4EE3;&#x7801;&#x5757;&#x6700;&#x540E;&#xFF0C;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">try</span>{
+  <span class="hljs-comment">// &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;</span>
+}<span class="hljs-keyword">catch</span>(&#x5F02;&#x5E38;&#x7C7B;&#x578B;<span class="hljs-number">1</span> &#x5F02;&#x5E38;&#x7684;&#x53D8;&#x91CF;&#x540D;<span class="hljs-number">1</span>){
+  <span class="hljs-comment">// &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;</span>
+}<span class="hljs-keyword">catch</span>(&#x5F02;&#x5E38;&#x7C7B;&#x578B;<span class="hljs-number">2</span> &#x5F02;&#x5E38;&#x7684;&#x53D8;&#x91CF;&#x540D;<span class="hljs-number">2</span>){
+  <span class="hljs-comment">// &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;</span>
+}<span class="hljs-keyword">finally</span>{
+  <span class="hljs-comment">// &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;</span>
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExcepTest</span></span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span></span>{
+    <span class="hljs-keyword">int</span> a[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
+    <span class="hljs-keyword">try</span>{
+       System.out.println(<span class="hljs-string">&quot;Access element three :&quot;</span> + a[<span class="hljs-number">3</span>]);
+    }<span class="hljs-keyword">catch</span>(ArrayIndexOutOfBoundsException e){
+       System.out.println(<span class="hljs-string">&quot;Exception thrown  :&quot;</span> + e);
+    }
+    <span class="hljs-keyword">finally</span>{
+       a[<span class="hljs-number">0</span>] = <span class="hljs-number">6</span>;
+       System.out.println(<span class="hljs-string">&quot;First element value: &quot;</span> +a[<span class="hljs-number">0</span>]);
+       System.out.println(<span class="hljs-string">&quot;The finally statement is executed&quot;</span>);
+    }
+  }
+}
+</code></pre>
+<p>&#x200B;        &#x4EE5;&#x4E0A;&#x5B9E;&#x4F8B;&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+First element value: 6
+The finally statement is executed
+</code></pre><p>&#x200B;        &#x6CE8;&#x610F;&#x4E0B;&#x9762;&#x4E8B;&#x9879;&#xFF1A;</p>
+<ul>
+<li>catch &#x4E0D;&#x80FD;&#x72EC;&#x7ACB;&#x4E8E; try &#x5B58;&#x5728;&#x3002;</li>
+<li>&#x5728; try/catch &#x540E;&#x9762;&#x6DFB;&#x52A0; finally &#x5757;&#x5E76;&#x975E;&#x5F3A;&#x5236;&#x6027;&#x8981;&#x6C42;&#x7684;&#x3002;</li>
+<li>try &#x4EE3;&#x7801;&#x540E;&#x4E0D;&#x80FD;&#x65E2;&#x6CA1; catch &#x5757;&#x4E5F;&#x6CA1; finally &#x5757;&#x3002;</li>
+<li>try, catch, finally &#x5757;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x3002;</li>
+</ul>
+<hr>
+<h2 id="8-&#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;">8. &#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;</h2>
+<p>&#x200B;        &#x5728; <a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a> &#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x3002;&#x7F16;&#x5199;&#x81EA;&#x5DF1;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x65F6;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x4E0B;&#x9762;&#x7684;&#x51E0;&#x70B9;&#x3002;</p>
+<ul>
+<li>&#x6240;&#x6709;&#x5F02;&#x5E38;&#x90FD;&#x5FC5;&#x987B;&#x662F; Throwable &#x7684;&#x5B50;&#x7C7B;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5E0C;&#x671B;&#x5199;&#x4E00;&#x4E2A;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x7EE7;&#x627F; Exception &#x7C7B;&#x3002;</li>
+<li><p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5199;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x7EE7;&#x627F; RuntimeException &#x7C7B;&#x3002;</p>
+<p>&#x200B;    &#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#xFF1A;</p>
+</li>
+</ul>
+<pre><code>class MyException extends Exception{
+}
+</code></pre><p>&#x200B;        &#x53EA;&#x7EE7;&#x627F;Exception &#x7C7B;&#x6765;&#x521B;&#x5EFA;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x662F;&#x68C0;&#x67E5;&#x6027;&#x5F02;&#x5E38;&#x7C7B;&#x3002; </p>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x7684; InsufficientFundsException &#x7C7B;&#x662F;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C;&#x5B83;&#x7EE7;&#x627F;&#x81EA; Exception&#x3002; </p>
+<p>&#x200B;        &#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x7C7B;&#x548C;&#x5176;&#x5B83;&#x4EFB;&#x4F55;&#x7C7B;&#x4E00;&#x6837;&#xFF0C;&#x5305;&#x542B;&#x6709;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#x3002; </p>
+<p>&#x200B;        &#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x662F;&#x4E00;&#x4E2A;&#x94F6;&#x884C;&#x8D26;&#x6237;&#x7684;&#x6A21;&#x62DF;&#xFF0C;&#x901A;&#x8FC7;&#x94F6;&#x884C;&#x5361;&#x7684;&#x53F7;&#x7801;&#x5B8C;&#x6210;&#x8BC6;&#x522B;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5B58;&#x94B1;&#x548C;&#x53D6;&#x94B1;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x6587;&#x4EF6;&#x540D;InsufficientFundsException.java</span>
+<span class="hljs-keyword">import</span> java.io.*;
+
+<span class="hljs-comment">//&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;Exception&#x7C7B;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InsufficientFundsException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span>
+</span>{
+  <span class="hljs-comment">//&#x6B64;&#x5904;&#x7684;amount&#x7528;&#x6765;&#x50A8;&#x5B58;&#x5F53;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF08;&#x53D6;&#x51FA;&#x94B1;&#x591A;&#x4E8E;&#x4F59;&#x989D;&#x65F6;&#xFF09;&#x6240;&#x7F3A;&#x4E4F;&#x7684;&#x94B1;</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> amount;
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">InsufficientFundsException</span><span class="hljs-params">(<span class="hljs-keyword">double</span> amount)</span>
+  </span>{
+    <span class="hljs-keyword">this</span>.amount = amount;
+  } 
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getAmount</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> amount;
+  }
+}
+</code></pre>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C; </p>
+<p>&#x200B;        &#x5728;&#x4E0B;&#x9762;&#x7684; CheckingAccount &#x7C7B;&#x4E2D;&#x5305;&#x542B;&#x4E00;&#x4E2A; withdraw() &#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x4E00;&#x4E2A; InsufficientFundsException &#x5F02;&#x5E38;&#x3002; </p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x6587;&#x4EF6;&#x540D;&#x79F0; CheckingAccount.java</span>
+<span class="hljs-keyword">import</span> java.io.*;
+
+<span class="hljs-comment">//&#x6B64;&#x7C7B;&#x6A21;&#x62DF;&#x94F6;&#x884C;&#x8D26;&#x6237;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheckingAccount</span>
+</span>{
+  <span class="hljs-comment">//balance&#x4E3A;&#x4F59;&#x989D;&#xFF0C;number&#x4E3A;&#x5361;&#x53F7;</span>
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> balance;
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> number;
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CheckingAccount</span><span class="hljs-params">(<span class="hljs-keyword">int</span> number)</span>
+   </span>{
+      <span class="hljs-keyword">this</span>.number = number;
+   }
+  <span class="hljs-comment">//&#x65B9;&#x6CD5;&#xFF1A;&#x5B58;&#x94B1;</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(<span class="hljs-keyword">double</span> amount)</span>
+   </span>{
+      balance += amount;
+   }
+  <span class="hljs-comment">//&#x65B9;&#x6CD5;&#xFF1A;&#x53D6;&#x94B1;</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-keyword">double</span> amount)</span> <span class="hljs-keyword">throws</span>
+                              InsufficientFundsException
+   </span>{
+      <span class="hljs-keyword">if</span>(amount &lt;= balance)
+      {
+         balance -= amount;
+      }
+      <span class="hljs-keyword">else</span>
+      {
+         <span class="hljs-keyword">double</span> needs = amount - balance;
+         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InsufficientFundsException(needs);
+      }
+   }
+  <span class="hljs-comment">//&#x65B9;&#x6CD5;&#xFF1A;&#x8FD4;&#x56DE;&#x4F59;&#x989D;</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getBalance</span><span class="hljs-params">()</span>
+   </span>{
+      <span class="hljs-keyword">return</span> balance;
+   }
+  <span class="hljs-comment">//&#x65B9;&#x6CD5;&#xFF1A;&#x8FD4;&#x56DE;&#x5361;&#x53F7;</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNumber</span><span class="hljs-params">()</span>
+   </span>{
+      <span class="hljs-keyword">return</span> number;
+   }
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x7684; BankDemo &#x7A0B;&#x5E8F;&#x793A;&#x8303;&#x4E86;&#x5982;&#x4F55;&#x8C03;&#x7528; CheckingAccount &#x7C7B;&#x7684; deposit() &#x548C; withdraw() &#x65B9;&#x6CD5;&#x3002; </p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x6587;&#x4EF6;&#x540D;&#x79F0; BankDemo.java</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BankDemo</span>
+</span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String [] args)</span>
+   </span>{
+      CheckingAccount c = <span class="hljs-keyword">new</span> CheckingAccount(<span class="hljs-number">101</span>);
+      System.out.println(<span class="hljs-string">&quot;Depositing $500...&quot;</span>);
+      c.deposit(<span class="hljs-number">500.00</span>);
+      <span class="hljs-keyword">try</span>
+      {
+         System.out.println(<span class="hljs-string">&quot;\nWithdrawing $100...&quot;</span>);
+         c.withdraw(<span class="hljs-number">100.00</span>);
+         System.out.println(<span class="hljs-string">&quot;\nWithdrawing $600...&quot;</span>);
+         c.withdraw(<span class="hljs-number">600.00</span>);
+      }<span class="hljs-keyword">catch</span>(InsufficientFundsException e)
+      {
+         System.out.println(<span class="hljs-string">&quot;Sorry, but you are short $&quot;</span>
+                                  + e.getAmount());
+         e.printStackTrace();
+      }
+    }
+}
+</code></pre>
+<p>&#x7F16;&#x8BD1;&#x4E0A;&#x9762;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F; BankDemo&#xFF0C;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A; </p>
+<pre><code>Depositing $500...
+
+Withdrawing $100...
+
+Withdrawing $600...
+Sorry, but you are short $200.0
+InsufficientFundsException
+        at CheckingAccount.withdraw(CheckingAccount.java:25)
+        at BankDemo.main(BankDemo.java:13)
+</code></pre><hr>
+<h2 id="9-&#x901A;&#x7528;&#x5F02;&#x5E38;">9. &#x901A;&#x7528;&#x5F02;&#x5E38;</h2>
+<p>&#x200B;        &#x5728;<a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a>&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x5F02;&#x5E38;&#x548C;&#x9519;&#x8BEF;&#x3002;</p>
+<ul>
+<li><strong>JVM(<a href="../GLOSSARY.html#java" class="glossary-term" title="&#x200B;        Java&#x7531;Sun Microsystems&#x516C;&#x53F8;&#x4E8E;1995&#x5E74;5&#x6708;&#x63A8;&#x51FA;&#x7684;&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x88AB;&#x7279;&#x610F;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x3002;Java&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;[C++]&#x8BED;&#x8A00;&#x7684;&#x201C;&#x5F62;&#x5F0F;&#x548C;&#x611F;&#x89C9;&#x201D;&#xFF0C;&#x4F46;&#x5B83;&#x8981;&#x6BD4;[C++&#x8BED;&#x8A00;]&#x66F4;&#x6613;&#x4E8E;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5F7B;&#x5E95;&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x4EE5;&#x5BF9;&#x8C61;&#x4E3A;&#x5BFC;&#x5411;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x53F0;&#x5355;&#x72EC;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD0;&#x884C;&#x3002;">Java</a>**</strong>&#x865A;&#x62DF;&#x673A;<strong>**)</strong> <strong>&#x5F02;&#x5E38;&#xFF1A;</strong>&#x7531; JVM &#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x6216;&#x9519;&#x8BEF;&#x3002;&#x4F8B;&#x5982;&#xFF1A;NullPointerException &#x7C7B;&#xFF0C;ArrayIndexOutOfBoundsException &#x7C7B;&#xFF0C;ClassCastException &#x7C7B;&#x3002;</li>
+<li><strong>&#x7A0B;&#x5E8F;&#x7EA7;&#x5F02;&#x5E38;&#xFF1A;</strong>&#x7531;&#x7A0B;&#x5E8F;&#x6216;&#x8005;API&#x7A0B;&#x5E8F;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x4F8B;&#x5982; IllegalArgumentException &#x7C7B;&#xFF0C;IllegalStateException &#x7C7B;&#x3002; </li>
+</ul>
+<footer class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal" style="color: #000 !important;">MU_zjm<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal" style="color: #000 !important;">Designer, Developer &amp; overall web enthusiast</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MU_zjm all right reserved, powered by MU_zjm!</p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">created by MU_zjm</span>
+2019-08-28 12:00:00
+</p></div></div></div><div class="box__issues">
+
+</div></footer> <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Chapter17.html" class="navigation navigation-prev " aria-label="Previous page: 第十七章：文件和流">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Git/" class="navigation navigation-next " aria-label="Next page: Git基础">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第十八章：异常处理","level":"1.2.18","depth":2,"next":{"title":"Git基础","level":"1.3","depth":1,"path":"Git/README.md","ref":"Git/README.md","articles":[{"title":"第一章：安装Git","level":"1.3.1","depth":2,"path":"Git/Chapter1.md","ref":"Git/Chapter1.md","articles":[]},{"title":"第二章：配置Git","level":"1.3.2","depth":2,"path":"Git/Chapter2.md","ref":"Git/Chapter2.md","articles":[]},{"title":"第三章：Git使用","level":"1.3.3","depth":2,"path":"Git/Chapter3.md","ref":"Git/Chapter3.md","articles":[]},{"title":"第四章：Git分支","level":"1.3.4","depth":2,"path":"Git/Chapter4.md","ref":"Git/Chapter4.md","articles":[]},{"title":"第五章：服务器上的Git","level":"1.3.5","depth":2,"path":"Git/Chapter5.md","ref":"Git/Chapter5.md","articles":[]},{"title":"第六章：分布式Git","level":"1.3.6","depth":2,"path":"Git/Chapter6.md","ref":"Git/Chapter6.md","articles":[]},{"title":"第七章：GitHub","level":"1.3.7","depth":2,"path":"Git/Chapter7.md","ref":"Git/Chapter7.md","articles":[]},{"title":"第八章：Git工具","level":"1.3.8","depth":2,"path":"Git/Chapter8.md","ref":"Git/Chapter8.md","articles":[]},{"title":"第九章：自定义Git","level":"1.3.9","depth":2,"path":"Git/Chapter9.md","ref":"Git/Chapter9.md","articles":[]},{"title":"第十章：Git与其他系统","level":"1.3.10","depth":2,"path":"Git/Chapter10.md","ref":"Git/Chapter10.md","articles":[]},{"title":"第十一章：Git内部原理","level":"1.3.11","depth":2,"path":"Git/Chapter11.md","ref":"Git/Chapter11.md","articles":[]},{"title":"附录A：其他环境中的Git","level":"1.3.12","depth":2,"path":"Git/AppendixA.md","ref":"Git/AppendixA.md","articles":[]},{"title":"附录B：将Git嵌入你的系统","level":"1.3.13","depth":2,"path":"Git/AppendixB.md","ref":"Git/AppendixB.md","articles":[]},{"title":"附录C：Git命令","level":"1.3.14","depth":2,"path":"Git/AppendixC.md","ref":"Git/AppendixC.md","articles":[]}]},"previous":{"title":"第十七章：文件和流","level":"1.2.17","depth":2,"path":"Java/Chapter17.md","ref":"Java/Chapter17.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse","github","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169;","minHeaderCount":"2","minHeaderDeep":"2"},"chapter-fold":{},"github":{"url":"https://github.com/MuXingLang/"},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-08-28 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".treeview__container-title"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a person notepad,Created at 2019-08"},"file":{"path":"Java/Chapter18.md","mtime":"2019-09-20T09:53:15.246Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-20T10:58:44.498Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
