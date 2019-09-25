@@ -349,7 +349,7 @@
                     
                         <b>1.5.1.</b>
                     
-                    MySQL
+                    MySQL安装
             
                 </a>
             
@@ -519,14 +519,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="section3.html">
+        <li class="chapter " data-level="1.7.3" data-path="section11.html">
             
-                <a href="section3.html">
+                <a href="section11.html">
             
                     
                         <b>1.7.3.</b>
                     
-                    Docker
+                    nginx+tomcat部署项目JS报错
             
                 </a>
             
@@ -651,130 +651,626 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="nginx">Nginx</h1>
-<h1 id="1&#x5B89;&#x88C5;">1.&#x5B89;&#x88C5;</h1>
-<p>&#x6682;&#x65E0;&#x5185;&#x5BB9;</p>
-<h1 id="2&#x914D;&#x7F6E;">2.&#x914D;&#x7F6E;</h1>
-<p>&#x6682;&#x65E0;&#x5185;&#x5BB9;</p>
-<h1 id="3&#x95EE;&#x9898;">3.&#x95EE;&#x9898;</h1>
-<h2 id="31-nginxtomcat&#x90E8;&#x7F72;&#x9879;&#x76EE;js&#x62A5;&#x9519;">3.1 nginx+tomcat&#x90E8;&#x7F72;&#x9879;&#x76EE;JS&#x62A5;&#x9519;</h2>
-<h3 id="311-&#x95EE;&#x9898;&#x63CF;&#x8FF0;">3.1.1 &#x95EE;&#x9898;&#x63CF;&#x8FF0;</h3>
-<p>&#x9879;&#x76EE;&#x90E8;&#x7F72;&#x4E24;&#x4E2A;&#x6708;&#x672A;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x65E0;&#x66F4;&#x6539;&#xFF0C;&#x7A81;&#x7136;&#x62A5;&#x9519;&#x4E14;&#x529F;&#x80FD;&#x5F02;&#x5E38;&#x3002;</p>
-<p>&#x9875;&#x9762;&#x6D89;&#x53CA;iFrame&#x7684;&#x65E0;&#x6CD5;&#x663E;&#x793A;&#xFF0C;&#x4E14;&#x5728;&#x8BE5;&#x533A;&#x57DF;&#x663E;&#x793A;:</p>
-<pre><code>#&#x8C37;&#x6B4C;&#x5185;&#x6838;&#x7684;&#x6D4F;&#x89C8;&#x5668;
-XXXX&#x62D2;&#x7EDD;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;
-#IE&#x5185;&#x6838;&#x7684;&#x6D4F;&#x89C8;&#x5668;
-&#x6B64;&#x5185;&#x5BB9;&#x4E0D;&#x80FD;&#x5728;&#x6846;&#x67B6;&#x4E2D;&#x663E;&#x793A;
-&#x6B64;&#x5904;&#x5E94;&#x8BE5;&#x6709;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x53D1;&#x5E03;&#x8005;&#x4E0D;&#x5141;&#x8BB8;&#x5728;&#x6846;&#x67B6;&#x4E2D;&#x663E;&#x793A;&#x8BE5;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x4FDD;&#x62A4;&#x53EF;&#x80FD;&#x8981;&#x8F93;&#x5165;&#x5230;&#x6B64;&#x7AD9;&#x70B9;&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;
-&#x5C1D;&#x8BD5;&#x6B64;&#x64CD;&#x4F5C;
-</code></pre><p>&#x9875;&#x9762;&#x63A7;&#x5236;&#x53F0;JS&#x62A5;&#x9519;</p>
-<pre><code>1.Refused to execute script from &apos;XXXX&apos; because its MIME type (&apos;text/html&apos;) is not executable, and strict MIME type checking is enabled.
-2.Refused to display &apos;XXXX&apos; in a frame because it set &apos;X-Frame-Options&apos; to &apos;deny&apos;.
-3.VM3510:168 Uncaught DOMException: Blocked a frame with origin &quot;XXXX&quot; from accessing a cross-origin frame.
-    at eval (eval at globalEval (XXXX), &lt;anonymous&gt;:168:53)
-</code></pre><h3 id="312-&#x95EE;&#x9898;&#x6392;&#x67E5;">3.1.2 &#x95EE;&#x9898;&#x6392;&#x67E5;</h3>
-<p>&#x6839;&#x636E;JS&#x62A5;&#x9519;&#xFF0C;&#x641C;&#x7D22;&#x627E;&#x5230;&#x5BFC;&#x81F4;&#x8BE5;&#x95EE;&#x9898;&#x7684;&#x6700;&#x5927;&#x6000;&#x7591;&#x9879;&#x76EE;&#xFF0C;nginx&#x914D;&#x7F6E;&#x65B0;&#x589E;&#x4E86;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code>    add_header &apos;X-XSS-Protection&apos; &apos;1; mode=block&apos;;    #&#x6B64;&#x914D;&#x7F6E;&#x672A;&#x53D1;&#x73B0;&#x5F71;&#x54CD;
-    add_header &apos;X-Frame-Options&apos; &apos;DENY&apos;;            #&#x5BFC;&#x81F4;&#x5185;&#x5D4C;iFrame&#x4E0D;&#x663E;&#x793A;
-    add_header &apos;X-Content-Type-Options&apos; &apos;nosniff&apos;;    #&#x5BFC;&#x81F4;&#x5176;&#x4ED6;js&#x62A5;&#x9519;
-</code></pre><p>&#x200B;        &#x7ECF;&#x8FC7;&#x786E;&#x8BA4;&#xFF0C;&#x6B64;&#x914D;&#x7F6E;&#x9879;&#x4E3A;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x624B;&#x6BB5;&#xFF0C;&#x4F46;&#x662F;&#x6B64;&#x914D;&#x7F6E;&#x9879;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x67D0;&#x4E9B;&#x9879;&#x76EE;&#x529F;&#x80FD;&#x5F02;&#x5E38;&#x3002;&#x4EE5;&#x4E0B;&#x4F1A;&#x6839;&#x636E;&#x8FD9;&#x4E09;&#x9879;&#x505A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#xFF08;&#x6CE8;&#xFF1A;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x6765;&#x81EA;&#x7F51;&#x7AD9;<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" target="_blank">HTTP | MDN Web Docs</a>&#xFF09;&#xFF1A;</p>
-<h4 id="3121-x-xss-protection">3.1.2.1 X-XSS-Protection</h4>
-<p>&#x200B;        HTTP <strong>X-XSS-Protection</strong> &#x54CD;&#x5E94;&#x5934;&#x662F;Internet Explorer&#xFF0C;Chrome&#x548C;Safari&#x7684;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x5F53;&#x68C0;&#x6D4B;&#x5230;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB; (<a href="https://developer.mozilla.org/en-US/docs/Glossary/XSS" target="_blank">XSS</a>)&#x65F6;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x505C;&#x6B62;&#x52A0;&#x8F7D;&#x9875;&#x9762;&#x3002;&#x867D;&#x7136;&#x8FD9;&#x4E9B;&#x4FDD;&#x62A4;&#x5728;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x57FA;&#x672C;&#x4E0A;&#x662F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x5F53;&#x7F51;&#x7AD9;&#x5B9E;&#x65BD;&#x4E00;&#x4E2A;&#x5F3A;&#x5927;&#x7684;<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank"><code>Content-Security-Policy</code></a>&#x6765;&#x7981;&#x7528;&#x5185;&#x8054;&#x7684;JavaScript (<code>&apos;unsafe-inline&apos;</code>)&#x65F6;, &#x4ED6;&#x4EEC;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4E3A;&#x5C1A;&#x4E0D;&#x652F;&#x6301; <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSP" target="_blank">CSP</a> &#x7684;&#x65E7;&#x7248;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x4FDD;&#x62A4;&#x3002;</p>
-<p>&#x200B;        &#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code># &#x7981;&#x6B62;XSS&#x8FC7;&#x6EE4;&#x3002;
-X-XSS-Protection: 0
-# &#x542F;&#x7528;XSS&#x8FC7;&#x6EE4;&#xFF08;&#x901A;&#x5E38;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#xFF09;&#x3002; &#x5982;&#x679C;&#x68C0;&#x6D4B;&#x5230;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x6E05;&#x9664;&#x9875;&#x9762;&#xFF08;&#x5220;&#x9664;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x90E8;&#x5206;&#xFF09;&#x3002;
-X-XSS-Protection: 1
-# &#x542F;&#x7528;XSS&#x8FC7;&#x6EE4;&#x3002; &#x5982;&#x679C;&#x68C0;&#x6D4B;&#x5230;&#x653B;&#x51FB;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x4E0D;&#x4F1A;&#x6E05;&#x9664;&#x9875;&#x9762;&#xFF0C;&#x800C;&#x662F;&#x963B;&#x6B62;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x3002;
-X-XSS-Protection: 1; mode=block
-# &#x542F;&#x7528;XSS&#x8FC7;&#x6EE4;&#x3002; 
-# &#x5982;&#x679C;&#x68C0;&#x6D4B;&#x5230;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x6E05;&#x9664;&#x9875;&#x9762;&#x5E76;&#x4F7F;&#x7528;CSP report-uri&#x6307;&#x4EE4;&#x7684;&#x529F;&#x80FD;&#x53D1;&#x9001;&#x8FDD;&#x89C4;&#x62A5;&#x544A;&#x3002;
-X-XSS-Protection: 1; report=&lt;reporting-uri&gt;
-</code></pre><p>&#x200B;        &#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p>&#x5F53;&#x68C0;&#x6D4B;&#x5230;XSS&#x653B;&#x51FB;&#x65F6;&#x963B;&#x6B62;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#xFF1A;</p>
-<pre><code class="lang-bash">X-XSS-Protection: 1;mode=block
+<h2 id="1-&#x6E90;&#x4EE3;&#x7801;&#x5B89;&#x88C5;">1. &#x6E90;&#x4EE3;&#x7801;&#x5B89;&#x88C5;</h2>
+<p>&#x200B;        &#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;&#x4E3A;Center OS 7 64&#x4F4D;&#xFF0C;&#x4F7F;&#x7528;<code>yum</code>&#x547D;&#x4EE4;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x3002;</p>
+<h3 id="11-&#x5B89;&#x88C5;&#x4F9D;&#x8D56;">1.1 &#x5B89;&#x88C5;&#x4F9D;&#x8D56;</h3>
+<p>&#x200B;        &#x672C;&#x4F8B;&#x4E2D;&#x53EA;&#x662F;&#x5B89;&#x88C5;&#x4E00;&#x4E9B;&#x7F16;&#x8BD1;Nginx&#x65F6;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#x548C;&#x8F6F;&#x4EF6;&#x7B49;&#xFF0C;&#x5982;&#x6709;&#x9700;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x6240;&#x9700;&#x5185;&#x5BB9;&#x3002;</p>
+<h4 id="111-yum&#x9010;&#x6761;&#x5B89;&#x88C5;&#x7248;">1.1.1 yum&#x9010;&#x6761;&#x5B89;&#x88C5;&#x7248;</h4>
+<p>&#x200B;        &#x5B89;&#x88C5;gcc&#x548C;g++&#x4E24;&#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x5F00;&#x5B89;&#x88C5;&#xFF0C;&#x4E0D;&#x8FC7;&#x8981;&#x5148;&#x5B89;&#x88C5;gcc&#x624D;&#x80FD;&#x5B89;&#x88C5;g++</p>
+<pre><code>yum -y install gcc gcc-c++
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;make&#xFF0C;&#x7528;&#x4E8E;&#x7F16;&#x8BD1;</p>
+<pre><code>yum -y install gcc automake autoconf libtool make
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;pcre&#xFF0C;&#x7528;&#x4E8E;&#x91CD;&#x5199;rewrite</p>
+<pre><code>yum -y install pcre
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;pcre-devel        </p>
+<pre><code>yum -y install pcre-devel
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;zlip&#xFF0C;&#x7528;&#x4E8E;&#x5F00;&#x542F;gzip&#x538B;&#x7F29;</p>
+<pre><code>yum -y install zlip
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;zlib-devel</p>
+<pre><code>yum -y install zlib-devel
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;openssl</p>
+<pre><code>yum -y install openssl
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;openssl-devel</p>
+<pre><code>yum -y install
+</code></pre><blockquote>
+<p><strong>Tips</strong>&#xFF1A;&#x53C2;&#x6570;<code>-y</code>&#x7528;&#x4E8E;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x7248;&#x672C;&#xFF0C;&#x5982;&#x9700;&#x7279;&#x5B9A;&#x7248;&#x672C;&#xFF0C;&#x53EF;&#x4E0D;&#x6DFB;&#x52A0;&#x8BE5;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>yum install</code>&#x547D;&#x4EE4;&#x5B89;&#x88C5;&#xFF0C;<code>yum</code>&#x4F1A;&#x5728;&#x627E;&#x5230;&#x5B89;&#x88C5;&#x5305;&#x4E4B;&#x540E;&#x518D;&#x7531;&#x7528;&#x6237;&#x624B;&#x52A8;&#x9009;&#x62E9;&#x7248;&#x672C;&#x3002;</p>
+<p><strong>Notes</strong>:devel &#x5305;&#x4E3B;&#x8981;&#x662F;&#x4F9B;&#x5F00;&#x53D1;&#x7528;&#xFF0C;&#x81F3;&#x5C11;&#x5305;&#x62EC;&#x5934;&#x6587;&#x4EF6;&#x548C;&#x94FE;&#x63A5;&#x5E93;&#xFF0C;&#x6709;&#x7684;&#x8FD8;&#x542B;&#x6709;&#x5F00;&#x53D1;&#x6587;&#x6863;&#x6216;&#x6F14;&#x793A;&#x4EE3;&#x7801;&#x3002;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x9700;&#x8981;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x5E93;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x8FD9;&#x4E2A;&#x5E93;&#x7684;devel&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x5934;&#x6587;&#x4EF6;</p>
+</blockquote>
+<h4 id="112-yum&#x6253;&#x5305;&#x5B89;&#x88C5;&#x7248;">1.1.2 yum&#x6253;&#x5305;&#x5B89;&#x88C5;&#x7248;</h4>
+<p>&#x200B;        &#x53EF;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x5C06;&#x8981;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#x4F9D;&#x6B21;&#x4EE5;&#x7A7A;&#x683C;&#x95F4;&#x9694;&#x62FC;&#x5728;&#x540E;&#x8FB9;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code class="lang-bash">[root@localhost ~]<span class="hljs-comment"># yum -y install gcc gcc-c++ automake pcre pcre-devel zlip zlib-devel openssl openssl-devel</span>
 </code></pre>
-<p>PHP</p>
-<pre><code>header(&quot;X-XSS-Protection: 1; mode=block&quot;);
-</code></pre><p>Apache (.htaccess)</p>
-<pre><code class="lang-bash">&lt;IfModule mod_headers.c&gt; 
-  Header <span class="hljs-built_in">set</span> X-XSS-Protection <span class="hljs-string">&quot;1; mode=block&quot;</span> 
-&lt;/IfModule&gt;
-</code></pre>
-<h4 id="3122-x-frame-options">3.1.2.2 X-Frame-Options</h4>
-<p>&#x200B;        The <strong>X-Frame-Options</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP" target="_blank">HTTP</a> &#x54CD;&#x5E94;&#x5934;&#x662F;&#x7528;&#x6765;&#x7ED9;&#x6D4F;&#x89C8;&#x5668; &#x6307;&#x793A;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x9875;&#x9762; &#x53EF;&#x5426;&#x5728; <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/frame" target="_blank">``</a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe" target="_blank">``</a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed" target="_blank">``</a> &#x6216;&#x8005; <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/object" target="_blank">``</a> &#x4E2D;&#x5C55;&#x73B0;&#x7684;&#x6807;&#x8BB0;&#x3002;&#x7AD9;&#x70B9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x786E;&#x4FDD;&#x7F51;&#x7AD9;&#x6CA1;&#x6709;&#x88AB;&#x5D4C;&#x5165;&#x5230;&#x522B;&#x4EBA;&#x7684;&#x7AD9;&#x70B9;&#x91CC;&#x9762;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D; <a href="https://zh.wikipedia.org/wiki/clickjacking" target="_blank">clickjacking</a> &#x653B;&#x51FB;&#x3002;</p>
-<p>&#x200B;        The added security is only provided if the user accessing the document is using a browser supporting <code>X-Frame-Options</code>. <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank"><code>Content-Security-Policy</code></a> HTTP &#x5934;&#x4E2D;&#x7684; <a href="https://developer.mozilla.org/en-US/docs/Security/CSP/CSP_policy_directives#frame-ancestors" target="_blank">frame-ancestors</a> &#x6307;&#x4EE4;&#x4F1A;<a href="https://www.w3.org/TR/CSP2/#frame-ancestors-and-frame-options" target="_blank">&#x66FF;&#x4EE3;</a>&#x8FD9;&#x4E2A;&#x975E;&#x6807;&#x51C6;&#x7684; header&#x3002;CSP &#x7684; frame-ancestors &#x4F1A;&#x5728; Gecko 4.0 &#x4E2D;&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;&#x6240;&#x6709;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x3002;&#x7136;&#x800C; <code>X-Frame-Options</code> &#x662F;&#x4E2A;&#x5DF2;&#x5E7F;&#x6CDB;&#x652F;&#x6301;&#x7684;&#x975E;&#x5B98;&#x65B9;&#x6807;&#x51C6;&#xFF0C;&#x53EF;&#x4EE5;&#x548C; CSP &#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x3002;</p>
-<p>&#x200B;        &#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code># &#x8868;&#x793A;&#x8BE5;&#x9875;&#x9762;&#x4E0D;&#x5141;&#x8BB8;&#x5728; frame &#x4E2D;&#x5C55;&#x793A;&#xFF0C;&#x5373;&#x4FBF;&#x662F;&#x5728;&#x76F8;&#x540C;&#x57DF;&#x540D;&#x7684;&#x9875;&#x9762;&#x4E2D;&#x5D4C;&#x5957;&#x4E5F;&#x4E0D;&#x5141;&#x8BB8;&#x3002;
-X-Frame-Options: deny
-# &#x8868;&#x793A;&#x8BE5;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x76F8;&#x540C;&#x57DF;&#x540D;&#x9875;&#x9762;&#x7684; frame &#x4E2D;&#x5C55;&#x793A;&#x3002;
-X-Frame-Options: sameorigin
-# &#x8868;&#x793A;&#x8BE5;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x6307;&#x5B9A;&#x6765;&#x6E90;&#x7684; frame &#x4E2D;&#x5C55;&#x793A;&#x3002;
-X-Frame-Options: allow-from https://example.com/
-</code></pre><p>&#x200B;        <strong>Note:</strong> &#x8BBE;&#x7F6E; meta &#x6807;&#x7B7E;&#x662F;&#x65E0;&#x6548;&#x7684;&#xFF01;&#x4F8B;&#x5982; <code>&lt;meta http-equiv=&quot;X-Frame-Options&quot; content=&quot;deny&quot;&gt;</code> &#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6548;&#x679C;&#x3002;&#x4E0D;&#x8981;&#x8FD9;&#x6837;&#x7528;&#xFF01;&#x53EA;&#x6709;&#x5F53;&#x50CF;&#x4E0B;&#x9762;&#x793A;&#x4F8B;&#x90A3;&#x6837;&#x8BBE;&#x7F6E; HTTP &#x5934; <code>X-Frame-Options</code> &#x624D;&#x4F1A;&#x751F;&#x6548;&#x3002;</p>
-<p>&#x200B;        &#x5728; Firefox &#x5C1D;&#x8BD5;&#x52A0;&#x8F7D; frame &#x7684;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x5982;&#x679C; X-Frame-Options &#x54CD;&#x5E94;&#x5934;&#x8BBE;&#x7F6E;&#x4E3A;&#x7981;&#x6B62;&#x8BBF;&#x95EE;&#x4E86;&#xFF0C;&#x90A3;&#x4E48; Firefox &#x4F1A;&#x7528; about:blank &#x5C55;&#x73B0;&#x5230; frame &#x4E2D;&#x3002;&#x4E5F;&#x8BB8;&#x4ECE;&#x67D0;&#x79CD;&#x65B9;&#x9762;&#x6765;&#x8BB2;&#x7684;&#x8BDD;&#xFF0C;&#x5C55;&#x793A;&#x4E3A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4F1A;&#x66F4;&#x597D;&#x4E00;&#x70B9;&#x3002;</p>
-<p>&#x200B;    &#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><strong>&#x914D;&#x7F6E; Apache</strong></p>
-<p>&#x914D;&#x7F6E; Apache &#x5728;&#x6240;&#x6709;&#x9875;&#x9762;&#x4E0A;&#x53D1;&#x9001; X-Frame-Options &#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x4E0B;&#x9762;&#x8FD9;&#x884C;&#x6DFB;&#x52A0;&#x5230; &apos;site&apos; &#x7684;&#x914D;&#x7F6E;&#x4E2D;:</p>
-<pre><code class="lang-html">Header always set X-Frame-Options &quot;sameorigin&quot;
-</code></pre>
-<p>&#x8981;&#x5C06; Apache &#x7684;&#x914D;&#x7F6E; <code>X-Frame-Options</code> &#x8BBE;&#x7F6E;&#x6210; deny , &#x6309;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#x53BB;&#x8BBE;&#x7F6E;&#x4F60;&#x7684;&#x7AD9;&#x70B9;&#xFF1A;</p>
-<pre><code class="lang-html">Header set X-Frame-Options &quot;deny&quot;
-</code></pre>
-<p>&#x8981;&#x5C06; Apache &#x7684;&#x914D;&#x7F6E; <code>X-Frame-Options</code> &#x8BBE;&#x7F6E;&#x6210; <code>allow-from</code>&#xFF0C;&#x5728;&#x914D;&#x7F6E;&#x91CC;&#x6DFB;&#x52A0;&#xFF1A;</p>
-<pre><code class="lang-html">Header set X-Frame-Options &quot;allow-from https://example.com/&quot;
-</code></pre>
-<p><strong>&#x914D;&#x7F6E; nginx</strong></p>
-<p>&#x914D;&#x7F6E; nginx &#x53D1;&#x9001; X-Frame-Options &#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x628A;&#x4E0B;&#x9762;&#x8FD9;&#x884C;&#x6DFB;&#x52A0;&#x5230; &apos;http&apos;, &apos;server&apos; &#x6216;&#x8005; &apos;location&apos; &#x7684;&#x914D;&#x7F6E;&#x4E2D;:</p>
-<pre><code class="lang-html">add_header X-Frame-Options sameorigin always;
-</code></pre>
-<p><strong>&#x914D;&#x7F6E; IIS</strong></p>
-<p>&#x914D;&#x7F6E; IIS &#x53D1;&#x9001; <code>X-Frame-Options</code> &#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x6DFB;&#x52A0;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5230; Web.config &#x6587;&#x4EF6;&#x4E2D;&#xFF1A;</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">system.webServer</span>&gt;</span>
-  ...
+<h4 id="113-&#x6E90;&#x7801;&#x5B89;&#x88C5;pcre&#x5E93;">1.1.3 &#x6E90;&#x7801;&#x5B89;&#x88C5;PCRE&#x5E93;</h4>
+<p>&#x200B;        &#x53EF;&#x4ECE;<code>ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</code>&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7684; PCRE &#x6E90;&#x7801;&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5; PCRE &#x5305;&#xFF1A;</p>
+<p>&#x200B;        &#x5207;&#x6362;&#x7279;&#x5B9A;&#x76EE;&#x5F55;</p>
+<pre><code>cd /usr/local/src
+</code></pre><p>&#x200B;        &#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5305;</p>
+<pre><code>wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
+</code></pre><p>&#x200B;        &#x89E3;&#x538B;&#x6E90;&#x7801;&#x5305;</p>
+<pre><code>tar -zxvf pcre-8.37.tar.gz
+</code></pre><p>&#x200B;        &#x5207;&#x6362;&#x5F97;&#x5230;&#x89E3;&#x538B;&#x76EE;&#x5F55;</p>
+<pre><code>cd pcre-8.34
+</code></pre><p>&#x200B;        &#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x524D;&#x914D;&#x7F6E;&#x548C;&#x68C0;&#x6D4B;</p>
+<pre><code>./configure
+</code></pre><p>&#x200B;        &#x7F16;&#x8BD1;</p>
+<pre><code>make
+</code></pre><p>&#x200B;        &#x5B89;&#x88C5;</p>
+<pre><code>make install
+</code></pre><h4 id="114-&#x6E90;&#x7801;&#x5B89;&#x88C5;zlib&#x5E93;">1.1.4 &#x6E90;&#x7801;&#x5B89;&#x88C5;zlib&#x5E93;</h4>
+<pre><code>     &#x53EF;&#x901A;&#x8FC7;`http://zlib.net/zlib-1.2.8.tar.gz` &#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7684; zlib &#x6E90;&#x7801;&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5; zlib&#x5305;&#xFF1A;
+</code></pre><pre><code>cd /usr/local/src
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">httpProtocol</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">customHeaders</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">add</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;X-Frame-Options&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sameorigin&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">customHeaders</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">httpProtocol</span>&gt;</span>
+wget http://zlib.net/zlib-1.2.8.tar.gz
+tar -zxvf zlib-1.2.8.tar.gz
+cd zlib-1.2.8
+./configure
+make
+make install
+</code></pre><h4 id="115-&#x5B89;&#x88C5;ssl">1.15 &#x5B89;&#x88C5;ssl</h4>
+<pre><code>cd /usr/local/src
+wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz
+tar -zxvf openssl-1.0.1t.tar.gz
+</code></pre><h3 id="12-&#x4E0B;&#x8F7D;">1.2 &#x4E0B;&#x8F7D;</h3>
+<p>&#x200B;        Nginx &#x4E00;&#x822C;&#x6709;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x7A33;&#x5B9A;&#x7248;&#x548C;&#x5F00;&#x53D1;&#x7248;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x60A8;&#x7684;&#x76EE;&#x7684;&#x6765;&#x9009;&#x62E9;&#x8FD9;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x4F7F;&#x7528;<code>wget</code>&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;&#x76F8;&#x5E94;&#x7248;&#x672C;&#x7684;nginx&#x6E90;&#x7801;&#x538B;&#x7F29;&#x5305;</p>
+<pre><code>wget http://nginx.org/download/nginx-1.8.1.tar.gz
+</code></pre><p>&#x200B;        &#x4F7F;&#x7528;<code>tar</code>&#x547D;&#x4EE4;&#x89E3;&#x538B;&#x8BE5;&#x6E90;&#x7801;&#x5305;</p>
+<pre><code>tar -xzf nginx-1.8.1.tar.gz
+</code></pre><blockquote>
+<p><strong>&#x8BF4;&#x660E;</strong>&#xFF1A;nginx&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x53EF;&#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x538B;&#x7F29;&#x5305;&#x4E0B;&#x8F7D;&#x4F4D;&#x7F6E;&#x548C;&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x4F4D;&#x7F6E;&#x6CA1;&#x6709;&#x5FC5;&#x7136;&#x8054;&#x7CFB;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x5728;&#x9700;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;&#xFF0C;&#x4E5F;&#x53EF;&#x5728;&#x7279;&#x5B9A;&#x4E0B;&#x8F7D;&#x76EE;&#x5F55;&#x4E0B;&#x8F7D;&#x540E;&#x5728;&#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x3002;</p>
+</blockquote>
+<h3 id="13-&#x5185;&#x7F6E;&#x6A21;&#x5757;">1.3 &#x5185;&#x7F6E;&#x6A21;&#x5757;</h3>
+<h4 id="131-&#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x7684;&#x6A21;&#x5757;">1.3.1 &#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x7684;&#x6A21;&#x5757;</h4>
+<p>&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x60A8;&#x7981;&#x7528;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF1A;
+&#x2013;without-http_charset_module
+&#x2013;without-http_gzip_module
+&#x2013;without-http_ssi_module
+&#x2013;without-http_userid_module
+&#x2013;without-http_access_module
+&#x2013;without-http_access_module
+&#x2013;without-http_autoindex_module
+&#x2013;without-http_geo_module
+&#x2013;without-http_map_module
+&#x2013;without-http_referer_module
+&#x2013;without-http_rewrite_module
+&#x2013;without-http_proxy_module
+&#x2013;without-http_fastcgi_module
+&#x2013;without-http_uwsgi_module
+&#x2013;without-http_scgi_module
+&#x2013;without-http_memcached_module
+&#x2013;without-http_limit_conn_module
+&#x2013;without-http_limit_req_module
+&#x2013;without-http_empty_gif_module
+&#x2013;without-http_browser_module
+&#x2013;without-http_upstream_ip_hash_module
+&#x2013;without-http_upstream_least_conn_module
+&#x2013;without-http_split_clients_module</p>
+<h4 id="132-&#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x7684;&#x6A21;&#x5757;">1.3.2 &#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x7684;&#x6A21;&#x5757;</h4>
+<p>&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x60A8;&#x542F;&#x7528;&#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF1A;
+&#x2013;with-http_ssl_module
+&#x2013;with-http_realip_module
+&#x2013;with-http_addition_module
+&#x2013;with-http_xslt_module
+&#x2013;with-http_image_filter_module
+&#x2013;with-http_geoip_module
+&#x2013;with-http_sub_module
+&#x2013;with-http_dav_module
+&#x2013;with-http_flv_module
+&#x2013;with-http_mp4_module
+&#x2013;with-http_gzip_static_module
+&#x2013;with-http_random_index_module
+&#x2013;with-http_secure_link_module
+&#x2013;with-http_stub_status_module
+&#x2013;with-google_perftools_module
+&#x2013;with-http_degradation_module
+&#x2013;with-http_perl_module
+&#x2013;with-http_spdy_module
+&#x2013;with-http_gunzip_module
+&#x2013;with-http_auth_request_module</p>
+<h3 id="14-&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;">1.4 &#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        &#x7F16;&#x8BD1;&#x8F6F;&#x4EF6;&#x4E4B;&#x524D;&#x53EF;&#x4EE5;&#x5148;&#x6307;&#x5B9A;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x4EE5;&#x4E0B;&#x5148;&#x770B;&#x4E00;&#x4E2A;&#x5B98;&#x65B9;&#x4F8B;&#x5B50;&#xFF0C;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#x5982;&#x679C;&#x6362;&#x884C;&#x53EF;&#x4F7F;&#x7528;<code>\</code>&#xFF08;&#x7A7A;&#x683C;&#x548C;&#x53CD;&#x659C;&#x6760;&#xFF09;&#x5206;&#x5272;&#xFF0C;&#x4E5F;&#x53EF;&#x4E0D;&#x52A0;&#x53CD;&#x659C;&#x6760;&#xFF0C;&#x4EC5;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x5272;&#xFF1A;</p>
+<pre><code>./configure --sbin-path=/usr/local/nginx/nginx \
+--conf-path=/usr/local/nginx/nginx.conf \
+--pid-path=/usr/local/nginx/nginx.pid \
+--with-http_ssl_module \
+--with-pcre=/opt/app/openet/oetal1/chenhe/pcre-8.37 \
+--with-zlib=/opt/app/openet/oetal1/chenhe/zlib-1.2.8 \
+--with-openssl=/opt/app/openet/oetal1/chenhe/openssl-1.0.1t
+</code></pre><p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<p>&#x200B;        <code>--with-pcre=/usr/src/pcre-8.34</code> &#x6307;&#x7684;&#x662F;pcre-8.34 &#x7684;&#x6E90;&#x7801;&#x8DEF;&#x5F84;&#x3002;
+&#x200B;        <code>--with-zlib=/usr/src/zlib-1.2.7</code> &#x6307;&#x7684;&#x662F;zlib-1.2.7 &#x7684;&#x6E90;&#x7801;&#x8DEF;&#x5F84;&#x3002;</p>
+<h4 id="131-&#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x76EE;&#x5F55;">1.3.1 &#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x76EE;&#x5F55;</h4>
+<pre><code># &#x5176;&#x4E2D;path&#x5373;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;
+--prefix=path
+</code></pre><h4 id="132-&#x6307;&#x5B9A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x540D;">1.3.2 &#x6307;&#x5B9A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x540D;</h4>
+<pre><code># &#x4E00;&#x822C;&#x4E3A;&#x6587;&#x4EF6;&#x540D;&#x4E3A;prefix/sbin/nginx
+--sbin-path=path
+</code></pre><h4 id="133-&#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540D;">1.3.3 &#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540D;</h4>
+<pre><code># &#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;nginx&#x603B;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;-c&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6765;&#x542F;&#x52A8;&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A;prefix/conf/nginx.conf
+--conf-path=path
+</code></pre><h4 id="134-&#x6307;&#x5B9A;pid&#x6587;&#x4EF6;">1.3.4 &#x6307;&#x5B9A;pid&#x6587;&#x4EF6;</h4>
+<pre><code># pid&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x5C06;&#x5B58;&#x50A8;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;&#x8FDB;&#x7A0B;ID&#x3002;
+# &#x5B89;&#x88C5;&#x4E4B;&#x540E;&#xFF0C;&#x603B;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;pid&#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x540D;&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A;prefix/logs/nginx.pid&#x3002;
+--pid-path=path
+</code></pre><h4 id="135-&#x6307;&#x5B9A;&#x7528;&#x6237;">1.3.5 &#x6307;&#x5B9A;&#x7528;&#x6237;</h4>
+<pre><code># &#x5B89;&#x88C5;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;user&#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x540D;&#x79F0;&#x3002;
+# &#x9ED8;&#x8BA4;&#x7684;&#x7528;&#x6237;&#x540D;&#x662F;nobody&#x3002;
+--user=name
+</code></pre><h4 id="136-&#x6307;&#x5B9A;&#x7EC4;">1.3.6 &#x6307;&#x5B9A;&#x7EC4;</h4>
+<pre><code># &#x5B89;&#x88C5;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;user&#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x540D;&#x79F0;&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7EC4;&#x540D;&#x8BBE;&#x7F6E;&#x4E3A;&#x65E0;&#x7279;&#x6743;&#x7528;&#x6237;&#x7684;&#x540D;&#x79F0;&#x3002;
+--group=name
+</code></pre><h4 id="137-&#x5F00;&#x542F;&#x7EBF;&#x7A0B;&#x6C60;">1.3.7 &#x5F00;&#x542F;&#x7EBF;&#x7A0B;&#x6C60;</h4>
+<pre><code>--with-threads
+</code></pre><h4 id="138-&#x542F;&#x7528;https">1.3.8 &#x542F;&#x7528;https</h4>
+<pre><code># &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0D;&#x652F;&#x6301;https
+# &#x542F;&#x7528;&#x8BE5;&#x9879;&#x9700;&#x8981;&#x5B89;&#x88C5;ssl
+--with-http_ssl_module
+</code></pre><h4 id="139-&#x542F;&#x7528;gzip">1.3.9 &#x542F;&#x7528;gzip</h4>
+<pre><code># &#x9ED8;&#x8BA4;&#x4E0D;&#x5F00;&#x542F;&#x6B64;&#x529F;&#x80FD;
+# &#x5F00;&#x542F;&#x9700;&#x8981;&#x5B89;&#x88C5;zlib
+-with-http_gzip_static_module
+</code></pre><h4 id="1310-&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x76EE;&#x5F55;">1.3.10 &#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x76EE;&#x5F55;</h4>
+<pre><code># &#x5B9A;&#x4E49;&#x5C06;&#x5B89;&#x88C5;nginx&#x52A8;&#x6001;&#x6A21;&#x5757;&#x7684;&#x76EE;&#x5F55;&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;prefix/modules&#x76EE;&#x5F55;&#x3002;
+--modules-path=path
+</code></pre><h4 id="1311-&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6A21;&#x5757;">1.3.11 &#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6A21;&#x5757;</h4>
+<pre><code># &#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6784;&#x5EFA;&#x5141;&#x8BB8;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x6A21;&#x5757;&#x3002;
+# &#x5982;&#x679C;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x66F4;&#x5408;&#x9002;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;kqueue&#x3001;epoll&#x6216;/dev/poll&#xFF0C;&#x5219;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x6B64;&#x6A21;&#x5757;&#x3002;
+# &#x5176;&#x4E2D;select_module&#x5373;&#x4E3A;&#x6A21;&#x5757;&#x540D;
+--with-select_module
+--without-select_module
+</code></pre><h4 id="1312-&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x6A21;&#x5757;">1.3.12 &#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x6A21;&#x5757;</h4>
+<pre><code># &#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x7B2C;&#x4E09;&#x65B9;&#x529F;&#x80FD;&#x6A21;&#x5757;
+--add-module=path
+</code></pre><h4 id="1313-&#x6307;&#x5B9A;c&#x7F16;&#x8BD1;&#x5668;">1.3.13 &#x6307;&#x5B9A;C&#x7F16;&#x8BD1;&#x5668;</h4>
+<pre><code># sets the name of the C compiler. 
+--with-cc=path
+</code></pre><h4 id="1314-&#x8BBE;&#x7F6E;cflags&#x53C2;&#x6570;&#x3002;">1.3.14 &#x8BBE;&#x7F6E;CFLAGS&#x53C2;&#x6570;&#x3002;</h4>
+<pre><code># &#x8BBE;&#x7F6E;&#x5C06;&#x6DFB;&#x52A0;&#x5230;CFLAGS&#x53D8;&#x91CF;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;
+--with-cc-opt=parameters
+</code></pre><h4 id="1315-&#x6307;&#x5B9A;cpu">1.3.15 &#x6307;&#x5B9A;CPU</h4>
+<pre><code># &#x652F;&#x6301;&#x4E3A;&#x6BCF;&#x4E2A;&#x6307;&#x5B9A;CPU&#x6784;&#x5EFA;:
+# pentium&#x3001;pentiumpro&#x3001;pentium3&#x3001;pentium4&#x3001;athlon&#x3001;opteron&#x3001;sparc32&#x3001;sparc64&#x3001;ppc64&#x3002;
+--with-cpu-opt=cpu
+</code></pre><h4 id="1316-&#x6307;&#x5B9A;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;">1.3.16 &#x6307;&#x5B9A;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;</h4>
+<pre><code># &#x8BBE;&#x7F6E;&#x4E3B;&#x8BF7;&#x6C42;&#x7684;HTTP&#x670D;&#x52A1;&#x5668;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;
+# &#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;access_log&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D; &#x4E3A;prefix/logs/access.log.
+--http-log-path=path
+</code></pre><h4 id="1317-&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;">1.3.17 &#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;</h4>
+<pre><code># &#x8BBE;&#x7F6E;&#x4E3B;&#x9519;&#x8BEF;&#xFF0C;&#x8B66;&#x544A;&#xFF0C;&#x548C;&#x8BCA;&#x65AD;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;
+# &#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x6539;&#x53D8;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;error_log&#x3002;
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D; &#x4E3A;prefix/logs/error.log.
+--error-log-path=path
+</code></pre><h4 id="1318-&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;">1.3.18 &#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</h4>
+<pre><code>./configure --prefix=/server/nginx --sbin-path=/server/nginx/sbin/nginx --with-http_stub_status_module --with-pcre --with-http_gzip_static_module --with-http_ssl_module
+</code></pre><h3 id="15-&#x7F16;&#x8BD1;">1.5 &#x7F16;&#x8BD1;</h3>
+<p>&#x200B;        &#x6267;&#x884C;<code>make</code>&#x547D;&#x4EE4;&#x5373;&#x53EF;&#x7F16;&#x8BD1;&#xFF0C;&#x5982;&#x679C;&#x6A21;&#x5757;&#x591A;&#x53EF;&#x6709;&#x7684;&#x7B49;&#x3002;&#x4E00;&#x822C;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;&#x4F1A;&#x6301;&#x7EED;&#x95EA;&#x5C4F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x3002;</p>
+<h3 id="16-&#x5B89;&#x88C5;">1.6 &#x5B89;&#x88C5;</h3>
+<p>&#x200B;        &#x6267;&#x884C;<code>make install</code>&#x5373;&#x53EF;&#x5B89;&#x88C5;,&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#x5982;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@localhost nginx]<span class="hljs-comment"># ls</span>
+conf  html  logs  nginx-1.8.1  nginx-1.8.1.tar.gz  sbin
+</code></pre>
+<h3 id="17-&#x5E38;&#x7528;&#x64CD;&#x4F5C;">1.7 &#x5E38;&#x7528;&#x64CD;&#x4F5C;</h3>
+<p>&#x200B;        &#x4F7F;&#x7528;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;<code>prefix/sbin/nginx</code>&#x542F;&#x52A8;</p>
+<pre><code>/server/nginx/sbin/nginx
+</code></pre><p>&#x200B;        &#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;</p>
+<pre><code>/server/nginx/sbin/nginx -c conf/nginx.conf
+</code></pre><p>&#x200B;        &#x91CD;&#x65B0;&#x542F;&#x52A8;</p>
+<pre><code>/server/nginx/sbin/nginx -s reload
+</code></pre><p>&#x200B;        &#x5173;&#x95ED;</p>
+<pre><code>/server/nginx/sbin/nginx -s stop
+</code></pre><pre><code>pkill -9 nginx
+</code></pre><p>&#x200B;        &#x67E5;&#x770B;&#x7248;&#x672C;</p>
+<pre><code>/server/nginx/sbin/nginx -V
+</code></pre><h3 id="18-&#x9A8C;&#x8BC1;">1.8 &#x9A8C;&#x8BC1;</h3>
+<p>&#x200B;        nginx&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5360;&#x7528;80&#x7AEF;&#x53E3;&#xFF0C;&#x8FD0;&#x884C;&#x524D;&#x9700;&#x8981;&#x786E;&#x8BA4;80&#x7AEF;&#x53E3;&#x662F;&#x5426;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x6216;&#x66F4;&#x6539;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x8FD0;&#x884C;&#x6210;&#x529F;&#x540E;&#x3002;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x53EF;&#x4F7F;&#x7528;<code>curl</code>&#x6765;&#x6D4B;&#x8BD5;nginx&#x662F;&#x5426;&#x8FD0;&#x884C;&#x6210;&#x529F;&#xFF0C;&#x6210;&#x529F;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;HTML&#x6587;&#x6863;&#x3002;</p>
+<pre><code>[root@localhost nginx]# curl localhost:80
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.&lt;/p&gt;
 
-  ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">system.webServer</span>&gt;</span>
-</code></pre>
-<p><strong>&#x914D;&#x7F6E; HAProxy</strong></p>
-<p>&#x914D;&#x7F6E; HAProxy &#x53D1;&#x9001; <code>X-Frame-Options</code> &#x5934;&#xFF0C;&#x6DFB;&#x52A0;&#x8FD9;&#x4E9B;&#x5230;&#x4F60;&#x7684;&#x524D;&#x7AEF;&#x3001;&#x76D1;&#x542C; listen&#xFF0C;&#x6216;&#x8005;&#x540E;&#x7AEF;&#x7684;&#x914D;&#x7F6E;&#x91CC;&#x9762;&#xFF1A;</p>
-<pre><code class="lang-html">rspadd X-Frame-Options:\ sameorigin
-</code></pre>
-<p>&#x6216;&#x8005;&#xFF0C;&#x5728;&#x66F4;&#x52A0;&#x65B0;&#x7684;&#x7248;&#x672C;&#x4E2D;&#xFF1A;</p>
-<pre><code class="lang-html">http-response set-header X-Frame-Options sameorigin
-</code></pre>
-<p><strong>&#x914D;&#x7F6E; Express</strong></p>
-<p>&#x8981;&#x914D;&#x7F6E; Express &#x53EF;&#x4EE5;&#x53D1;&#x9001; <code>X-Frame-Options</code> header&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x501F;&#x52A9;&#x4E86; <a href="https://helmetjs.github.io/docs/frameguard/" target="_blank">frameguard</a> &#x6765;&#x8BBE;&#x7F6E;&#x5934;&#x90E8;&#x7684; <a href="https://helmetjs.github.io/" target="_blank">helmet</a>&#x3002;&#x5728;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#x91CC;&#x9762;&#x6DFB;&#x52A0;&#xFF1A;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> helmet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;helmet&apos;</span>);
-<span class="hljs-keyword">const</span> app = express();
-app.use(helmet.frameguard({ action: <span class="hljs-string">&quot;sameorigin&quot;</span> }));
-</code></pre>
-<p>&#x6216;&#x8005;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528; <a href="https://helmetjs.github.io/docs/frameguard/" target="_blank">frameguard</a>&#xFF1A;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> frameguard = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;frameguard&apos;</span>)
-app.use(frameguard({ action: <span class="hljs-string">&apos;sameorigin&apos;</span> }))
-</code></pre>
-<h4 id="3123-x-content-type-options">3.1.2.3 X-Content-Type-Options</h4>
-<p>&#x200B;        <strong>X-Content-Type-Options</strong><code>&#x54CD;&#x5E94;&#x9996;&#x90E8;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6807;&#x5FD7;&#xFF0C;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x7528;&#x6765;&#x63D0;&#x793A;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x5B9A;&#x8981;&#x9075;&#x5FAA;&#x5728; [</code>Content-Type`](<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type</a>) &#x9996;&#x90E8;&#x4E2D;&#x5BF9;  <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank">MIME &#x7C7B;&#x578B;</a> &#x7684;&#x8BBE;&#x5B9A;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;&#x8FD9;&#x5C31;&#x7981;&#x7528;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x7684; <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing" target="_blank">MIME &#x7C7B;&#x578B;&#x55C5;&#x63A2;</a>&#x884C;&#x4E3A;&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x610F;&#x5473;&#x7740;&#x7F51;&#x7AD9;&#x7BA1;&#x7406;&#x5458;&#x786E;&#x5B9A;&#x81EA;&#x5DF1;&#x7684;&#x8BBE;&#x7F6E;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x200B;        &#x8FD9;&#x4E2A;&#x6D88;&#x606F;&#x9996;&#x90E8;&#x6700;&#x521D;&#x662F;&#x7531;&#x5FAE;&#x8F6F;&#x5728; IE 8 &#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x7ED9;&#x7F51;&#x7AD9;&#x7BA1;&#x7406;&#x5458;&#x7528;&#x4F5C;&#x7981;&#x7528;&#x5185;&#x5BB9;&#x55C5;&#x63A2;&#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x5185;&#x5BB9;&#x55C5;&#x63A2;&#x6280;&#x672F;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x4E0D;&#x53EF;&#x6267;&#x884C;&#x7684; MIME &#x7C7B;&#x578B;&#x8F6C;&#x53D8;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x7684; MIME &#x7C7B;&#x578B;&#x3002;&#x5728;&#x6B64;&#x4E4B;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x6D4F;&#x89C8;&#x5668;&#x4E5F;&#x76F8;&#x7EE7;&#x5F15;&#x5165;&#x4E86;&#x8FD9;&#x4E2A;&#x9996;&#x90E8;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x7684; MIME &#x55C5;&#x63A2;&#x7B97;&#x6CD5;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x6709;&#x4FB5;&#x7565;&#x6027;&#x3002;</p>
-<p>&#x200B;        &#x7AD9;&#x70B9;&#x5B89;&#x5168;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x901A;&#x5E38;&#x6B22;&#x8FCE;&#x5BF9;&#x8FD9;&#x4E2A;&#x9996;&#x90E8;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;</p>
-<p>&#x200B;        &#x6CE8;&#x610F;: <code>nosniff</code> &#x53EA;&#x5E94;&#x7528;&#x4E8E; &quot;<code>script</code>&quot; &#x548C; &quot;<code>style</code>&quot; &#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x4E8B;&#x5B9E;&#x8BC1;&#x660E;&#xFF0C;&#x5C06;&#x5176;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x7247;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x5BFC;&#x81F4;<a href="https://github.com/whatwg/fetch/issues/395" target="_blank">&#x4E0E;&#x73B0;&#x6709;&#x7684;&#x7AD9;&#x70B9;&#x51B2;&#x7A81;</a>&#x3002;</p>
-<p>&#x200B;        &#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>X-Content-Type-Options: nosniff
-</code></pre><p>&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x963B;&#x6B62;&#xFF1A;</p>
+&lt;p&gt;For online documentation and support please refer to
+&lt;a href=&quot;http://nginx.org/&quot;&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+Commercial support is available at
+&lt;a href=&quot;http://nginx.com/&quot;&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x200B;        &#x67E5;&#x770B;nginx&#x7248;&#x672C;&#x4FE1;&#x606F;&#x5982;&#x4E0B;</p>
+<pre><code>[root@localhost nginx]# /server/nginx/sbin/nginx -V
+nginx version: nginx/1.8.1
+built by gcc 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) 
+built with OpenSSL 1.0.2k-fips  26 Jan 2017
+TLS SNI support enabled
+configure arguments: --prefix=/server/nginx --sbin-path=/server/nginx/sbin/nginx --with-http_stub_status_module --with-pcre --with-http_gzip_static_module --with-http_ssl_module
+</code></pre><h2 id="2&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x89E3;">2.&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x89E3;</h2>
+<p>&#x200B;        nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7531;&#x591A;&#x4E2A;&#x5757;&#x7EC4;&#x6210;&#xFF0C;&#x6700;&#x5916;&#x9762;&#x7684;&#x5757;&#x662F;main&#xFF0C;main&#x5305;&#x542B;Events&#x548C;HTTP&#xFF0C;HTTP&#x5305;&#x542B;upstream&#x548C;&#x591A;&#x4E2A;Server&#xFF0C;Server&#x53C8;&#x5305;&#x542B;&#x591A;&#x4E2A;location&#xFF1A;</p>
+<p>&#x200B;        main&#xFF08;&#x5168;&#x5C40;&#x8BBE;&#x7F6E;&#xFF09;&#x3001;server&#xFF08;&#x4E3B;&#x673A;&#x8BBE;&#x7F6E;&#xFF09;&#x3001;upstream&#xFF08;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x670D;&#x52A1;&#x5668;&#x8BBE;&#x7F6E;&#xFF09;&#x548C; location&#xFF08;URL&#x5339;&#x914D;&#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x8BBE;&#x7F6E;&#xFF09;&#x3002;</p>
 <ul>
-<li>&#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#x662F;&quot;<code>style</code>&quot; &#x4F46;&#x662F; MIME &#x7C7B;&#x578B;&#x4E0D;&#x662F; &quot;<code>text/css</code>&quot;&#xFF0C;</li>
-<li>&#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#x662F;&quot;<code>script</code>&quot; &#x4F46;&#x662F; MIME &#x7C7B;&#x578B;&#x4E0D;&#x662F;  <a href="https://html.spec.whatwg.org/multipage/scripting.html#javascript-mime-type" target="_blank">JavaScript MIME &#x7C7B;&#x578B;</a>&#x3002;</li>
+<li><p>main&#x5757;&#x8BBE;&#x7F6E;&#x7684;&#x6307;&#x4EE4;&#x5C06;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x8BBE;&#x7F6E;&#xFF1B;</p>
+</li>
+<li><p>server&#x5757;&#x7684;&#x6307;&#x4EE4;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x4E3B;&#x673A;&#x548C;&#x7AEF;&#x53E3;&#xFF1B;</p>
+</li>
+<li><p>upstream&#x6307;&#x4EE4;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF1B;</p>
+</li>
+<li><p>location&#x5757;&#x7528;&#x4E8E;&#x5339;&#x914D;&#x7F51;&#x9875;&#x4F4D;&#x7F6E;&#x3002;</p>
+</li>
 </ul>
-<h3 id="313-&#x95EE;&#x9898;&#x89E3;&#x51B3;">3.1.3 &#x95EE;&#x9898;&#x89E3;&#x51B3;</h3>
-<p>&#x4FEE;&#x6539;Nginx&#x914D;&#x7F6E;&#x9879;</p>
-<pre><code>    add_header &apos;X-XSS-Protection&apos; &apos;1; mode=block&apos;;    #&#x6B64;&#x914D;&#x7F6E;&#x672A;&#x53D1;&#x73B0;&#x5F71;&#x54CD;
-    add_header &apos;X-Frame-Options&apos; &apos;sameorigin&apos;;            #&#x4FEE;&#x6539;&#x6216;&#x6CE8;&#x91CA;&#x6B64;&#x9879;
-    add_header &apos;X-Content-Type-Options&apos; &apos;nosniff&apos;;    #&#x76EE;&#x524D;&#x5148;&#x6CE8;&#x91CA;
+<p>&#x200B;        &#x8FD9;&#x56DB;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x5F0F;&#xFF1A;server&#x7EE7;&#x627F;main&#xFF0C;location&#x7EE7;&#x627F;server&#xFF0C;upstream&#x65E2;&#x4E0D;&#x4F1A;&#x7EE7;&#x627F;&#x5176;&#x4ED6;&#x8BBE;&#x7F6E;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x7EE7;&#x627F;&#x3002;
+&#x200B;        &#x5728;&#x8FD9;&#x56DB;&#x4E2A;&#x90E8;&#x5206;&#x5F53;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x90FD;&#x5305;&#x542B;&#x82E5;&#x5E72;&#x6307;&#x4EE4;&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x4E3B;&#x8981;&#x5305;&#x542B;Nginx&#x7684;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#x3001;&#x4E8B;&#x4EF6;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#x3001;HTTP&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x540C;&#x65F6;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;HTTP&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x4F8B;&#x5982;Http SSL&#x6A21;&#x5757;&#x3001;HttpGzip Static&#x6A21;&#x5757;&#x548C;Http Addition&#x6A21;&#x5757;&#x7B49;&#x3002;</p>
+<h3 id="21-&#x5168;&#x5C40;&#x914D;&#x7F6E;">2.1 &#x5168;&#x5C40;&#x914D;&#x7F6E;</h3>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>user nobody nobody;
+worker_processes 2;
+error_log logs/error.log notice;
+pid logs/nginx.pid;
+worker_rlimit_nofile 65535;
+
+events{
+use epoll;
+worker_connections 65536;
+}
+</code></pre><p>&#x200B;        &#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x9009;&#x9879;&#x7684;&#x542B;&#x4E49;&#x89E3;&#x91CA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>user&#x662F;&#x4E2A;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x6307;&#x5B9A;Nginx Worker&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x7528;&#x6237;&#x4EE5;&#x53CA;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x9ED8;&#x8BA4;&#x7531;nobody&#x8D26;&#x53F7;&#x8FD0;&#x884C;&#x3002;</li>
+<li>worker_processes&#x662F;&#x4E2A;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x6307;&#x5B9A;&#x4E86;Nginx&#x8981;&#x5F00;&#x542F;&#x7684;&#x8FDB;&#x7A0B;&#x6570;&#x3002;&#x6BCF;&#x4E2A;Nginx&#x8FDB;&#x7A0B;&#x5E73;&#x5747;&#x8017;&#x8D39;10M~12M&#x5185;&#x5B58;&#x3002;&#x5EFA;&#x8BAE;&#x6307;&#x5B9A;&#x548C;CPU&#x7684;&#x6570;&#x91CF;&#x4E00;&#x81F4;&#x5373;&#x53EF;&#x3002;</li>
+<li>error_log&#x662F;&#x4E2A;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x7EA7;&#x522B;&#x6709;debug&#x3001;info&#x3001;notice&#x3001;warn&#x3001;error&#x3001;crit&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#xFF0C;&#x5176;&#x4E2D;&#xFF0C;debug&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x6700;&#x4E3A;&#x6700;&#x8BE6;&#x7EC6;&#xFF0C;&#x800C;crit&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x6700;&#x5C11;&#x3002;</li>
+<li>pid&#x662F;&#x4E2A;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;pid&#x7684;&#x5B58;&#x50A8;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li>worker_rlimit_nofile&#x7528;&#x4E8E;&#x7ED1;&#x5B9A;worker&#x8FDB;&#x7A0B;&#x548C;CPU&#xFF0C; Linux&#x5185;&#x6838;2.4&#x4EE5;&#x4E0A;&#x53EF;&#x7528;&#x3002;</li>
+</ul>
+<p>a). events&#x4E8B;&#x4EF6;&#x6307;&#x4EE4;&#x662F;&#x8BBE;&#x5B9A;Nginx&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;&#xFF1A;
+b). use&#x662F;&#x4E2A;&#x4E8B;&#x4EF6;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;Nginx&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x3002;Nginx&#x652F;&#x6301;&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x6709;select&#x3001;poll&#x3001;kqueue&#x3001;epoll&#x3001;rtsig&#x548C;/dev/poll&#x3002;&#x5176;&#x4E2D;select&#x548C;poll&#x90FD;&#x662F;&#x6807;&#x51C6;&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;kqueue&#x548C;epoll&#x662F;&#x9AD8;&#x6548;&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;epoll&#x7528;&#x5728;Linux&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x800C;kqueue&#x7528;&#x5728;BSD&#x7CFB;&#x7EDF;&#x4E2D;&#x3002;&#x5BF9;&#x4E8E;Linux&#x7CFB;&#x7EDF;&#xFF0C;<strong>epoll&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x662F;&#x9996;&#x9009;&#x3002;</strong>
+c). worker_connections&#x4E5F;&#x662F;&#x4E2A;&#x4E8B;&#x4EF6;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;Nginx&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;1024&#x3002;&#x6700;&#x5927;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x6570;&#x7531;worker_processes&#x548C;worker_connections&#x51B3;&#x5B9A;&#xFF0C;&#x5373;Max_client=worker_processes<em>worker_connections&#x3002;
+&#x5728;&#x4F5C;&#x4E3A;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x65F6;&#xFF0C;max_clients&#x53D8;&#x4E3A;&#xFF1A;max_clients = worker_processes </em> worker_connections/4&#x3002;
+&#x8FDB;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;&#x53D7;Linux&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x6570;&#x9650;&#x5236;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x201C;ulimit -n 65536&#x201D;&#x540E;worker_connections&#x7684;&#x8BBE;&#x7F6E;&#x624D;&#x80FD;&#x751F;&#x6548;</p>
+<h3 id="22-http&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;">2.2 HTTP&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;</h3>
+<pre><code>http{
+http{
+include conf/mime.types;
+default_type application/octet-stream;
+log_format main &apos;$remote_addr - $remote_user [$time_local] &apos;
+&apos;&quot;$request&quot; $status $bytes_sent &apos;
+&apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+&apos;&quot;$gzip_ratio&quot;&apos;;
+log_format download &apos;$remote_addr - $remote_user [$time_local] &apos;
+&apos;&quot;$request&quot; $status $bytes_sent &apos;
+&apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+&apos;&quot;$http_range&quot; &quot;$sent_http_content_range&quot;&apos;;
+client_max_body_size 20m;
+client_header_buffer_size 32K;
+large_client_header_buffers 4 32k;
+Sendfile on;
+tcp_nopush on;
+tcp_nodelay on;
+keepalive_timeout 60;
+client_header_timeout 10;
+client_body_timeout 10;
+send_timeout 10;
+</code></pre><p>&#x200B;        &#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E0B;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#x6BCF;&#x4E2A;&#x914D;&#x7F6E;&#x9009;&#x9879;&#x7684;&#x542B;&#x4E49;&#x3002;</p>
+<ul>
+<li>include&#x662F;&#x4E2A;&#x4E3B;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x5B9E;&#x73B0;&#x5BF9;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5305;&#x542B;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8BBE;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;Apache&#x4E2D;&#x7684;include&#x65B9;&#x6CD5;&#x3002;</li>
+<li>default_type&#x5C5E;&#x4E8E;HTTP&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x8FD9;&#x91CC;&#x8BBE;&#x5B9A;&#x9ED8;&#x8BA4;&#x7C7B;&#x578B;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F53;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x672A;&#x5B9A;&#x4E49;&#x65F6;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#x5728;&#x6CA1;&#x6709;&#x914D;&#x7F6E;PHP&#x73AF;&#x5883;&#x65F6;&#xFF0C;Nginx&#x662F;&#x4E0D;&#x4E88;&#x89E3;&#x6790;&#x7684;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;PHP&#x6587;&#x4EF6;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x4E0B;&#x8F7D;&#x7A97;&#x53E3;&#x3002;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5BF9;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;&#x7684;&#x8BBE;&#x5B9A;&#xFF1A;</p>
+<pre><code>log_format main &apos;$remote_addr - $remote_user [$time_local] &apos;
+&apos;&quot;$request&quot; $status $bytes_sent &apos;
+&apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+&apos;&quot;$gzip_ratio&quot;&apos;;
+log_format download &apos;$remote_addr - $remote_user [$time_local] &apos;
+&apos;&quot;$request&quot; $status $bytes_sent &apos;
+&apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;
+&apos;&quot;$http_range&quot; &quot;$sent_http_content_range&quot;&apos;;
+</code></pre><p>&#x200B;        log_format&#x662F;Nginx&#x7684;HttpLog&#x6A21;&#x5757;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;Nginx&#x65E5;&#x5FD7;&#x7684;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x3002;main&#x4E3A;&#x6B64;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0B;&#x9762;&#x7684;access_log&#x6307;&#x4EE4;&#x4E2D;&#x5F15;&#x7528;&#x3002;</p>
+<ul>
+<li>client_max_body_size&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x6700;&#x5927;&#x7684;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5B57;&#x8282;&#x6570;&#xFF1B;</li>
+<li>client_header_buffer_size&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5934;&#x7684;headerbuffer&#x5927;&#x5C0F;&#x3002;&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x8BF7;&#x6C42;&#xFF0C;1K&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#xFF0C;&#x5982;&#x679C;&#x81EA;&#x5B9A;&#x4E49;&#x4E86;&#x6D88;&#x606F;&#x5934;&#x6216;&#x6709;&#x66F4;&#x5927;&#x7684;Cookie&#xFF0C;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x3002;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E3A;32K&#xFF1B;</li>
+<li>large_client_header_buffers&#x7528;&#x6765;&#x6307;&#x5B9A;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E2D;&#x8F83;&#x5927;&#x7684;&#x6D88;&#x606F;&#x5934;&#x7684;&#x7F13;&#x5B58;&#x6700;&#x5927;&#x6570;&#x91CF;&#x548C;&#x5927;&#x5C0F;&#xFF0C; &#x201C;4&#x201D;&#x4E3A;&#x4E2A;&#x6570;&#xFF0C;&#x201C;128K&#x201D;&#x4E3A;&#x5927;&#x5C0F;&#xFF0C;&#x6700;&#x5927;&#x7F13;&#x5B58;&#x91CF;&#x4E3A;4&#x4E2A;128K&#xFF1B;</li>
+<li>sendfile&#x53C2;&#x6570;&#x7528;&#x4E8E;&#x5F00;&#x542F;&#x9AD8;&#x6548;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x6A21;&#x5F0F;&#x3002;&#x5C06;tcp_nopush&#x548C;tcp_nodelay&#x4E24;&#x4E2A;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E3A;on&#x7528;&#x4E8E;&#x9632;&#x6B62;&#x7F51;&#x7EDC;&#x963B;&#x585E;&#xFF1B;</li>
+<li>keepalive_timeout&#x8BBE;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x5728;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x4E4B;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x5173;&#x95ED;&#x8BE5;&#x8FDE;&#x63A5;&#xFF1B;</li>
+<li>client_header_timeout&#x8BBE;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5934;&#x8BFB;&#x53D6;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD8;&#x6CA1;&#x6709;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF0C;Nginx&#x5C06;&#x8FD4;&#x56DE;&#x201C;Request time out&#xFF08;408&#xFF09;&#x201D;&#x9519;&#x8BEF;&#xFF1B;</li>
+<li>client_body_timeout&#x8BBE;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x8BFB;&#x53D6;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8FD8;&#x6CA1;&#x6709;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF0C;Nginx&#x5C06;&#x8FD4;&#x56DE;&#x201C;Request time out&#xFF08;408&#xFF09;&#x201D;&#x9519;&#x8BEF;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;60&#xFF1B;</li>
+<li>send_timeout&#x6307;&#x5B9A;&#x54CD;&#x5E94;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x8FD9;&#x4E2A;&#x8D85;&#x65F6;&#x4EC5;&#x9650;&#x4E8E;&#x4E24;&#x4E2A;&#x8FDE;&#x63A5;&#x6D3B;&#x52A8;&#x4E4B;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6D3B;&#x52A8;&#xFF0C;Nginx&#x5C06;&#x4F1A;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</li>
+</ul>
+<h3 id="23-httpgzip&#x6A21;&#x5757;&#x914D;&#x7F6E;">2.3 HttpGzip&#x6A21;&#x5757;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x914D;&#x7F6E;Nginx&#x7684;HttpGzip&#x6A21;&#x5757;&#x3002;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x652F;&#x6301;&#x5728;&#x7EBF;&#x5B9E;&#x65F6;&#x538B;&#x7F29;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x6D41;&#x3002;
+&#x200B;        &#x770B;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x4E86;HttpGzip&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code>[root@vps ~]# /opt/nginx/sbin/nginx  -V
+nginx version: nginx/1.0.14
+built by gcc 4.4.6 20110731 (Red Hat 4.4.6-3) (GCC)
+configure arguments: --with-http_stub_status_module --with-http_gzip_static_module --prefix=/opt/nginx
+</code></pre><p>&#x200B;        &#x901A;&#x8FC7;<code>/opt/nginx/sbin/nginx -V</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5B89;&#x88C5;Nginx&#x65F6;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#xFF0C;&#x7531;&#x8F93;&#x51FA;&#x53EF;&#x77E5;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x4E86;HttpGzip&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x662F;HttpGzip&#x6A21;&#x5757;&#x5728;Nginx&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#xFF1A;</p>
+<pre><code>gzip on;
+gzip_min_length 1k;
+gzip_buffers 4 16k;
+gzip_http_version 1.1;
+gzip_comp_level 2;
+gzip_types text/plain application/x-javascript text/css application/xml;
+gzip_vary on;
+</code></pre><ul>
+<li>gzip&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5F00;&#x542F;&#x6216;&#x8005;&#x5173;&#x95ED;gzip&#x6A21;&#x5757;&#xFF0C;&#x201C;gzip on&#x201D;&#x8868;&#x793A;&#x5F00;&#x542F;GZIP&#x538B;&#x7F29;&#xFF0C;&#x5B9E;&#x65F6;&#x538B;&#x7F29;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x6D41;&#xFF1B;</li>
+<li>gzip_min_length&#x8BBE;&#x7F6E;&#x5141;&#x8BB8;&#x538B;&#x7F29;&#x7684;&#x9875;&#x9762;&#x6700;&#x5C0F;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x9875;&#x9762;&#x5B57;&#x8282;&#x6570;&#x4ECE;header&#x5934;&#x7684;Content-Length&#x4E2D;&#x83B7;&#x53D6;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x662F;0&#xFF0C;&#x4E0D;&#x7BA1;&#x9875;&#x9762;&#x591A;&#x5927;&#x90FD;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x3002;&#x5EFA;&#x8BAE;&#x8BBE;&#x7F6E;&#x6210;&#x5927;&#x4E8E;1K&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x5C0F;&#x4E8E;1K&#x53EF;&#x80FD;&#x4F1A;&#x8D8A;&#x538B;&#x8D8A;&#x5927;&#xFF1B;</li>
+<li>gzip_buffers&#x8868;&#x793A;&#x7533;&#x8BF7;4&#x4E2A;&#x5355;&#x4F4D;&#x4E3A;16K&#x7684;&#x5185;&#x5B58;&#x4F5C;&#x4E3A;&#x538B;&#x7F29;&#x7ED3;&#x679C;&#x6D41;&#x7F13;&#x5B58;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x7533;&#x8BF7;&#x4E0E;&#x539F;&#x59CB;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x76F8;&#x540C;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x6765;&#x5B58;&#x50A8;gzip&#x538B;&#x7F29;&#x7ED3;&#x679C;&#xFF1B;</li>
+<li>gzip_http_version&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x8BC6;&#x522B;HTTP&#x534F;&#x8BAE;&#x7248;&#x672C;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;1.1&#xFF0C;&#x76EE;&#x524D;&#x5927;&#x90E8;&#x5206;&#x6D4F;&#x89C8;&#x5668;&#x5DF2;&#x7ECF;&#x652F;&#x6301;GZIP&#x89E3;&#x538B;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x5373;&#x53EF;&#xFF1B;</li>
+<li>gzip_comp_level&#x7528;&#x6765;&#x6307;&#x5B9A;GZIP&#x538B;&#x7F29;&#x6BD4;&#xFF0C;1 &#x538B;&#x7F29;&#x6BD4;&#x6700;&#x5C0F;&#xFF0C;&#x5904;&#x7406;&#x901F;&#x5EA6;&#x6700;&#x5FEB;&#xFF1B;9 &#x538B;&#x7F29;&#x6BD4;&#x6700;&#x5927;&#xFF0C;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x5FEB;&#xFF0C;&#x4F46;&#x5904;&#x7406;&#x6700;&#x6162;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F83;&#x6D88;&#x8017;cpu&#x8D44;&#x6E90;&#xFF1B;</li>
+<li>gzip_types&#x7528;&#x6765;&#x6307;&#x5B9A;&#x538B;&#x7F29;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x6307;&#x5B9A;&#xFF0C;&#x201C;text/html&#x201D;&#x7C7B;&#x578B;&#x603B;&#x662F;&#x4F1A;&#x88AB;&#x538B;&#x7F29;&#x7684;&#xFF1B;</li>
+<li>gzip_vary&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x8BA9;&#x524D;&#x7AEF;&#x7684;&#x7F13;&#x5B58;&#x670D;&#x52A1;&#x5668;&#x7F13;&#x5B58;&#x7ECF;&#x8FC7;GZIP&#x538B;&#x7F29;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x4F8B;&#x5982;&#x7528;Squid&#x7F13;&#x5B58;&#x7ECF;&#x8FC7;Nginx&#x538B;&#x7F29;&#x7684;&#x6570;&#x636E;&#x3002;</li>
+</ul>
+<h3 id="24-&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x914D;&#x7F6E;">2.4 &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x8BBE;&#x5B9A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5217;&#x8868;&#xFF1A;</p>
+<pre><code>upstream cszhi.com{
+ip_hash;
+server 192.168.8.11:80;
+server 192.168.8.12:80 down;
+server 192.168.8.13:8009 max_fails=3 fail_timeout=20s;
+server 192.168.8.146:8080;
+}
+</code></pre><p>&#x200B;        upstream&#x662F;Nginx&#x7684;HTTP Upstream&#x6A21;&#x5757;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x5BA2;&#x6237;&#x7AEF;IP&#x5230;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;
+&#x200B;        &#x5728;&#x4E0A;&#x9762;&#x7684;&#x8BBE;&#x5B9A;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;upstream&#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;&#x7684;&#x540D;&#x79F0;cszhi.com&#x3002;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x6307;&#x5B9A;&#xFF0C;&#x5728;&#x540E;&#x9762;&#x9700;&#x8981;&#x7684;&#x5730;&#x65B9;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x200B;        Nginx&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x6A21;&#x5757;&#x76EE;&#x524D;&#x652F;&#x6301;4&#x79CD;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x8FDB;&#x884C;&#x5206;&#x522B;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x4E2D;&#x540E;&#x4E24;&#x9879;&#x5C5E;&#x4E8E;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x8C03;&#x5EA6;&#x65B9;&#x6CD5;&#x3002;</p>
+<ul>
+<li>&#x8F6E;&#x8BE2;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#xFF1A;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x6309;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x9010;&#x4E00;&#x5206;&#x914D;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x540E;&#x7AEF;&#x67D0;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x5B95;&#x673A;&#xFF0C;&#x6545;&#x969C;&#x7CFB;&#x7EDF;&#x88AB;&#x81EA;&#x52A8;&#x5254;&#x9664;&#xFF0C;&#x4F7F;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#xFF1B;</li>
+<li>Weight&#xFF1A;&#x6307;&#x5B9A;&#x8F6E;&#x8BE2;&#x6743;&#x503C;&#xFF0C;Weight&#x503C;&#x8D8A;&#x5927;&#xFF0C;&#x5206;&#x914D;&#x5230;&#x7684;&#x8BBF;&#x95EE;&#x673A;&#x7387;&#x8D8A;&#x9AD8;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x540E;&#x7AEF;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x4E0D;&#x5747;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF1B;</li>
+<li>ip_hash&#xFF1A;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x6309;&#x8BBF;&#x95EE;IP&#x7684;hash&#x7ED3;&#x679C;&#x5206;&#x914D;&#xFF0C;&#x8FD9;&#x6837;&#x6765;&#x81EA;&#x540C;&#x4E00;&#x4E2A;IP&#x7684;&#x8BBF;&#x5BA2;&#x56FA;&#x5B9A;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6709;&#x6548;&#x89E3;&#x51B3;&#x4E86;&#x52A8;&#x6001;&#x7F51;&#x9875;&#x5B58;&#x5728;&#x7684;session&#x5171;&#x4EAB;&#x95EE;&#x9898;&#xFF1B;</li>
+<li>fair&#xFF1A;&#x6BD4;&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x66F4;&#x52A0;&#x667A;&#x80FD;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;&#x3002;&#x6B64;&#x79CD;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x4F9D;&#x636E;&#x9875;&#x9762;&#x5927;&#x5C0F;&#x548C;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;&#x957F;&#x77ED;&#x667A;&#x80FD;&#x5730;&#x8FDB;&#x884C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6839;&#x636E;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x6765;&#x5206;&#x914D;&#x8BF7;&#x6C42;&#xFF0C;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x77ED;&#x7684;&#x4F18;&#x5148;&#x5206;&#x914D;&#x3002;Nginx&#x672C;&#x8EAB;&#x662F;&#x4E0D;&#x652F;&#x6301;fair&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#xFF0C;&#x5FC5;&#x987B;&#x4E0B;&#x8F7D;Nginx&#x7684;upstream_fair&#x6A21;&#x5757;&#xFF1B;</li>
+<li>url_hash&#xFF1A;&#x6309;&#x8BBF;&#x95EE;url&#x7684;hash&#x7ED3;&#x679C;&#x6765;&#x5206;&#x914D;&#x8BF7;&#x6C42;&#xFF0C;&#x4F7F;&#x6BCF;&#x4E2A;url&#x5B9A;&#x5411;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x9AD8;&#x540E;&#x7AEF;&#x7F13;&#x5B58;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6548;&#x7387;&#x3002;Nginx&#x672C;&#x8EAB;&#x662F;&#x4E0D;&#x652F;&#x6301;url_hash&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#xFF0C;&#x5FC5;&#x987B;&#x5B89;&#x88C5;Nginx &#x7684;hash&#x8F6F;&#x4EF6;&#x5305;&#x3002;</li>
+</ul>
+<p>&#x200B;        &#x5728;HTTP Upstream&#x6A21;&#x5757;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;server&#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x5B9A;&#x6BCF;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x5728;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x8C03;&#x5EA6;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5E38;&#x7528;&#x7684;&#x72B6;&#x6001;&#x6709;&#xFF1A;</p>
+<ul>
+<li>down&#xFF1A;&#x8868;&#x793A;&#x5F53;&#x524D;&#x7684;server&#x6682;&#x65F6;&#x4E0D;&#x53C2;&#x4E0E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF1B;</li>
+<li>backup&#xFF1A;&#x9884;&#x7559;&#x7684;&#x5907;&#x4EFD;&#x673A;&#x5668;&#x3002;&#x5F53;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7684;&#x975E;backup&#x673A;&#x5668;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x6216;&#x8005;&#x5FD9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x4F1A;&#x8BF7;&#x6C42;backup&#x673A;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x53F0;&#x673A;&#x5668;&#x7684;&#x538B;&#x529B;&#x6700;&#x8F7B;&#xFF1B;</li>
+<li>max_fails&#xFF1A;&#x5141;&#x8BB8;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1&#x3002;&#x5F53;&#x8D85;&#x8FC7;&#x6700;&#x5927;&#x6B21;&#x6570;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;proxy_next_upstream &#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x9519;&#x8BEF;&#xFF1B;</li>
+<li>fail_timeout&#xFF1A;&#x5728;&#x7ECF;&#x5386;&#x4E86;max_fails&#x6B21;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x6682;&#x505C;&#x670D;&#x52A1;&#x7684;&#x65F6;&#x95F4;&#x3002;max_fails&#x53EF;&#x4EE5;&#x548C;fail_timeout&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x200B;        &#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x8D1F;&#x8F7D;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x4E3A;ip_hash&#x65F6;&#xFF0C;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x5728;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x8C03;&#x5EA6;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#x4E0D;&#x80FD;&#x662F;weight&#x548C;backup&#x3002;</p>
+<h3 id="25-server&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;">2.5 server&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        &#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x5BF9;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x914D;&#x7F6E;&#x3002;
+&#x200B;        &#x5EFA;&#x8BAE;&#x5C06;&#x5BF9;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x8FDB;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;include&#x6307;&#x4EE4;&#x5305;&#x542B;&#x8FDB;&#x6765;&#xFF0C;&#x8FD9;&#x6837;&#x66F4;&#x4FBF;&#x4E8E;&#x7EF4;&#x62A4;&#x548C;&#x7BA1;&#x7406;&#x3002;</p>
+<pre><code>
+server{
+listen 80;
+server_name 192.168.8.18 cszhi.com;
+index index.html index.htm index.php;
+root /wwwroot/www.cszhi.com
+charset gb2312;
+access_log logs/www.ixdba.net.access.log main;
+}
+</code></pre><p>&#x200B;        server&#x6807;&#x5FD7;&#x5B9A;&#x4E49;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x5F00;&#x59CB;&#xFF0C;listen&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x53E3;&#xFF0C;server_name&#x7528;&#x6765;&#x6307;&#x5B9A;IP&#x5730;&#x5740;&#x6216;&#x8005;&#x57DF;&#x540D;&#xFF0C;&#x591A;&#x4E2A;&#x57DF;&#x540D;&#x4E4B;&#x95F4;&#x7528;&#x7A7A;&#x683C;&#x5206; &#x5F00;&#x3002;index&#x7528;&#x4E8E;&#x8BBE;&#x5B9A;&#x8BBF;&#x95EE;&#x7684;&#x9ED8;&#x8BA4;&#x9996;&#x9875;&#x5730;&#x5740;&#xFF0C;root&#x6307;&#x4EE4;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x9875;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;Charset&#x7528;&#x4E8E; &#x8BBE;&#x7F6E;&#x7F51;&#x9875;&#x7684;&#x9ED8;&#x8BA4;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x3002;access_log&#x7528;&#x6765;&#x6307;&#x5B9A;&#x6B64;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#xFF0C;&#x6700;&#x540E;&#x7684;main&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x7684;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x3002;</p>
+<h3 id="26-location-url&#x5339;&#x914D;&#x914D;&#x7F6E;">2.6 location URL&#x5339;&#x914D;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        URL&#x5730;&#x5740;&#x5339;&#x914D;&#x662F;&#x8FDB;&#x884C;Nginx&#x914D;&#x7F6E;&#x4E2D;&#x6700;&#x7075;&#x6D3B;&#x7684;&#x90E8;&#x5206;&#x3002; location&#x652F;&#x6301;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#xFF0C;&#x4E5F;&#x652F;&#x6301;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x5339;&#x914D;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;location&#x6307;&#x4EE4;&#x5B9E;&#x73B0;Nginx&#x5BF9;&#x52A8;&#x3001;&#x9759;&#x6001;&#x7F51;&#x9875;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x5904;&#x7406;&#x3002;&#x4F7F;&#x7528;location URL&#x5339;&#x914D;&#x914D;&#x7F6E;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;PHP&#x52A8;&#x6001;&#x89E3;&#x6790;&#x6216;&#x8005;&#x8D1F;&#x8F7D;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;
+&#x200B;        &#x4EE5;&#x4E0B;&#x8FD9;&#x6BB5;&#x8BBE;&#x7F6E;&#x662F;&#x901A;&#x8FC7;location&#x6307;&#x4EE4;&#x6765;&#x5BF9;&#x7F51;&#x9875;URL&#x8FDB;&#x884C;&#x5206;&#x6790;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x6709;&#x6269;&#x5C55;&#x540D;<br>&#x200B;        &#x4EE5;.gif&#x3001;.jpg&#x3001;.jpeg&#x3001;.png&#x3001;.bmp&#x3001;.swf&#x7ED3;&#x5C3E;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x90FD;&#x4EA4;&#x7ED9;nginx&#x5904;&#x7406;&#xFF0C;&#x800C;expires&#x7528;&#x6765;&#x6307;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;30&#x5929;&#x3002;</p>
+<pre><code>location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
+root /wwwroot/www.cszhi.com;
+expires 30d;
+}
+</code></pre><p>&#x200B;        &#x4EE5;&#x4E0B;&#x8FD9;&#x6BB5;&#x8BBE;&#x7F6E;&#x662F;&#x5C06;upload&#x548C;html&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x90FD;&#x4EA4;&#x7ED9;nginx&#x6765;&#x5904;&#x7406;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;upload&#x548C;html&#x76EE;&#x5F55;&#x5305;&#x542B;&#x5728;<code>/web/wwwroot/www.cszhi.com</code>&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<pre><code>location ~ ^/(upload|html)/ {
+root /web/wwwroot/www.cszhi.com;
+expires 30d;
+}
+</code></pre><p>&#x200B;        &#x5728;&#x6700;&#x540E;&#x8FD9;&#x6BB5;&#x8BBE;&#x7F6E;&#x4E2D;&#xFF0C;location&#x662F;&#x5BF9;&#x6B64;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x4E0B;&#x52A8;&#x6001;&#x7F51;&#x9875;&#x7684;&#x8FC7;&#x6EE4;&#x5904;&#x7406;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5C06;&#x6240;&#x6709;&#x4EE5;.jsp&#x4E3A;&#x540E;&#x7F00;&#x7684;&#x6587;&#x4EF6;&#x90FD;&#x4EA4;&#x7ED9;&#x672C;&#x673A;&#x7684;8080&#x7AEF;&#x53E3;&#x5904;&#x7406;&#x3002;</p>
+<pre><code>location ~ .*.php$ {
+index index.php;
+proxy_pass http://localhost:8080;
+}
+</code></pre><h3 id="27-stubstatus&#x6A21;&#x5757;&#x914D;&#x7F6E;">2.7 StubStatus&#x6A21;&#x5757;&#x914D;&#x7F6E;</h3>
+<p>&#x200B;        StubStatus&#x6A21;&#x5757;&#x80FD;&#x591F;&#x83B7;&#x53D6;Nginx&#x81EA;&#x4E0A;&#x6B21;&#x542F;&#x52A8;&#x4EE5;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x72B6;&#x6001;&#xFF0C;&#x6B64;&#x6A21;&#x5757;&#x975E;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x9700;&#x8981;&#x5728;Nginx&#x7F16;&#x8BD1;&#x5B89;&#x88C5;&#x65F6;&#x624B;&#x5DE5;&#x6307;&#x5B9A;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x6B64;&#x529F;&#x80FD;&#x3002;
+&#x200B;        &#x4EE5;&#x4E0B;&#x6307;&#x4EE4;&#x5B9E;&#x6307;&#x5B9A;&#x542F;&#x7528;&#x83B7;&#x53D6;Nginx&#x5DE5;&#x4F5C;&#x72B6;&#x6001;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<pre><code>location /NginxStatus {
+stub_status on;
+access_log logs/NginxStatus.log;
+auth_basic &quot;NginxStatus&quot;;
+auth_basic_user_file ../htpasswd;
+}
+</code></pre><p>&#x200B;        stub_status&#x8BBE;&#x7F6E;&#x4E3A;&#x201C;on&#x201D;&#x8868;&#x793A;&#x542F;&#x7528;StubStatus&#x7684;&#x5DE5;&#x4F5C;&#x72B6;&#x6001;&#x7EDF;&#x8BA1;&#x529F;&#x80FD;&#x3002;access_log &#x7528;&#x6765;&#x6307;&#x5B9A;StubStatus&#x6A21;&#x5757;&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;auth_basic&#x662F;Nginx&#x7684;&#x4E00;&#x79CD;&#x8BA4;&#x8BC1;&#x673A;&#x5236;&#x3002;auth_basic_user_file&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8BA4;&#x8BC1;&#x7684;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#xFF0C;&#x7531;&#x4E8E;Nginx&#x7684;auth_basic&#x8BA4;&#x8BC1;&#x91C7;&#x7528;&#x7684;&#x662F;&#x4E0E;Apache&#x517C;&#x5BB9;&#x7684;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x7528;Apache&#x7684;htpasswd&#x547D;&#x4EE4;&#x6765;&#x751F;&#x6210;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;test&#x7528;&#x6237;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code>/usr/local/apache/bin/htpasswd -c  /opt/nginx/conf/htpasswd test
+</code></pre><p>&#x200B;        &#x7136;&#x540E;&#x8F93;&#x5165;&#x4E24;&#x6B21;&#x5BC6;&#x7801;&#x540E;&#x786E;&#x8BA4;&#x4E4B;&#x540E;&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x6210;&#x529F;&#x3002;</p>
+<p>&#x200B;        &#x8981;&#x67E5;&#x770B;Nginx&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code>http://ip/NginxStatus</code>&#xFF0C;&#x8F93;&#x5165;&#x521B;&#x5EFA;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;Nginx&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code>Active connections: 1
+server accepts handled requests
+34561 35731 354399
+Reading: 0 Writing: 3 Waiting: 0
+</code></pre><p>&#x200B;        Active connections&#x8868;&#x793A;&#x5F53;&#x524D;&#x6D3B;&#x8DC3;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x7B2C;&#x4E09;&#x884C;&#x7684;&#x4E09;&#x4E2A;&#x6570;&#x5B57;&#x8868;&#x793A; Nginx&#x5F53;&#x524D;&#x603B;&#x5171;&#x5904;&#x7406;&#x4E86;34561&#x4E2A;&#x8FDE;&#x63A5;&#xFF0C; &#x6210;&#x529F;&#x521B;&#x5EFA;&#x6B21;&#x63E1;&#x624B;&#xFF0C; &#x603B;&#x5171;&#x5904;&#x7406;&#x4E86;354399&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x6700;&#x540E;&#x4E00;&#x884C;&#x7684;Reading&#x8868;&#x793A;Nginx&#x8BFB;&#x53D6;&#x5230;&#x5BA2;&#x6237;&#x7AEF;Header&#x4FE1;&#x606F;&#x6570;&#xFF0C; Writing&#x8868;&#x793A;Nginx&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;Header&#x4FE1;&#x606F;&#x6570;
+&#xFF0C;&#x201C;Waiting&#x201D;&#x8868;&#x793A;Nginx&#x5DF2;&#x7ECF;&#x5904;&#x7406;&#x5B8C;&#xFF0C;&#x6B63;&#x5728;&#x7B49;&#x5019;&#x4E0B;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x6307;&#x4EE4;&#x65F6;&#x7684;&#x9A7B;&#x7559;&#x8FDE;&#x63A5;&#x6570;&#x3002;</p>
+<p>&#x200B;        &#x5728;&#x6700;&#x540E;&#x8FD9;&#x6BB5;&#x8BBE;&#x7F6E;&#x4E2D;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E86;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8FD4;&#x56DE;&#x9875;&#x9762;&#xFF0C;&#x901A;&#x8FC7;error_page&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x5404;&#x79CD;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7684;&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x3002;&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Nginx&#x4F1A;&#x5728;&#x4E3B;&#x76EE;&#x5F55;&#x7684;html&#x76EE;&#x5F55;&#x4E2D;&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x7684;&#x8FD4;&#x56DE;&#x9875;&#x9762;&#xFF0C;&#x7279;&#x522B;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7684;&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x5927;&#x5C0F;&#x4E00;&#x5B9A;&#x8981;&#x8D85;&#x8FC7;512K&#xFF0C;&#x5426;&#x8005;&#x4F1A;&#x88AB;ie&#x6D4F;&#x89C8;&#x5668;&#x66FF;&#x6362;&#x4E3A;ie&#x9ED8;&#x8BA4;&#x7684;&#x9519;&#x8BEF;&#x9875;&#x9762;&#x3002;</p>
+<pre><code>error_page 404 /404.html;
+error_page 500 502 503 504 /50x.html;
+location = /50x.html {
+root html;
+}
+}
+</code></pre><h3 id="28-&#x7F51;&#x7EDC;&#x5B9E;&#x4F8B;">2.8 &#x7F51;&#x7EDC;&#x5B9E;&#x4F8B;</h3>
+<p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="https://www.cnblogs.com/xiaogangqq123/archive/2011/03/02/1969006.html" target="_blank">https://www.cnblogs.com/xiaogangqq123/archive/2011/03/02/1969006.html</a></p>
+<h4 id="281-&#x57FA;&#x672C;&#x914D;&#x7F6E;">2.8.1 &#x57FA;&#x672C;&#x914D;&#x7F6E;</h4>
+<pre><code>#&#x8FD0;&#x884C;&#x7528;&#x6237;
+user www-data;   
+#&#x542F;&#x52A8;&#x8FDB;&#x7A0B;,&#x901A;&#x5E38;&#x8BBE;&#x7F6E;&#x6210;&#x548C;cpu&#x7684;&#x6570;&#x91CF;&#x76F8;&#x7B49;
+worker_processes  1;
+
+#&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x53CA;PID&#x6587;&#x4EF6;
+error_log  /var/log/nginx/error.log;
+pid        /var/run/nginx.pid;
+
+#&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;
+events {
+    use   epoll;             #epoll&#x662F;&#x591A;&#x8DEF;&#x590D;&#x7528;IO(I/O Multiplexing)&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;,&#x4F46;&#x662F;&#x4EC5;&#x7528;&#x4E8E;linux2.6&#x4EE5;&#x4E0A;&#x5185;&#x6838;,&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x63D0;&#x9AD8;nginx&#x7684;&#x6027;&#x80FD;
+    worker_connections  1024;#&#x5355;&#x4E2A;&#x540E;&#x53F0;worker process&#x8FDB;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x5E76;&#x53D1;&#x94FE;&#x63A5;&#x6570;
+    # multi_accept on;
+}
+
+#&#x8BBE;&#x5B9A;http&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5229;&#x7528;&#x5B83;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x529F;&#x80FD;&#x63D0;&#x4F9B;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x652F;&#x6301;
+http {
+     #&#x8BBE;&#x5B9A;mime&#x7C7B;&#x578B;,&#x7C7B;&#x578B;&#x7531;mime.type&#x6587;&#x4EF6;&#x5B9A;&#x4E49;
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    #&#x8BBE;&#x5B9A;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;
+    access_log    /var/log/nginx/access.log;
+
+    #sendfile &#x6307;&#x4EE4;&#x6307;&#x5B9A; nginx &#x662F;&#x5426;&#x8C03;&#x7528; sendfile &#x51FD;&#x6570;&#xFF08;zero copy &#x65B9;&#x5F0F;&#xFF09;&#x6765;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x5E94;&#x7528;&#xFF0C;
+    #&#x5FC5;&#x987B;&#x8BBE;&#x4E3A; on,&#x5982;&#x679C;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x4E0B;&#x8F7D;&#x7B49;&#x5E94;&#x7528;&#x78C1;&#x76D8;IO&#x91CD;&#x8D1F;&#x8F7D;&#x5E94;&#x7528;&#xFF0C;&#x53EF;&#x8BBE;&#x7F6E;&#x4E3A; off&#xFF0C;&#x4EE5;&#x5E73;&#x8861;&#x78C1;&#x76D8;&#x4E0E;&#x7F51;&#x7EDC;I/O&#x5904;&#x7406;&#x901F;&#x5EA6;&#xFF0C;&#x964D;&#x4F4E;&#x7CFB;&#x7EDF;&#x7684;uptime.
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+    tcp_nodelay        on;
+
+    #&#x5F00;&#x542F;gzip&#x538B;&#x7F29;
+    gzip  on;
+    gzip_disable &quot;MSIE [1-6]\.(?!.*SV1)&quot;;
+
+    #&#x8BBE;&#x5B9A;&#x8BF7;&#x6C42;&#x7F13;&#x51B2;
+    client_header_buffer_size    1k;
+    large_client_header_buffers  4 4k;
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+
+    #&#x8BBE;&#x5B9A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5217;&#x8868;
+     upstream mysvr {
+    #weigth&#x53C2;&#x6570;&#x8868;&#x793A;&#x6743;&#x503C;&#xFF0C;&#x6743;&#x503C;&#x8D8A;&#x9AD8;&#x88AB;&#x5206;&#x914D;&#x5230;&#x7684;&#x51E0;&#x7387;&#x8D8A;&#x5927;
+    #&#x672C;&#x673A;&#x4E0A;&#x7684;Squid&#x5F00;&#x542F;3128&#x7AEF;&#x53E3;
+    server 192.168.8.1:3128 weight=5;
+    server 192.168.8.2:80  weight=1;
+    server 192.168.8.3:80  weight=6;
+    }
+
+
+   server {
+    #&#x4FA6;&#x542C;80&#x7AEF;&#x53E3;
+        listen       80;
+        #&#x5B9A;&#x4E49;&#x4F7F;&#x7528;www.xx.com&#x8BBF;&#x95EE;
+        server_name  www.xx.com;
+
+        #&#x8BBE;&#x5B9A;&#x672C;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;
+        access_log  logs/www.xx.com.access.log  main;
+
+    #&#x9ED8;&#x8BA4;&#x8BF7;&#x6C42;
+    location / {
+          root   /root;      #&#x5B9A;&#x4E49;&#x670D;&#x52A1;&#x5668;&#x7684;&#x9ED8;&#x8BA4;&#x7F51;&#x7AD9;&#x6839;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;
+          index index.php index.html index.htm;   #&#x5B9A;&#x4E49;&#x9996;&#x9875;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;
+
+          fastcgi_pass  www.xx.com;
+         fastcgi_param  SCRIPT_FILENAME  $document_root/$fastcgi_script_name;
+          include /etc/nginx/fastcgi_params;
+        }
+
+    # &#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x9875;&#x9762;
+    error_page   500 502 503 504 /50x.html; 
+        location = /50x.html {
+        root   /root;
+    }
+
+    #&#x9759;&#x6001;&#x6587;&#x4EF6;&#xFF0C;nginx&#x81EA;&#x5DF1;&#x5904;&#x7406;
+    location ~ ^/(images|javascript|js|css|flash|media|static)/ {
+        root /var/www/virtual/htdocs;
+        #&#x8FC7;&#x671F;30&#x5929;&#xFF0C;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x4E0D;&#x600E;&#x4E48;&#x66F4;&#x65B0;&#xFF0C;&#x8FC7;&#x671F;&#x53EF;&#x4EE5;&#x8BBE;&#x5927;&#x4E00;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x9891;&#x7E41;&#x66F4;&#x65B0;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5F97;&#x5C0F;&#x4E00;&#x70B9;&#x3002;
+        expires 30d;
+    }
+    #PHP &#x811A;&#x672C;&#x8BF7;&#x6C42;&#x5168;&#x90E8;&#x8F6C;&#x53D1;&#x5230; FastCGI&#x5904;&#x7406;. &#x4F7F;&#x7528;FastCGI&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;.
+    location ~ \.php$ {
+        root /root;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME /home/www/www$fastcgi_script_name;
+        include fastcgi_params;
+    }
+    #&#x8BBE;&#x5B9A;&#x67E5;&#x770B;Nginx&#x72B6;&#x6001;&#x7684;&#x5730;&#x5740;
+    location /NginxStatus {
+        stub_status            on;
+        access_log              on;
+        auth_basic              &quot;NginxStatus&quot;;
+        auth_basic_user_file  conf/htpasswd;
+    }
+    #&#x7981;&#x6B62;&#x8BBF;&#x95EE; .htxxx &#x6587;&#x4EF6;
+    location ~ /\.ht {
+        deny all;
+    }
+
+     }
+}
+</code></pre><h4 id="282-&#x8D1F;&#x8F7D;&#x5747;&#x8861;">2.8.2 &#x8D1F;&#x8F7D;&#x5747;&#x8861;</h4>
+<pre><code>#&#x8BBE;&#x5B9A;http&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5229;&#x7528;&#x5B83;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x529F;&#x80FD;&#x63D0;&#x4F9B;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x652F;&#x6301;
+http {
+     #&#x8BBE;&#x5B9A;mime&#x7C7B;&#x578B;,&#x7C7B;&#x578B;&#x7531;mime.type&#x6587;&#x4EF6;&#x5B9A;&#x4E49;
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    #&#x8BBE;&#x5B9A;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;
+    access_log    /var/log/nginx/access.log;
+
+    #&#x7701;&#x7565;&#x4E0A;&#x6587;&#x6709;&#x7684;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#x8282;&#x70B9;
+
+    #&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;
+
+    #&#x8BBE;&#x5B9A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5217;&#x8868;
+     upstream mysvr {
+    #weigth&#x53C2;&#x6570;&#x8868;&#x793A;&#x6743;&#x503C;&#xFF0C;&#x6743;&#x503C;&#x8D8A;&#x9AD8;&#x88AB;&#x5206;&#x914D;&#x5230;&#x7684;&#x51E0;&#x7387;&#x8D8A;&#x5927;
+    server 192.168.8.1x:3128 weight=5;#&#x672C;&#x673A;&#x4E0A;&#x7684;Squid&#x5F00;&#x542F;3128&#x7AEF;&#x53E3;
+    server 192.168.8.2x:80  weight=1;
+    server 192.168.8.3x:80  weight=6;
+    }
+
+   upstream mysvr2 {
+    #weigth&#x53C2;&#x6570;&#x8868;&#x793A;&#x6743;&#x503C;&#xFF0C;&#x6743;&#x503C;&#x8D8A;&#x9AD8;&#x88AB;&#x5206;&#x914D;&#x5230;&#x7684;&#x51E0;&#x7387;&#x8D8A;&#x5927;
+
+    server 192.168.8.x:80  weight=1;
+    server 192.168.8.x:80  weight=6;
+    }
+
+   #&#x7B2C;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x670D;&#x52A1;&#x5668;
+   server {
+    #&#x4FA6;&#x542C;192.168.8.x&#x7684;80&#x7AEF;&#x53E3;
+        listen       80;
+        server_name  192.168.8.x;
+
+      #&#x5BF9;aspx&#x540E;&#x7F00;&#x7684;&#x8FDB;&#x884C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x8BF7;&#x6C42;
+    location ~ .*\.aspx$ {
+
+         root   /root;      #&#x5B9A;&#x4E49;&#x670D;&#x52A1;&#x5668;&#x7684;&#x9ED8;&#x8BA4;&#x7F51;&#x7AD9;&#x6839;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;
+          index index.php index.html index.htm;   #&#x5B9A;&#x4E49;&#x9996;&#x9875;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;
+
+          proxy_pass  http://mysvr ;#&#x8BF7;&#x6C42;&#x8F6C;&#x5411;mysvr &#x5B9A;&#x4E49;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5217;&#x8868;
+
+          #&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E9B;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x5220;&#x9664;.
+
+          proxy_redirect off;
+
+          #&#x540E;&#x7AEF;&#x7684;Web&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;X-Forwarded-For&#x83B7;&#x53D6;&#x7528;&#x6237;&#x771F;&#x5B9E;IP
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          client_max_body_size 10m;    #&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x6700;&#x5927;&#x5355;&#x6587;&#x4EF6;&#x5B57;&#x8282;&#x6570;
+          client_body_buffer_size 128k;  #&#x7F13;&#x51B2;&#x533A;&#x4EE3;&#x7406;&#x7F13;&#x51B2;&#x7528;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x6700;&#x5927;&#x5B57;&#x8282;&#x6570;&#xFF0C;
+          proxy_connect_timeout 90;  #nginx&#x8DDF;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;(&#x4EE3;&#x7406;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;)
+          proxy_send_timeout 90;        #&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x6570;&#x636E;&#x56DE;&#x4F20;&#x65F6;&#x95F4;(&#x4EE3;&#x7406;&#x53D1;&#x9001;&#x8D85;&#x65F6;)
+          proxy_read_timeout 90;         #&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x65F6;&#x95F4;(&#x4EE3;&#x7406;&#x63A5;&#x6536;&#x8D85;&#x65F6;)
+          proxy_buffer_size 4k;             #&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF08;nginx&#xFF09;&#x4FDD;&#x5B58;&#x7528;&#x6237;&#x5934;&#x4FE1;&#x606F;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;
+          proxy_buffers 4 32k;               #proxy_buffers&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x7F51;&#x9875;&#x5E73;&#x5747;&#x5728;32k&#x4EE5;&#x4E0B;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;
+          proxy_busy_buffers_size 64k;    #&#x9AD8;&#x8D1F;&#x8377;&#x4E0B;&#x7F13;&#x51B2;&#x5927;&#x5C0F;&#xFF08;proxy_buffers*2&#xFF09;
+          proxy_temp_file_write_size 64k;  #&#x8BBE;&#x5B9A;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x5939;&#x5927;&#x5C0F;&#xFF0C;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;&#xFF0C;&#x5C06;&#x4ECE;upstream&#x670D;&#x52A1;&#x5668;&#x4F20;
+
+       }
+
+     }
+}
 </code></pre><footer class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal" style="color: #000 !important;">MU_zjm<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal" style="color: #000 !important;">Designer, Developer &amp; overall web enthusiast</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MU_zjm all right reserved, powered by MU_zjm</p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">created by MU_zjm</span>
 2019-09-07 12:00:00
 </p></div></div></div><div class="box__issues">
@@ -822,7 +1318,7 @@ app.use(frameguard({ action: <span class="hljs-string">&apos;sameorigin&apos;</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx","level":"1.7.1","depth":2,"next":{"title":"Tomcat","level":"1.7.2","depth":2,"path":"chapter6/section2.md","ref":"chapter6/section2.md","articles":[]},"previous":{"title":"运行维护","level":"1.7","depth":1,"path":"chapter6/README.md","ref":"chapter6/README.md","articles":[{"title":"Nginx","level":"1.7.1","depth":2,"path":"chapter6/section1.md","ref":"chapter6/section1.md","articles":[]},{"title":"Tomcat","level":"1.7.2","depth":2,"path":"chapter6/section2.md","ref":"chapter6/section2.md","articles":[]},{"title":"Docker","level":"1.7.3","depth":2,"path":"chapter6/section3.md","ref":"chapter6/section3.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-09-07 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"问题笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a notepad,Created at 2019-09"},"file":{"path":"chapter6/section1.md","mtime":"2019-09-07T12:35:45.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T11:05:53.459Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Nginx","level":"1.7.1","depth":2,"next":{"title":"Tomcat","level":"1.7.2","depth":2,"path":"chapter6/section2.md","ref":"chapter6/section2.md","articles":[]},"previous":{"title":"运行维护","level":"1.7","depth":1,"path":"chapter6/README.md","ref":"chapter6/README.md","articles":[{"title":"Nginx","level":"1.7.1","depth":2,"path":"chapter6/section1.md","ref":"chapter6/section1.md","articles":[]},{"title":"Tomcat","level":"1.7.2","depth":2,"path":"chapter6/section2.md","ref":"chapter6/section2.md","articles":[]},{"title":"nginx+tomcat部署项目JS报错","level":"1.7.3","depth":2,"path":"chapter6/section11.md","ref":"chapter6/section11.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["page-copyright","hide-element","back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","custom-favicon","expandable-chapters","klipse"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-copyright":{"wisdom":"Designer, Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; MU_zjm","styles (normal, symmetrical)":"normal","style":"normal","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"2019-09-07 12:00:00","signature":"MU_zjm","baseUri":"https://github.com/skyFi","copyrightColor":"#666","description":"created by MU_zjm"},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/notepad_128px.ico","back-to-top-button":{},"custom-favicon":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"MU_zjm","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"问题笔记","language":"zh-hans","links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*","description":"It is a notepad,Created at 2019-09"},"file":{"path":"chapter6/section1.md","mtime":"2019-09-25T07:27:33.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-25T07:27:59.203Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
