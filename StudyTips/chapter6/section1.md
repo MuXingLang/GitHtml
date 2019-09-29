@@ -141,6 +141,8 @@ tar -zxvf openssl-1.0.1t.tar.gz
 
 ### 1.2 下载
 
+​		可访问以下地址查看所有Nginx版本：http://nginx.org/download/
+
 ​		Nginx 一般有两个版本，分别是稳定版和开发版，您可以根据您的目的来选择这两个版本的其中一个，使用`wget`命令下载相应版本的nginx源码压缩包
 
 ```
